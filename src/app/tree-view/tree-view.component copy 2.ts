@@ -6,9 +6,9 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./tree-view.component.scss'],
 })
 export class TreeViewComponent {
-  @Input() data: any; // The data to be displayed
+  @Input() data: any; // Data to be displayed
   @Input() depthLimit = 15; // Depth limit for the tree view
-  expanded: boolean = false; // Default to collapsed
+  expanded: boolean = true; // Default expansion state
 
   toggleExpand() {
     this.expanded = !this.expanded; // Toggle the expansion state
@@ -28,15 +28,5 @@ export class TreeViewComponent {
 
   keys(item: any): string[] {
     return this.isObject(item) ? Object.keys(item) : [];
-  }
-
-  getSummary(): string {
-    if (this.isArray(this.data)) {
-      return `Array (${this.data.length} items)`;
-    } else if (this.isObject(this.data)) {
-      const keys = this.keys(this.data);
-      return `Object with keys: ${keys.slice(0, 3).join(', ')}${keys.length > 3 ? '...' : ''}`;
-    }
-    return '';
   }
 }

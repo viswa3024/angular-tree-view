@@ -1,19 +1,9 @@
 <ul>
+    <!-- Root level -->
     <li>
-      <!-- Toggle button beside the key -->
-      <strong>
-        <button (click)="toggleExpand()">
-          {{ expanded ? '[-]' : '[+]'}}
-        </button>
-        <!-- Display the key or a summary if collapsed -->
-        <ng-container *ngIf="isExpandable(data)">
-          {{ expanded ? '' : getSummary() }}
-        </ng-container>
-      </strong>
-      
-      <!-- Show nested content only when expanded -->
-      <ul *ngIf="expanded && depthLimit > 0">
-        <!-- For arrays, recursively display each item -->
+      <!-- Recursive display of nested data -->
+      <ul>
+        <!-- If the data is an array, recursively display each item -->
         <li *ngIf="isArray(data)">
           <ul>
             <li *ngFor="let item of data">
@@ -25,12 +15,21 @@
           </ul>
         </li>
   
-        <!-- For objects, recursively display each key-value pair -->
+        <!-- If the data is an object, recursively display each key-value pair -->
         <li *ngIf="isObject(data)">
           <ul>
             <li *ngFor="let key of keys(data)">
-              <strong>{{ key }}:</strong>
+              <!-- Toggle button beside the key -->
+              <strong>
+                <button (click)="toggleExpand()">
+                  {{ expanded ? '[-]' : '[+]'}}
+                </button>
+                {{ key }}:
+              </strong>
+              
+              <!-- Nested content appears only when expanded -->
               <app-tree-view
+                *ngIf="expanded"
                 [data]="data[key]"
                 [depthLimit]="depthLimit - 1"
               ></app-tree-view>
