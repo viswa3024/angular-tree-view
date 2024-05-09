@@ -1,0 +1,42 @@
+<ul>
+    <li>
+      <!-- Toggle button for expandable/collapsible functionality -->
+      <button *ngIf="isExpandable(data)" (click)="toggleExpand()">
+        {{ expanded ? '[-]' : '[+]' }}
+      </button>
+  
+      <!-- Recursive display of nested data -->
+      <ul *ngIf="expanded && depthLimit > 0">
+        <!-- If the data is an array, recursively display each item -->
+        <li *ngIf="isArray(data)">
+          <ul>
+            <li *ngFor="let item of data">
+              <app-tree-view
+                [data]="item"
+                [depthLimit]="depthLimit - 1"
+              ></app-tree-view>
+            </li>
+          </ul>
+        </li>
+  
+        <!-- If the data is an object, recursively display each key-value pair -->
+        <li *ngIf="isObject(data)">
+          <ul>
+            <li *ngFor="let key of keys(data)">
+              <strong>{{ key }}:</strong>
+              <app-tree-view
+                [data]="data[key]"
+                [depthLimit]="depthLimit - 1"
+              ></app-tree-view>
+            </li>
+          </ul>
+        </li>
+      </ul>
+  
+      <!-- Display plain text if it's not expandable -->
+      <ng-container *ngIf="!isExpandable(data)">
+        {{ data }}
+      </ng-container>
+    </li>
+  </ul>
+  

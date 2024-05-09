@@ -1,0 +1,50 @@
+<ul>
+    <li [ngClass]="isObject(data) ? 'Object' : isArray(data) ? 'Array' : ''">
+      <!-- Icon for expandable/collapsible functionality -->
+      <button *ngIf="isExpandable(data)" (click)="toggleExpand()">
+        {{ expanded ? '[-]' : '[+]' }}
+      </button>
+  
+      <!-- Display key if it's an object -->
+      <ng-container *ngIf="isObject(data)">
+        <strong>Object</strong>
+      </ng-container>
+  
+      <!-- Display if it's an array -->
+      <ng-container *ngIf="isArray(data)">
+        <strong>Array</strong>
+      </ng-container>
+  
+      <!-- Recursive display of nested data, with expansion state -->
+      <ul *ngIf="expanded && depthLimit > 0">
+        <li *ngIf="isArray(data)">
+          <ul>
+            <li *ngFor="let item of data">
+              <app-tree-view
+                [data]="item"
+                [depthLimit]="depthLimit - 1"
+              ></app-tree-view>
+            </li>
+          </ul>
+        </li>
+  
+        <li *ngIf="isObject(data)">
+          <ul>
+            <li *ngFor="let key of keys(data)">
+              <strong>{{ key }}:</strong>
+              <app-tree-view
+                [data]="data[key]"
+                [depthLimit]="depthLimit - 1"
+              ></app-tree-view>
+            </li>
+          </ul>
+        </li>
+      </ul>
+  
+      <!-- Display plain text if it's not expandable -->
+      <ng-container *ngIf="!isExpandable(data)">
+        {{ data }}
+      </ng-container>
+    </li>
+  </ul>
+  

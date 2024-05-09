@@ -1,0 +1,30 @@
+<ul>
+    <ng-container *ngIf="depthLimit > 0">
+      <li *ngIf="isArray(data)">
+        <strong>Array</strong>
+        <ul>
+          <li *ngFor="let item of data">
+            <app-tree-view
+              [data]="item"
+              [depthLimit]="depthLimit - 1"
+            ></app-tree-view>
+          </li>
+        </ul>
+      </li>
+      <li *ngIf="isObject(data)">
+        <ul>
+          <li *ngFor="let key of keys(data)">
+            <strong>{{ key }}:</strong>
+            <app-tree-view
+              [data]="data[key]"
+              [depthLimit]="depthLimit - 1"
+            ></app-tree-view>
+          </li>
+        </ul>
+      </li>
+      <li *ngIf="!isExpandable(data)">
+        {{ data }}
+      </li>
+    </ng-container>
+  </ul>
+  
