@@ -1,71 +1,42 @@
-/* Define a color palette for consistent design */
-:root {
-    --primary-color: #3498db; /* Light blue */
-    --secondary-color: #2ecc71; /* Green */
-    --tertiary-color: #e74c3c; /* Red */
-    --text-color: #2c3e50; /* Dark gray */
-    --background-color: #ecf0f1; /* Light gray */
-    --highlight-color: #f39c12; /* Orange */
-  }
-  
-  /* Basic styling for the tree view */
-  ul {
-    list-style-type: none; /* No default list bullets */
-    padding-left: 1em; /* Indentation for nested structures */
-    margin: 0; /* No additional margin */
-  }
-  
-  /* Style for each tree view item */
-  li {
-    padding: 0.25em 0; /* Padding for individual items */
-    border-left: 1px solid var(--primary-color); /* Vertical line indicating hierarchy */
-  }
-  
-  /* Style for expandable and collapsible buttons */
-  button {
-    background: none; /* No default background */
-    border: none; /* No default border */
-    cursor: pointer; /* Pointer cursor on hover */
-    color: var(--text-color); /* Default text color */
-    font-weight: bold; /* Bold text */
-  }
-  
-  button:hover {
-    color: var(--highlight-color); /* Change color on hover */
-  }
-  
-  /* Style for tree view labels */
-  strong {
-    color: var(--primary-color); /* Colored text for keys */
-    font-weight: bold; /* Bold text */
-  }
-  
-  /* Custom style for object and array representation */
-  li.Object {
-    color: var(--secondary-color); /* Green for object */
-  }
-  
-  li.Array {
-    color: var(--tertiary-color); /* Red for array */
-  }
-  
-  /* Add indentation for nested lists */
-  ul ul {
-    padding-left: 1em; /* Extra indentation for nested levels */
-    border-left: none; /* Remove the border for nested lists */
-  }
-  
-  /* Highlighted text */
-  .highlight {
-    background-color: var(--highlight-color);
-    padding: 0.1em 0.2em;
-    border-radius: 4px;
-  }
-  
-  /* Responsive design */
-  @media (max-width: 600px) {
-    ul {
-      padding-left: 0.5em; /* Reduce indentation for smaller screens */
-    }
-  }
-  
+/* Container for the tree view */
+.tree-container {
+  height: 300px; /* Set a fixed height for the tree */
+  overflow-y: auto; /* Enable vertical scrolling */
+  border-left: 2px solid transparent; /* Default border */
+}
+
+/* When the tree is expanded, add a green border */
+.tree-expanded {
+  border-left: 2px solid green; /* Green border on the left */
+}
+
+/* Styling for the toggle button and key */
+.key-container {
+  display: flex;
+  align-items: center; /* Ensure alignment */
+  gap: 0.5em; /* Space between button and key */
+}
+
+/* Reduced spacing for expanded tree view */
+ul {
+  list-style-type: none; /* Remove list bullets */
+  margin: 5px; /* No extra margin */
+  padding: 0; /* No extra padding */
+}
+
+/* Reduced spacing for expanded items */
+ul.expanded {
+  padding-left: 1em; /* Less space when expanded */
+  border-left: 1px solid green; /* Border for visual indication */
+}
+
+button {
+  background: none; /* No background */
+  border: none; /* No border */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-weight: bold; /* Bold text */
+}
+
+button:hover {
+  color: orange; /* Change color on hover */
+}
