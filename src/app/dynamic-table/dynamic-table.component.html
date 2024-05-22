@@ -1,10 +1,16 @@
+<!-- dynamic-div.component.html -->
+
 <div class="table-container">
-    <div class="table">
-      <div class="header-row">
-        <div class="header-cell" *ngFor="let header of headers">{{ header }}</div>
+    <div class="header-container" [style.min-width.px]="calculateHeaderMinWidth()">
+      <div class="header">
+        <div *ngFor="let header of headers" class="header-cell">{{ header }}</div>
       </div>
-      <div class="row" *ngFor="let row of data">
-        <div class="cell" *ngFor="let header of headers">{{ row[header] }}</div>
+    </div>
+    <div class="body-container" [style.min-width.px]="calculateBodyMinWidth()">
+      <div class="body">
+        <div *ngFor="let row of data" class="row">
+          <div *ngFor="let header of headers" class="cell">{{ row[header] }}</div>
+        </div>
       </div>
     </div>
   </div>
