@@ -1,0 +1,11 @@
+<div class="table-container">
+    <div class="table">
+      <div class="header-row">
+        <div class="header-cell" *ngFor="let header of headers">{{ header }}</div>
+      </div>
+      <div class="row" *ngFor="let row of data">
+        <div class="cell" *ngFor="let header of headers">{{ row[header] }}</div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,27 @@
+.table-container {
+    overflow-x: auto;
+    width: 100%;
+  }
+  
+  .table {
+    display: grid;
+    min-width: 1500px; /* Adjust as needed for the number of columns */
+    border-collapse: collapse;
+    grid-template-columns: repeat(15, minmax(100px, 1fr)); /* Ensure 15 columns */
+  }
+  
+  .header-row, .row {
+    display: contents;
+  }
+  
+  .header-cell, .cell {
+    padding: 8px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+  }
+  
+  .header-cell {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
