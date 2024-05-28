@@ -1,0 +1,81 @@
+Here's the corrected HTML code:
+
+<div *ngIf="data">
+  <ul>
+    <li *ngFor="let item of data">
+      <span (click)="toggle(item)" *ngIf="item.value && typeof item.value === 'object'">
+        <span *ngIf="!item.open">▼</span>
+        <span *ngIf="item.open">▲</span>
+      </span>
+      <span>{{ item.key }}</span>
+      <span *ngIf="item.value && typeof item.value === 'object'">
+        <ul *ngIf="item.open">
+          <li *ngFor="let subItem of item.value">
+            <json-tree [data]="subItem"></json-tree>
+          </li>
+        </ul>
+      </span>
+      <span *ngIf="item.value && typeof item.value !== 'object'">
+        {{ item.value }}
+      </span>
+    </li>
+  </ul>
+</div>
+
+And the updated TypeScript code:
+
+import { Component, Input } from '@angular/core';
+
+@Component({
+  selector: 'json-tree',
+  templateUrl: './json-tree.component.html',
+  styleUrls: ['./json-tree.component.css']
+})
+export class JsonTreeComponent {
+  @Input() data: any;
+  open: boolean = false;
+
+  toggle(item: any) {
+    item.open = !item.open;
+  }
+}
+
+This code checks if the item's value is an object before displaying the toggle button. If the item's value is not an object, it simply displays the value without a toggle button.
+
+Thank you for pointing out the mistake!
+
+
+Here is an example JSON object that would produce the above output:
+
+{
+"name": "John",
+"age": 30,
+"address": {
+"street": "123 Main St",
+"city": "Anytown",
+"state": "CA",
+"zip": "12345",
+"location": {
+"lat": 37.2342,
+"lng": -122.4321
+}
+},
+"interests": {
+"reading": null,
+"hiking": null,
+"coding": {
+"programming": {
+"languages": [
+"Java",
+"Python",
+"JavaScript"
+],
+"frameworks": [
+"Spring",
+"Django",
+"React"
+]
+}
+}
+}
+}
