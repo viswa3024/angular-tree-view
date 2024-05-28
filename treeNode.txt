@@ -51,3 +51,74 @@ export class ObservationTreeNodeComponent {
                              [showScores]="showScores">
   </app-observation-tree-node>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+import { Component, Input } from '@angular/core';
+import { NestedObservation, Score } from 'your-models-path'; // Adjust the import path
+
+@Component({
+  selector: 'app-observation-tree-node',
+  templateUrl: './observation-tree-node.component.html',
+  styleUrls: ['./observation-tree-node.component.css'] // Adjust the style file path
+})
+export class ObservationTreeNodeComponent {
+  @Input() observations: NestedObservation[];
+  @Input() collapsedObservations: string[];
+  @Input() scores: Score[];
+  @Input() indentationLevel: number;
+  @Input() currentObservationId: string | undefined;
+  @Input() showMetrics?: boolean;
+  @Input() showScores?: boolean;
+
+  constructor() { }
+
+  setCurrentObservationId(id: string | undefined) {
+    // Implement setCurrentObservationId logic
+  }
+
+  toggleCollapsedObservation(id: string) {
+    // Implement toggleCollapsedObservation logic
+  }
+
+  // Helper method to generate an array of the desired length
+  range(length: number): number[] {
+    return Array.from({ length }, (_, i) => i);
+  }
+}
+
+
+
+<div *ngFor="let observation of observations | sort:sortByStartTime">
+  <div class="flex">
+    <div *ngFor="let _ of range(indentationLevel)" class="mx-2 border-r"></div>
+    <div class="group my-0.5 flex flex-1 cursor-pointer flex-col gap-1 rounded-sm p-1"
+         [ngClass]="{
+           'bg-muted': currentObservationId === observation.id,
+           'hover:bg-primary-foreground': currentObservationId !== observation.id
+         }"
+         (click)="setCurrentObservationId(observation.id)">
+      <!-- Rest of your Angular template content -->
+    </div>
+  </div>
+  <app-observation-tree-node *ngIf="!collapsed"
+                             [observations]="observation.children"
+                             [collapsedObservations]="collapsedObservations"
+                             [toggleCollapsedObservation]="toggleCollapsedObservation"
+                             [scores]="scores"
+                             [indentationLevel]="indentationLevel + 1"
+                             [currentObservationId]="currentObservationId"
+                             [showMetrics]="showMetrics"
+                             [showScores]="showScores">
+  </app-observation-tree-node>
+</div>
