@@ -125,3 +125,83 @@ export class ObservationTreeNodeComponent {
 
 
 https://github.com/langfuse/langfuse/blob/main/web/src/components/trace/ObservationTree.tsx
+
+
+
+
+
+
+
+
+
+
+
+
+ng generate component ScoresGroup
+
+
+import { Component, Input, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-scores-group',
+  templateUrl: './scores-group.component.html',
+  styleUrls: ['./scores-group.component.css']
+})
+export class ScoresGroupComponent implements OnInit {
+  @Input() groupedScores: { [key: string]: number[] } = {};
+
+  sortedScores: [string, number[]][] = [];
+
+  ngOnInit(): void {
+    this.sortedScores = Object.entries(this.groupedScores).sort(([a], [b]) => a < b ? -1 : 1);
+  }
+}
+
+
+
+
+<div *ngFor="let group of sortedScores">
+  <div class="badge outline break-all font-normal">
+    {{ group[0] }}: <app-scores-of-group [scores]="group[1]" class="ml-2"></app-scores-of-group>
+  </div>
+</div>
+
+
+
+ng generate component ScoresOfGroup
+
+
+
+import { Component, Input } from '@angular/core';
+
+@Component({
+  selector: 'app-scores-of-group',
+  templateUrl: './scores-of-group.component.html',
+  styleUrls: ['./scores-of-group.component.css']
+})
+export class ScoresOfGroupComponent {
+  @Input() scores: number[] = [];
+}
+
+
+<span *ngFor="let score of scores">
+  {{ score }} <span *ngIf="!isLastScore(score)">,</span>
+</span>
+
+
+
+import { Component, Input } from '@angular/core';
+
+@Component({
+  selector: 'app-scores-of-group',
+  templateUrl: './scores-of-group.component.html',
+  styleUrls: ['./scores-of-group.component.css']
+})
+export class ScoresOfGroupComponent {
+  @Input() scores: number[] = [];
+
+  isLastScore(score: number): boolean {
+    return this.scores.indexOf(score) === this.scores.length - 1;
+  }
+}
+
