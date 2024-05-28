@@ -1,0 +1,22 @@
+<ul *ngIf="isObject(data)">
+  <li *ngFor="let key of objectKeys(data)">
+    <span (click)="toggleNode(key)" style="cursor: pointer;">
+      {{ isNodeExpanded(key) ? '-' : '+' }}
+    </span>
+    <span>{{ key }}:</span>
+    <div *ngIf="isNodeExpanded(key)">
+      <app-tree-view [data]="data[key]" *ngIf="isObject(data[key])"></app-tree-view>
+      <span *ngIf="!isObject(data[key])">{{ data[key] }}</span>
+    </div>
+  </li>
+</ul>
+
+<ul *ngIf="!isObject(data) && isArray(data)">
+  <li *ngFor="let item of data">
+    <app-tree-view [data]="item"></app-tree-view>
+  </li>
+</ul>
+
+<ul *ngIf="!isObject(data) && !isArray(data)">
+  <li>{{ data }}</li>
+</ul>

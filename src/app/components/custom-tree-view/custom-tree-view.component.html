@@ -1,0 +1,18 @@
+<ul *ngIf="isObject(data)">
+  <li *ngFor="let key of objectKeys(data)">
+    <span>{{ key }}:</span>
+    <app-custom-tree-view [data]="data[key]" *ngIf="isObject(data[key])"></app-custom-tree-view>
+    <span *ngIf="!isObject(data[key]) && !isArray(data[key])">{{ data[key] }}</span>
+    <app-custom-tree-view [data]="data[key]" *ngIf="isArray(data[key])"></app-custom-tree-view>
+  </li>
+</ul>
+
+<ul *ngIf="!isObject(data) && isArray(data)">
+  <li *ngFor="let item of data">
+    <app-custom-tree-view [data]="item"></app-custom-tree-view>
+  </li>
+</ul>
+
+<ul *ngIf="!isObject(data) && !isArray(data)">
+  <li>{{ data }}</li>
+</ul>

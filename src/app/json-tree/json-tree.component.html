@@ -1,0 +1,25 @@
+<div *ngIf="data">
+    <ul>
+      <li *ngFor="let item of data | keyvalue">
+        <span (click)="toggle(item)" *ngIf="isObject(item.value)">
+          <span *ngIf="!item.value['open']">▼</span>
+          <span *ngIf="item.value['open']">▲</span>
+        </span>
+        <span>{{ item.key }}</span>
+        <span *ngIf="isObject(item.value)">
+          <ul *ngIf="item.value['open']">
+            <!-- Ensure 'subItem' is scoped within the *ngFor loop -->
+            <ng-container *ngFor="let subItem of item.value | keyvalue">
+              <li *ngIf="isObject(subItem.value)">
+                <json-tree [data]="subItem.value"></json-tree>
+              </li>
+              <li *ngIf="!isObject(subItem.value) && subItem.key !== 'open'">
+                {{ subItem.value }}
+              </li>
+            </ng-container>
+          </ul>
+        </span>
+      </li>
+    </ul>
+  </div>
+  

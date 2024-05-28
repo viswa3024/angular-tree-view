@@ -5,12 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TreeViewComponent } from './tree-view/tree-view.component';
 import { DynamicTableComponent } from './dynamic-table/dynamic-table.component';
+import { CustomTreeViewComponent } from './custom-tree-view/custom-tree-view.component';
+import { JsonTreeComponent } from './json-tree/json-tree.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TreeViewComponent,
-    DynamicTableComponent
+    DynamicTableComponent,
+    CustomTreeViewComponent,
+    JsonTreeComponent
   ],
   imports: [
     BrowserModule,
