@@ -7,6 +7,7 @@ import { TreeViewComponent } from './tree-view/tree-view.component';
 import { DynamicTableComponent } from './dynamic-table/dynamic-table.component';
 import { CustomTreeViewComponent } from './custom-tree-view/custom-tree-view.component';
 import { JsonTreeComponent } from './json-tree/json-tree.component';
+import { DiagramComponent } from './diagram/diagram.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { JsonTreeComponent } from './json-tree/json-tree.component';
     TreeViewComponent,
     DynamicTableComponent,
     CustomTreeViewComponent,
-    JsonTreeComponent
+    JsonTreeComponent,
+    DiagramComponent
   ],
   imports: [
     BrowserModule,
