@@ -8,6 +8,8 @@ import { DynamicTableComponent } from './dynamic-table/dynamic-table.component';
 import { CustomTreeViewComponent } from './custom-tree-view/custom-tree-view.component';
 import { JsonTreeComponent } from './json-tree/json-tree.component';
 import { DiagramComponent } from './diagram/diagram.component';
+import { FlowDiagramComponent } from './flow-diagram/flow-diagram.component';
+import { DialogComponent } from './dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { DiagramComponent } from './diagram/diagram.component';
     DynamicTableComponent,
     CustomTreeViewComponent,
     JsonTreeComponent,
-    DiagramComponent
+    DiagramComponent,
+    FlowDiagramComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,

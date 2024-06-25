@@ -18,8 +18,10 @@
     "@angular/platform-browser": "^14.2.0",
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
+    "@types/jsplumb": "^2.5.7",
     "gojs": "^3.0.4",
     "jointjs": "^3.7.7",
+    "jsplumb": "^2.15.6",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

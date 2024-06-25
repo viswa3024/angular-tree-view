@@ -1,0 +1,15 @@
+<!-- dialog.component.html -->
+<div class="dialog-background" *ngIf="content">
+    <div class="dialog-container">
+      <div class="dialog-header">
+        <button class="close-button" (click)="close()">X</button>
+      </div>
+      <div class="dialog-content">
+        <ng-container *ngIf="content">
+          <p><strong>Name:</strong> {{ content.name }}</p>
+          <p><strong>Description:</strong> {{ content.description }}</p>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  
