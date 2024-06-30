@@ -1,0 +1,11 @@
+<ngx-graph
+  [links]="links"
+  [nodes]="nodes"
+  [layout]="'dagre'">
+  <ng-template #nodeTemplate let-node>
+    <svg:g [attr.transform]="node.transform">
+      <svg:rect width="100" height="50" [attr.fill]="node.data.color"></svg:rect>
+      <svg:text alignment-baseline="central" text-anchor="middle">{{ node.label }}</svg:text>
+    </svg:g>
+  </ng-template>
+</ngx-graph>

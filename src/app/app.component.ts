@@ -109,7 +109,7 @@ ngOnInit() {
     hobbies: ["reading", "traveling"]
   };
 
-  console.log("this.convertJsonToTree(rawJson): ", this.convertJsonToTree(rawJson))
+  //console.log("this.convertJsonToTree(rawJson): ", this.convertJsonToTree(rawJson))
   this.jsonData = this.convertJsonToTree(rawJson);
 }
 

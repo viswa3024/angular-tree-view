@@ -1,0 +1,12 @@
+<button (click)="saveGraph()">Save Graph</button>
+<button (click)="loadGraph()">Load Graph</button>
+
+<ngx-graph
+  [links]="links"
+  [nodes]="nodes"
+  [customTemplate]="customNodeTemplate"
+  [linkTemplate]="customLinkTemplate"
+  layout="dagre"
+  orientation="TB"
+>
+</ngx-graph>

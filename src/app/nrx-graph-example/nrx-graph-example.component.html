@@ -1,0 +1,37 @@
+<div class="graph-container">
+  <ngx-graph
+    [links]="links"
+    [nodes]="nodes"
+    [layout]="'dagre'"
+    [orientation]="'TB'"
+    [curve]="curve"
+    [nodeWidth]="150"
+    [nodeHeight]="70"
+    [enableZoom]="true">
+    <ng-template #nodeTemplate let-node>
+      <svg:g class="node" (click)="onNodeClick(node)" [style.cursor]="'pointer'" [ngClass]="'node-' + node.id">
+        <!-- Replace ngx-graph's node template with SVG elements -->
+        <rect
+          [attr.width]="node.width"
+          [attr.height]="node.height"
+          rx="5"
+          ry="5"
+          [attr.fill]="getNodeFillColor(node)"
+          [attr.stroke]="getNodeBorderColor(node)"
+          [attr.stroke-width]="3"
+        ></rect>
+        <text alignment-baseline="middle" text-anchor="middle" fill="white" font-size="14px">
+          {{ node.label }}
+        </text>
+      </svg:g>
+    </ng-template>
+    <ng-template #edgeTemplate let-link>
+      <svg:g class="edge" (click)="onLinkClick(link)">
+        <svg:path class="line" [attr.d]="link.line" [attr.stroke]="link.style === 'dotted' ? 'black' : 'gray'" [attr.stroke-dasharray]="link.style === 'dotted' ? '5,5' : 'none'"></svg:path>
+        <svg:text *ngIf="link.label" alignment-baseline="middle" text-anchor="middle">
+          <textPath [attr.xlink:href]="'#' + link.id">{{ link.label }}</textPath>
+        </svg:text>
+      </svg:g>
+    </ng-template>
+  </ngx-graph>
+</div>

@@ -1,0 +1,20 @@
+<div class="graph-container">
+  <ngx-graph
+    [links]="links"
+    [nodes]="nodes"
+    [layout]="'dagre'"
+    [orientation]="'TB'"
+    [curve]="curve"
+    [nodeWidth]="150"
+    [nodeHeight]="70"
+    [enableZoom]="true">
+    <ng-template #nodeTemplate let-node>
+      <svg:g class="node" (click)="onNodeClick(node)">
+        <svg:rect [attr.width]="node.width" [attr.height]="node.height" rx="5" ry="5"></svg:rect>
+        <svg:text alignment-baseline="middle" text-anchor="middle">
+          {{node.label}}
+        </svg:text>
+      </svg:g>
+    </ng-template>
+  </ngx-graph>
+</div>
