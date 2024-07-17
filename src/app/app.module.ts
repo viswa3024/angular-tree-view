@@ -14,6 +14,7 @@ import { NgxGraphModule } from '@swimlane/ngx-graph';
 import { NrxGraphExampleComponent } from './nrx-graph-example/nrx-graph-example.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { CustomTooltipComponent } from './custom-tooltip/custom-tooltip.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     DiagramComponent,
     FlowDiagramComponent,
     DialogComponent,
-    NrxGraphExampleComponent
+    NrxGraphExampleComponent,
+    CustomTooltipComponent
   ],
   imports: [
     BrowserModule,
