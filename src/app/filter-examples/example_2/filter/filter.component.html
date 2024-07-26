@@ -1,0 +1,21 @@
+<div class="filter-container">
+    <div *ngFor="let condition of conditions; let i = index" class="filter-row">
+      <select [(ngModel)]="condition.field">
+        <option *ngFor="let field of fields" [value]="field">{{ field }}</option>
+      </select>
+      
+      <select [(ngModel)]="condition.operator">
+        <option *ngFor="let operator of getOperators(condition.field)" [value]="operator">{{ operator }}</option>
+      </select>
+      
+      <input *ngIf="condition.field === 'Timestamp'" type="date" [(ngModel)]="condition.value">
+      <input *ngIf="condition.field !== 'Timestamp' && condition.operator !== 'custom'" type="text" [(ngModel)]="condition.value">
+      <textarea *ngIf="condition.operator === 'custom'" [(ngModel)]="condition.value" placeholder="Enter custom value"></textarea>
+      
+      <button (click)="removeCondition(i)">X</button>
+    </div>
+  
+    <button (click)="addCondition()">+ Add filter</button>
+    <button (click)="applyFilter()">Apply filter</button>
+  </div>
+  

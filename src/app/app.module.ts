@@ -15,6 +15,8 @@ import { NrxGraphExampleComponent } from './nrx-graph-example/nrx-graph-example.
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CustomTooltipComponent } from './custom-tooltip/custom-tooltip.component';
+import { FilterComponent } from './filter/filter.component';
+import { FormsModule } from '@angular/forms';  // Import FormsModule
 
 @NgModule({
   declarations: [
@@ -27,13 +29,15 @@ import { CustomTooltipComponent } from './custom-tooltip/custom-tooltip.componen
     FlowDiagramComponent,
     DialogComponent,
     NrxGraphExampleComponent,
-    CustomTooltipComponent
+    CustomTooltipComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgxGraphModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

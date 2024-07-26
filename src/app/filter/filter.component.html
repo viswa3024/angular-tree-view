@@ -1,0 +1,24 @@
+<div class="filter-container">
+    <div *ngFor="let condition of conditions; let i = index" class="filter-row">
+      <select [(ngModel)]="condition.field">
+        <option *ngFor="let field of fields" [value]="field">{{ field }}</option>
+      </select>
+      
+      <select [(ngModel)]="condition.operator">
+        <option *ngFor="let operator of getOperators(condition.field)" [value]="operator">{{ operator }}</option>
+      </select>
+      
+      <input *ngIf="getInputType(condition) === 'date'" type="date" [(ngModel)]="condition.value">
+      <input *ngIf="getInputType(condition) === 'number'" type="number" [(ngModel)]="condition.value">
+      <input *ngIf="getInputType(condition) === 'text'" type="text" [(ngModel)]="condition.value">
+      <select *ngIf="getInputType(condition) === 'multi-select'" multiple [(ngModel)]="condition.value">
+        <option *ngFor="let option of multiSelectOptions[condition.field]" [value]="option">{{ option }}</option>
+      </select>
+      
+      <button (click)="removeCondition(i)">X</button>
+    </div>
+  
+    <button (click)="addCondition()">+ Add filter</button>
+    <button (click)="applyFilter()">Apply filter</button>
+  </div>
+  
