@@ -1,0 +1,42 @@
+.filter-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.filter-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.error-row {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+button {
+  margin-left: 10px;
+}
+
+.error-message {
+  color: red;
+  margin-top: 5px;
+}
+
+.invalid {
+  border-color: red;
+}
+
+.disabled {
+  cursor: not-allowed;
+  background-color: #f0f0f0;
+  color: #888;
+}

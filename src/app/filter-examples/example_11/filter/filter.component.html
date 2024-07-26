@@ -2,12 +2,12 @@
   <div *ngFor="let condition of conditions; let i = index" class="filter-group">
     <div class="filter-row">
       <select [(ngModel)]="condition.field" (ngModelChange)="handleFieldChange(condition)" [ngClass]="{'invalid': submitted && !condition.validation.field}">
-        <option value="" disabled>Select field</option>
-        <option *ngFor="let field of fields" [value]="field.content">{{ field.content }}</option>
+        <option value="" disabled selected>Select field</option>
+        <option *ngFor="let field of fields" [value]="field">{{ field }}</option>
       </select>
       <select [(ngModel)]="condition.operator" (ngModelChange)="handleOperatorChange(condition)" [disabled]="!condition.field" [ngClass]="{'invalid': submitted && !condition.validation.operator, 'disabled': !condition.field}">
-        <option value="" disabled>Select operator</option>
-        <option *ngFor="let operator of getOperators(condition.field)" [value]="operator.content">{{ operator.content }}</option>
+        <option value="" disabled selected>Select operator</option>
+        <option *ngFor="let operator of getOperators(condition.field)" [value]="operator">{{ operator }}</option>
       </select>
       <input *ngIf="getInputType(condition) === 'date'" type="date" [(ngModel)]="condition.value" (ngModelChange)="handleValueChange(condition)" [disabled]="!condition.operator" [ngClass]="{'invalid': submitted && !condition.validation.value, 'disabled': !condition.operator}">
       <input *ngIf="getInputType(condition) === 'number'" type="number" [(ngModel)]="condition.value" (ngModelChange)="handleValueChange(condition)" [disabled]="!condition.operator" [ngClass]="{'invalid': submitted && !condition.validation.value, 'disabled': !condition.operator}">
@@ -16,6 +16,11 @@
         <option *ngFor="let option of multiSelectOptions[condition.field]" [value]="option">{{ option }}</option>
       </select>
       <button (click)="removeCondition(i)">X</button>
+    </div>
+    <div class="error-row" *ngIf="submitted && (!condition.validation.field || !condition.validation.operator || !condition.validation.value)">
+      <div *ngIf="!condition.validation.field" class="error-message">Field is required</div>
+      <div *ngIf="!condition.validation.operator" class="error-message">Operator is required</div>
+      <div *ngIf="!condition.validation.value" class="error-message">Value is required</div>
     </div>
   </div>
 

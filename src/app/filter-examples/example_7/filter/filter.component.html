@@ -1,0 +1,28 @@
+<div class="filter-container">
+  <div *ngFor="let condition of conditions; let i = index" class="filter-row">
+    <select [(ngModel)]="condition.field" [ngClass]="{'invalid': !condition.validation.field}">
+      <option value="" disabled selected>Select field</option>
+      <option *ngFor="let field of fields" [value]="field">{{ field }}</option>
+    </select>
+    <div *ngIf="!condition.validation.field" class="error-message">Field is required</div>
+    
+    <select [(ngModel)]="condition.operator" [ngClass]="{'invalid': !condition.validation.operator}">
+      <option value="" disabled selected>Select operator</option>
+      <option *ngFor="let operator of getOperators(condition.field)" [value]="operator">{{ operator }}</option>
+    </select>
+    <div *ngIf="!condition.validation.operator" class="error-message">Operator is required</div>
+    
+    <input *ngIf="getInputType(condition) === 'date'" type="date" [(ngModel)]="condition.value" [ngClass]="{'invalid': !condition.validation.value}">
+    <input *ngIf="getInputType(condition) === 'number'" type="number" [(ngModel)]="condition.value" [ngClass]="{'invalid': !condition.validation.value}">
+    <input *ngIf="getInputType(condition) === 'text'" type="text" [(ngModel)]="condition.value" [ngClass]="{'invalid': !condition.validation.value}">
+    <select *ngIf="getInputType(condition) === 'multi-select'" multiple [(ngModel)]="condition.value" [ngClass]="{'invalid': !condition.validation.value}">
+      <option *ngFor="let option of multiSelectOptions[condition.field]" [value]="option">{{ option }}</option>
+    </select>
+    <div *ngIf="!condition.validation.value" class="error-message">Value is required</div>
+    
+    <button (click)="removeCondition(i)">X</button>
+  </div>
+
+  <button (click)="addCondition()">+ Add filter</button>
+  <button (click)="applyFilter()">Apply filter</button>
+</div>

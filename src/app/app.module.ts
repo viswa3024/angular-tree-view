@@ -16,7 +16,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CustomTooltipComponent } from './custom-tooltip/custom-tooltip.component';
 import { FilterComponent } from './filter/filter.component';
-import { FormsModule } from '@angular/forms';  // Import FormsModule
+import { FormsModule } from '@angular/forms';
+import { CustomSelectComponent } from './custom-select/custom-select.component';  // Import FormsModule
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { FormsModule } from '@angular/forms';  // Import FormsModule
     DialogComponent,
     NrxGraphExampleComponent,
     CustomTooltipComponent,
-    FilterComponent
+    FilterComponent,
+    CustomSelectComponent
   ],
   imports: [
     BrowserModule,
