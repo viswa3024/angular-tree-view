@@ -2,11 +2,11 @@
   <div *ngFor="let condition of conditions; let i = index" class="filter-group">
     <div class="filter-row">
       <select [(ngModel)]="condition.field" (ngModelChange)="handleFieldChange(condition)" [ngClass]="{'invalid': submitted && !condition.validation.field}">
-        <option value="" disabled selected>Select column</option>
+        <option value="" disabled>Select field</option>
         <option *ngFor="let field of fields" [value]="field.content">{{ field.content }}</option>
       </select>
       <select [(ngModel)]="condition.operator" (ngModelChange)="handleOperatorChange(condition)" [disabled]="!condition.field" [ngClass]="{'invalid': submitted && !condition.validation.operator, 'disabled': !condition.field}">
-        <option value="" disabled selected>Select operator</option>
+        <option value="" disabled>Select operator</option>
         <option *ngFor="let operator of getOperators(condition.field)" [value]="operator.content">{{ operator.content }}</option>
       </select>
       <input *ngIf="getInputType(condition) === 'date'" type="date" [(ngModel)]="condition.value" (ngModelChange)="handleValueChange(condition)" [disabled]="!condition.operator" [ngClass]="{'invalid': submitted && !condition.validation.value, 'disabled': !condition.operator}">
@@ -21,14 +21,4 @@
 
   <button (click)="addCondition()">+ Add filter</button>
   <button (click)="applyFilter()">Apply filter</button>
-
-  <!-- Display grouped filters -->
-  <div *ngIf="objectkeys(groupedFilters).length > 0" class="grouped-filters">
-    <h3>Applied Filters:</h3>
-    <ul>
-      <li *ngFor="let field of objectkeys(groupedFilters)">
-        {{ field }} : {{ groupedFilters[field] }}
-      </li>
-    </ul>
-  </div>
 </div>

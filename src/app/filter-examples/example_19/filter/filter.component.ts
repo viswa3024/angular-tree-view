@@ -20,7 +20,7 @@ interface Option {
 export class FilterComponent {
   conditions: FilterCondition[] = [{ field: '', operator: '', value: '', validation: { field: true, operator: true, value: true } }];
   submitted: boolean = false;
-  groupedFilters: { [key: string]: string[] } = {};
+  selectedFilters: string[] = [];
 
   fields: Option[] = [
     { id: 0, content: 'ID' },
@@ -196,29 +196,17 @@ export class FilterComponent {
       condition.field && condition.operator
     );
 
-    // Reset the grouped filters object
-    this.groupedFilters = {};
+    // Check if there are any valid conditions left
+    if (this.conditions.length === 0) {
+      console.log('No valid conditions to apply');
+      this.selectedFilters = []; // Clear selected filters if no valid conditions
+    } else {
+      this.selectedFilters = this.conditions.map(condition => {
+        return `${condition.field} - ${condition.operator}`;
+      });
 
-    // Group filters by field and collect operators
-    this.conditions.forEach(condition => {
-      if (!this.groupedFilters[condition.field]) {
-        this.groupedFilters[condition.field] = [];
-      }
-      if (!this.groupedFilters[condition.field].includes(condition.operator)) {
-        this.groupedFilters[condition.field].push(condition.operator);
-      }
-    });
-
-    // Convert the grouped filters into a desired format
-    const formattedFilters = Object.entries(this.groupedFilters).map(([field, operators]) => 
-      `${field} : ${operators.join(', ')}`
-    ).join(', ');
-
-    console.log(formattedFilters);
-    // Implement logic to apply the filter to your data
-  }
-
-  objectkeys(values: any) {
-    return Object.keys(values)
+      console.log(this.selectedFilters);
+      // Implement logic to apply the filter to your data
+    }
   }
 }

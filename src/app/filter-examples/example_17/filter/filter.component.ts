@@ -20,8 +20,8 @@ interface Option {
 export class FilterComponent {
   conditions: FilterCondition[] = [{ field: '', operator: '', value: '', validation: { field: true, operator: true, value: true } }];
   submitted: boolean = false;
-  groupedFilters: { [key: string]: string[] } = {};
 
+  // Define fields with id and content
   fields: Option[] = [
     { id: 0, content: 'ID' },
     { id: 1, content: 'Name' },
@@ -43,6 +43,7 @@ export class FilterComponent {
     { id: 17, content: 'Tags' }
   ];
 
+  // Define operators with id and content
   operatorsMap: { [key: string]: Option[] } = {
     'ID': [
       { id: 0, content: '=' },
@@ -193,32 +194,33 @@ export class FilterComponent {
 
     // Filter out conditions with empty fields or invalid values
     this.conditions = this.conditions.filter(condition => 
-      condition.field && condition.operator
+      condition.field && condition.operator && condition.value
     );
 
-    // Reset the grouped filters object
-    this.groupedFilters = {};
+    // Check if there are any valid conditions left
+    if (this.conditions.length === 0) {
+      console.log('No valid conditions to apply');
+    } else {
+      const filterObjects = this.conditions.map(condition => {
+        let dataType: string;
+        if (condition.field === 'Timestamp') {
+          dataType = 'date';
+        } else if (['Input Tokens', 'Output Tokens', 'Usage', 'Scores', 'Latency (s)', 'Input Cost ($)', 'Output Cost ($)', 'Total Cost ($)'].includes(condition.field)) {
+          dataType = 'number';
+        } else {
+          dataType = 'string';
+        }
 
-    // Group filters by field and collect operators
-    this.conditions.forEach(condition => {
-      if (!this.groupedFilters[condition.field]) {
-        this.groupedFilters[condition.field] = [];
-      }
-      if (!this.groupedFilters[condition.field].includes(condition.operator)) {
-        this.groupedFilters[condition.field].push(condition.operator);
-      }
-    });
+        return {
+          columnName: condition.field,
+          comparator: condition.operator,
+          value: condition.value,
+          dataType: dataType
+        };
+      });
 
-    // Convert the grouped filters into a desired format
-    const formattedFilters = Object.entries(this.groupedFilters).map(([field, operators]) => 
-      `${field} : ${operators.join(', ')}`
-    ).join(', ');
-
-    console.log(formattedFilters);
-    // Implement logic to apply the filter to your data
-  }
-
-  objectkeys(values: any) {
-    return Object.keys(values)
+      console.log(filterObjects);
+      // Implement logic to apply the filter to your data
+    }
   }
 }

@@ -2,7 +2,7 @@
   <div *ngFor="let condition of conditions; let i = index" class="filter-group">
     <div class="filter-row">
       <select [(ngModel)]="condition.field" (ngModelChange)="handleFieldChange(condition)" [ngClass]="{'invalid': submitted && !condition.validation.field}">
-        <option value="" disabled selected>Select column</option>
+        <option value="" disabled selected>Select field</option>
         <option *ngFor="let field of fields" [value]="field.content">{{ field.content }}</option>
       </select>
       <select [(ngModel)]="condition.operator" (ngModelChange)="handleOperatorChange(condition)" [disabled]="!condition.field" [ngClass]="{'invalid': submitted && !condition.validation.operator, 'disabled': !condition.field}">
@@ -22,13 +22,11 @@
   <button (click)="addCondition()">+ Add filter</button>
   <button (click)="applyFilter()">Apply filter</button>
 
-  <!-- Display grouped filters -->
-  <div *ngIf="objectkeys(groupedFilters).length > 0" class="grouped-filters">
+  <!-- Display selected filters with comparators -->
+  <div *ngIf="selectedFilters.length > 0" class="selected-filters">
     <h3>Applied Filters:</h3>
     <ul>
-      <li *ngFor="let field of objectkeys(groupedFilters)">
-        {{ field }} : {{ groupedFilters[field] }}
-      </li>
+      <li *ngFor="let filter of selectedFilters">{{ filter }}</li>
     </ul>
   </div>
 </div>
