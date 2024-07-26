@@ -1,0 +1,16 @@
+.filter-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .filter-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  button {
+    margin-left: 10px;
+  }
+  

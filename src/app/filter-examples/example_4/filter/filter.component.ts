@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 interface FilterCondition {
   field: string;
   operator: string;
-  value: string | number | Date | string[];
+  value: string | Date;
 }
 
 @Component({
@@ -72,25 +72,7 @@ export class FilterComponent {
   }
 
   applyFilter() {
-    const filterObjects = this.conditions.map(condition => {
-      let dataType: string;
-      if (condition.field === 'Timestamp') {
-        dataType = 'date';
-      } else if (['Input Tokens', 'Output Tokens', 'Usage', 'Scores', 'Latency (s)', 'Input Cost ($)', 'Output Cost ($)', 'Total Cost ($)'].includes(condition.field)) {
-        dataType = 'number';
-      } else {
-        dataType = 'string';
-      }
-      
-      return {
-        columnName: condition.field,
-        comparator: condition.operator,
-        value: condition.value,
-        dataType: dataType
-      };
-    });
-    
-    console.log(filterObjects);
     // Implement logic to apply the filter to your data
+    console.log(this.conditions);
   }
 }
