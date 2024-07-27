@@ -17,7 +17,8 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CustomTooltipComponent } from './custom-tooltip/custom-tooltip.component';
 import { FilterComponent } from './filter/filter.component';
 import { FormsModule } from '@angular/forms';
-import { CustomSelectComponent } from './custom-select/custom-select.component';  // Import FormsModule
+import { CustomSelectComponent } from './custom-select/custom-select.component';
+import { ModalComponent } from './modal/modal.component';  // Import FormsModule
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { CustomSelectComponent } from './custom-select/custom-select.component';
     NrxGraphExampleComponent,
     CustomTooltipComponent,
     FilterComponent,
-    CustomSelectComponent
+    CustomSelectComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,

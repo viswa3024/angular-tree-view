@@ -10,4 +10,12 @@
  <app-nrx-graph-example></app-nrx-graph-example> -->
  <app-filter></app-filter>
 
+ <!-- app.component.html -->
+<button (click)="openModal()">Open Modal</button>
+
+<app-modal [isVisible]="isModalVisible" title="My Modal Title">
+  <p>This is the content of the modal.</p>
+</app-modal>
+
+
 </div>

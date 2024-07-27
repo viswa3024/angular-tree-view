@@ -30,6 +30,8 @@ tableData: any[] = [
   { Name: 'Mike Johnson', Age: 45, Email: 'mike@example.com', Address: '9101 Maple St', Phone: '555-6789', Company: 'Tech Solutions', Position: 'Analyst', Department: 'Finance', Salary: '$75,000', 'Hire Date': '2018-03-22', Manager: 'Jane Smith', Status: 'Inactive', Location: 'Remote', Country: 'Canada', City: 'Toronto' }
 ];
 
+isModalVisible = false;
+
 
 ngOnInit() {
 
@@ -130,4 +132,10 @@ convertJsonToTree(obj: any): any {
 
   return tree;
 }
+
+openModal() {
+  this.isModalVisible = true;
+}
+
+
 }
