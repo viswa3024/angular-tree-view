@@ -33,12 +33,15 @@ export class TableComponent implements OnInit {
   sortedData: RowData[] = [];
 
   defaultSortColumn: string = 'id';
-  defaultSortOrder: 'asc' | 'desc' = 'desc';
+  defaultSortOrder: 'desc' = 'desc';
+
+  constructor() {}
 
   ngOnInit() {
     this.sortedData = [...this.data];
     this.sortConfig[this.defaultSortColumn] = this.defaultSortOrder;
     this.applySort(this.defaultSortColumn, this.defaultSortOrder);
+    this.sendSortToApi(this.defaultSortColumn, this.defaultSortOrder);
   }
 
   sortBy(key: string) {
@@ -47,6 +50,7 @@ export class TableComponent implements OnInit {
     this.sortConfig[key] = newSortOrder;
 
     this.applySort(key, newSortOrder);
+    this.sendSortToApi(key, newSortOrder);
 
     // Reset other sort orders
     Object.keys(this.sortConfig).forEach(k => {
@@ -61,4 +65,9 @@ export class TableComponent implements OnInit {
       return 0;
     });
   }
+
+  sendSortToApi(sortColumn: string, sortOrder: 'asc' | 'desc') {
+    console.log("sortColumn: ", sortColumn)
+    console.log("sortOrder: ", sortOrder)
+}
 }
