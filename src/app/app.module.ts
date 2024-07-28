@@ -18,7 +18,8 @@ import { CustomTooltipComponent } from './custom-tooltip/custom-tooltip.componen
 import { FilterComponent } from './filter/filter.component';
 import { FormsModule } from '@angular/forms';
 import { CustomSelectComponent } from './custom-select/custom-select.component';
-import { ModalComponent } from './modal/modal.component';  // Import FormsModule
+import { ModalComponent } from './modal/modal.component';
+import { TableComponent } from './table/table.component';  // Import FormsModule
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ModalComponent } from './modal/modal.component';  // Import FormsModule
     CustomTooltipComponent,
     FilterComponent,
     CustomSelectComponent,
-    ModalComponent
+    ModalComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,
