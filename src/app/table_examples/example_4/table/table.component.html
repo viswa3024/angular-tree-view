@@ -1,0 +1,20 @@
+<div>
+    <table>
+      <thead>
+        <tr>
+          <th *ngFor="let col of columns" (click)="sortBy(col.key)">
+            {{ col.display }}
+            <span *ngIf="sortConfig[col.key]">
+              {{ sortConfig[col.key] === 'asc' ? '▲' : '▼' }}
+            </span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of sortedData">
+          <td *ngFor="let col of columns">{{ row[col.key] }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

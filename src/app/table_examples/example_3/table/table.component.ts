@@ -45,11 +45,6 @@ export class TableComponent implements OnInit {
   }
 
   sortBy(key: string) {
-
-    if (key === 'city') {
-      return; // Do not sort the 'city' column
-    }
-    
     const currentSortOrder = this.sortConfig[key];
     const newSortOrder: 'asc' | 'desc' = currentSortOrder === 'asc' ? 'desc' : 'asc';
     this.sortConfig[key] = newSortOrder;
