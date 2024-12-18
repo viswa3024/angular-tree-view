@@ -1,15 +1,63 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-file-upload',
   templateUrl: './file-upload.component.html',
   styleUrls: ['./file-upload.component.scss'],
 })
-export class FileUploadComponent {
+export class FileUploadComponent implements OnInit {
   uploadedFile: File | null = null;
   filePreview: string | ArrayBuffer | null = null;
   errorFile: File | null = null;
   errorMessage: string = '';
+
+  response: any = {
+    "fileName": "512px-React-icon.svg.png",
+    "fileUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/512px-React-icon.svg.png"
+  }
+
+
+  ngOnInit(): void {
+    // Call API to get the public image or SVG URL
+    // this.http.get<{ fileName: string; fileUrl: string }>('https://your-api-url.com/get-file').subscribe(
+    //   (response) => {
+    //     const { fileName, fileUrl } = response;
+
+    //     // Set up the uploadedFile and filePreview
+    //     this.filePreview = fileUrl;
+
+    //     // Create a mock File object to represent the uploaded file
+    //     const blob = new Blob([], { type: 'image/*' }); // Empty Blob to mimic a file
+    //     this.uploadedFile = new File([blob], fileName, { type: 'image/*' });
+    //   },
+    //   (error) => {
+    //     console.error('Failed to fetch file:', error);
+    //   }
+    // );
+
+    const { fileName, fileUrl } = this.response;
+
+    // Set up the uploadedFile and filePreview
+    this.filePreview = fileUrl;
+
+    // Create a mock File object to represent the uploaded file
+    const blob = new Blob([], { type: 'image/*' }); // Empty Blob to mimic a file
+    this.uploadedFile = new File([blob], fileName, { type: 'image/*' });
+
+
+    // // Simulating a PNG file
+    // const blob = new Blob([], { type: 'image/png' }); // Correct MIME type for PNG
+    // this.uploadedFile = new File([blob], 'example.png', { type: 'image/png' });
+
+    // // Simulating a JPEG file
+    // const blobJpeg = new Blob([], { type: 'image/jpeg' }); // Correct MIME type for JPEG
+    // this.uploadedFile = new File([blobJpeg], 'example.jpeg', { type: 'image/jpeg' });
+
+    // // Simulating an SVG file
+    // const blobSvg = new Blob([], { type: 'image/svg+xml' }); // Correct MIME type for SVG
+    // this.uploadedFile = new File([blobSvg], 'example.svg', { type: 'image/svg+xml' });
+
+  }
 
   // Handle file input (single file)
   onFileSelected(event: Event): void {
