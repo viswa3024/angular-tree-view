@@ -8,38 +8,17 @@ import { Component } from '@angular/core';
 export class FileUploadComponent {
   uploadedFile: File | null = null;
   filePreview: string | ArrayBuffer | null = null;
-  errorFile: File | null = null;
-  errorMessage: string = '';
 
   // Handle file input (single file)
   onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files[0]) {
-      const file = input.files[0];
-      
-      // Validate file type
-      if (this.isValidFile(file)) {
-        this.uploadedFile = file;
-        this.errorFile = null; // Clear error if valid file
-        this.errorMessage = ''; // Clear any existing error message
-        this.previewFile(file);
-      } else {
-        this.uploadedFile = null; // Clear uploaded file
-        this.errorFile = file;
-        this.errorMessage = 'Invalid file type. Please upload a .jpg, .jpeg, .png, or .svg file.';
-        this.filePreview = null; // Clear the file preview if the file is invalid
-      }
+      this.uploadedFile = input.files[0];
+      this.previewFile(this.uploadedFile);
     }
   }
 
-  // Check if the uploaded file is valid (case insensitive check)
-  isValidFile(file: File): boolean {
-    const validExtensions = ['jpg', 'jpeg', 'png', 'svg'];
-    const fileExtension = file.name.split('.').pop()?.toLowerCase();
-    return validExtensions.includes(fileExtension || '');
-  }
-
-  // Preview the uploaded file (if it's an image or SVG)
+  // Preview the uploaded file
   previewFile(file: File): void {
     const reader = new FileReader();
 
@@ -54,37 +33,35 @@ export class FileUploadComponent {
 
   // Check if the uploaded file is an image or SVG
   isImage(file: File): boolean {
-    return /\.(jpg|jpeg|png|svg)$/i.test(file.name);
+    return /\.(jpg|jpeg|png|svg)$/.test(file.name);
   }
 
-  // Remove the uploaded file
+  // Remove the file from the list
   removeFile(): void {
     this.uploadedFile = null;
     this.filePreview = null;
   }
 
-  // Remove the error file
-  removeErrorFile(): void {
-    this.errorFile = null;
-    this.errorMessage = '';
-  }
-
   // Determine file type for styling
   getFileType(name: string): string {
-    if (/\.(jpg|jpeg|png|svg)$/i.test(name)) return 'Image';
+    if (name.endsWith('.pdf')) return 'Pdf';
+    if (name.endsWith('.docx')) return 'Docx';
+    if (/\.(jpg|jpeg|png|svg)$/.test(name)) return 'Image';
     return 'File';
   }
 
   // Add class for file-type-specific styling
   getFileTypeClass(name: string): string {
-    if (/\.(jpg|jpeg|png|svg)$/i.test(name)) return 'file-tag image';
+    if (name.endsWith('.pdf')) return 'file-tag pdf';
+    if (name.endsWith('.docx')) return 'file-tag docx';
+    if (/\.(jpg|jpeg|png|svg)$/.test(name)) return 'file-tag image';
     return 'file-tag';
   }
 
   // Submit the file to the API
   submitFile(): void {
     if (!this.uploadedFile) {
-      console.error('No valid file selected');
+      console.error('No file selected');
       return;
     }
 

@@ -9,15 +9,29 @@
       style="display: none"
     />
     <div class="upload-icon">
-      <img src="assets/upload-icon.svg" alt="Upload Icon" />
+      <svg
+      width="50px"
+      height="50px"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M6 12L12 6L18 12M12 6V18"
+        stroke="#00AAFF"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M5 19H19"
+        stroke="#00AAFF"
+        stroke-width="2"
+        stroke-linecap="round"
+      />
+    </svg>
     </div>
     <p>Click To Upload</p>
-  </div>
-
-  <div *ngIf="errorFile" class="error-message">
-    <span class="error-text">{{ errorFile.name }}</span>
-    <span class="error-text">{{ errorMessage }}</span>
-    <button class="delete-btn" (click)="removeErrorFile()">✖</button>
   </div>
 
   <div class="uploaded-documents" *ngIf="uploadedFile">
@@ -31,7 +45,7 @@
         <button class="delete-btn" (click)="removeFile()">✖</button>
       </li>
     </ul>
-
+    
     <!-- Preview for Image or SVG -->
     <div *ngIf="isImage(uploadedFile)">
       <img [src]="filePreview" alt="File Preview" class="file-preview" />
