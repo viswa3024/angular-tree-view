@@ -1,0 +1,47 @@
+/* Container styling */
+.color-picker {
+    font-family: Arial, sans-serif;
+    margin: 10px;
+  }
+  
+  label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  /* Color options grid */
+  .color-options {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .color-circle {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border 0.3s ease;
+  }
+  
+  .color-circle.selected {
+    border: 2px solid #263CFF;
+  }
+  
+  /* Custom color input */
+  input[type="color"] {
+    width: 30px;
+    height: 30px;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+  
+  .custom-color-code {
+    font-size: 12px;
+    margin-left: 5px;
+  }
+  

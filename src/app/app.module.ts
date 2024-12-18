@@ -19,7 +19,8 @@ import { FilterComponent } from './filter/filter.component';
 import { FormsModule } from '@angular/forms';
 import { CustomSelectComponent } from './custom-select/custom-select.component';
 import { ModalComponent } from './modal/modal.component';
-import { TableComponent } from './table/table.component';  // Import FormsModule
+import { TableComponent } from './table/table.component';
+import { ColorPickerComponent } from './color-picker/color-picker.component';  // Import FormsModule
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { TableComponent } from './table/table.component';  // Import FormsModule
     FilterComponent,
     CustomSelectComponent,
     ModalComponent,
-    TableComponent
+    TableComponent,
+    ColorPickerComponent
   ],
   imports: [
     BrowserModule,
