@@ -1,0 +1,52 @@
+<div class="file-upload-container">
+    <h3>Upload File</h3>
+    <div class="upload-box" (click)="fileInput.click()">
+      <input
+        type="file"
+        #fileInput
+        (change)="onFileSelected($event)"
+        accept=".pdf, .docx, .jpg, .jpeg, .png, .svg"
+        style="display: none"
+      />
+      <div class="upload-icon">
+        <!-- <img src="assets/upload-icon.svg" alt="Upload Icon" /> -->
+        <svg
+        width="50px"
+        height="50px"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M6 12L12 6L18 12M12 6V18"
+          stroke="#00AAFF"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M5 19H19"
+          stroke="#00AAFF"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+      </svg>
+      
+      </div>
+      <p>Click To Upload</p>
+    </div>
+  
+    <div class="uploaded-documents">
+      <h4>Uploaded Documents</h4>
+      <ul>
+        <li *ngFor="let file of uploadedFiles; let i = index">
+          <span [ngClass]="getFileTypeClass(file.name)">
+            {{ getFileType(file.name) }}
+          </span>
+          <span>{{ file.name }}</span>
+          <button class="delete-btn" (click)="removeFile(i)">✖</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  

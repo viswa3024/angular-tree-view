@@ -34,19 +34,19 @@
     <p>Click To Upload</p>
   </div>
 
-  <div class="uploaded-documents" *ngIf="uploadedFile">
-    <h4>Uploaded Document</h4>
+  <div class="uploaded-documents">
+    <h4>Uploaded Documents</h4>
     <ul>
-      <li>
-        <span [ngClass]="getFileTypeClass(uploadedFile.name)">
-          {{ getFileType(uploadedFile.name) }}
+      <li *ngFor="let file of uploadedFiles; let i = index">
+        <span [ngClass]="getFileTypeClass(file.name)">
+          {{ getFileType(file.name) }}
         </span>
-        <span>{{ uploadedFile.name }}</span>
-        <button class="delete-btn" (click)="removeFile()">✖</button>
+        <span>{{ file.name }}</span>
+        <button class="delete-btn" (click)="removeFile(i)">✖</button>
       </li>
     </ul>
   </div>
 
   <!-- Submit Button -->
-  <button class="submit-btn" (click)="submitFile()">Submit</button>
+  <button class="submit-btn" (click)="submitFiles()">Submit</button>
 </div>

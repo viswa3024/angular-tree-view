@@ -7,21 +7,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./file-upload.component.scss'],
 })
 export class FileUploadComponent {
-  uploadedFile: File | null = null; // Only one file
+  uploadedFiles: File[] = [];
 
   constructor() {}
 
-  // Handle file input (single file)
+  // Handle file input
   onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
-    if (input.files && input.files[0]) {
-      this.uploadedFile = input.files[0];
+    if (input.files) {
+      const file = input.files[0];
+      this.uploadedFiles.push(file);
     }
   }
 
-  // Remove the file from the list
-  removeFile(): void {
-    this.uploadedFile = null;
+  // Remove file from the list
+  removeFile(index: number): void {
+    this.uploadedFiles.splice(index, 1);
   }
 
   // Determine file type for styling
@@ -40,16 +41,14 @@ export class FileUploadComponent {
     return 'file-tag';
   }
 
-  // Submit the file to the API
-  submitFile(): void {
-    if (!this.uploadedFile) {
-      console.error('No file selected');
-      return;
-    }
-
+  // Submit the files to the API
+  submitFiles(): void {
     const formData = new FormData();
-    formData.append('file', this.uploadedFile, this.uploadedFile.name);
-    //formData.append('file', this.uploadedFile);
+
+    // Append each file to the FormData object
+    this.uploadedFiles.forEach((file) => {
+      formData.append('files', file, file.name);
+    });
 
     // Make the API call (replace with your API URL)
     // this.http.post('https://your-api-url.com/upload', formData).subscribe(
