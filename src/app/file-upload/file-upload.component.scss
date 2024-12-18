@@ -1,0 +1,85 @@
+/* Container */
+.file-upload-container {
+    width: 300px;
+    margin: auto;
+    border: 2px solid #00aaff;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    background: #fff;
+  }
+  
+  /* Upload Box */
+  .upload-box {
+    border: 2px dashed #00aaff;
+    border-radius: 10px;
+    padding: 20px;
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 15px;
+  }
+  
+  .upload-icon img {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .upload-box p {
+    margin: 5px;
+    color: #00aaff;
+  }
+  
+  /* Uploaded Documents */
+  .uploaded-documents h4 {
+    color: #666;
+    font-size: 14px;
+    text-align: left;
+    margin: 10px 0;
+  }
+  
+  .uploaded-documents ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .uploaded-documents li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #ddd;
+    padding: 8px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    font-size: 12px;
+  }
+  
+  .file-tag {
+    font-weight: bold;
+    padding: 3px 6px;
+    color: #fff;
+    border-radius: 4px;
+    margin-right: 5px;
+  }
+  
+  .file-tag.pdf {
+    background-color: #00aaff;
+  }
+  
+  .file-tag.docx {
+    background-color: #6c63ff;
+  }
+  
+  .file-tag.image {
+    background-color: #ffa500;
+  }
+  
+  .delete-btn {
+    background: #ff4d4d;
+    border: none;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 4px 7px;
+  }
+  

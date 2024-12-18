@@ -1,0 +1,98 @@
+<p>custom-form works!</p>
+<div class="form-container">
+    <div class="form-header">
+      <span>Content</span>
+    </div>
+  
+    <!-- Form Body -->
+    <div class="form-body">
+      <!-- Menu Section -->
+      <div class="menu-section">
+        <h4>Menu</h4>
+        <div class="form-group">
+          <label for="menu-dashboard">Dashboard</label>
+          <input
+            type="text"
+            id="menu-dashboard"
+            [value]="formData.menuDashboard"
+            (input)="updateField('menuDashboard', $event)"
+          />
+        </div>
+        <div class="form-group">
+          <label for="menu-applications">Applications</label>
+          <input
+            type="text"
+            id="menu-applications"
+            [value]="formData.menuApplications"
+            (input)="updateField('menuApplications', $event)"
+          />
+        </div>
+        <div class="form-group">
+          <label for="menu-models">Models</label>
+          <input
+            type="text"
+            id="menu-models"
+            [value]="formData.menuModels"
+            (input)="updateField('menuModels', $event)"
+          />
+        </div>
+        <div class="form-group">
+          <label for="menu-settings">Settings</label>
+          <input
+            type="text"
+            id="menu-settings"
+            [value]="formData.menuSettings"
+            (input)="updateField('menuSettings', $event)"
+          />
+        </div>
+      </div>
+  
+      <!-- Title Section -->
+      <div class="title-section">
+        <h4>Title</h4>
+        <div class="form-group">
+          <label for="title-dashboard">Dashboard</label>
+          <input
+            type="text"
+            id="title-dashboard"
+            [value]="formData.titleDashboard"
+            (input)="updateField('titleDashboard', $event)"
+          />
+        </div>
+        <div class="form-group">
+          <label for="title-applications">Applications</label>
+          <input
+            type="text"
+            id="title-applications"
+            [value]="formData.titleApplications"
+            (input)="updateField('titleApplications', $event)"
+          />
+        </div>
+        <div class="form-group">
+          <label for="title-models">Models</label>
+          <input
+            type="text"
+            id="title-models"
+            [value]="formData.titleModels"
+            (input)="updateField('titleModels', $event)"
+          />
+        </div>
+        <div class="form-group">
+          <label for="title-settings">Settings</label>
+          <input
+            type="text"
+            id="title-settings"
+            [value]="formData.titleSettings"
+            (input)="updateField('titleSettings', $event)"
+          />
+        </div>
+      </div>
+    </div>
+  
+    <!-- Footer Buttons -->
+    <div class="form-footer">
+      <button type="button" class="btn-cancel" (click)="onCancel()">Cancel</button>
+      <button type="button" class="btn-save" (click)="onSave()">Save</button>
+    </div>
+  </div>
+  

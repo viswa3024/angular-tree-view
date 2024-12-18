@@ -20,7 +20,9 @@ import { FormsModule } from '@angular/forms';
 import { CustomSelectComponent } from './custom-select/custom-select.component';
 import { ModalComponent } from './modal/modal.component';
 import { TableComponent } from './table/table.component';
-import { ColorPickerComponent } from './color-picker/color-picker.component';  // Import FormsModule
+import { ColorPickerComponent } from './color-picker/color-picker.component';
+import { CustomFormComponent } from './custom-form/custom-form.component';
+import { FileUploadComponent } from './file-upload/file-upload.component';  // Import FormsModule
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { ColorPickerComponent } from './color-picker/color-picker.component';  /
     CustomSelectComponent,
     ModalComponent,
     TableComponent,
-    ColorPickerComponent
+    ColorPickerComponent,
+    CustomFormComponent,
+    FileUploadComponent
   ],
   imports: [
     BrowserModule,
