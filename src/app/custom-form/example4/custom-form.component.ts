@@ -64,7 +64,6 @@ export class CustomFormComponent implements OnInit {
   onCancel() {
     console.log('Resetting form data...');
     this.formData = { ...this.initialFormData }; // Restore to initial state
-    this.isFormSubmitted = false;
     alert('Form data has been reset!');
   }
 
