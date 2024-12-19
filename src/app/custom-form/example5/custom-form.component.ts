@@ -7,28 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomFormComponent implements OnInit {
 
-  private responseData:any = {
+  private responseData = {
     menuDashboard: '',
     menuApplications: 'Applications',
     menuModels: 'Models',
     menuSettings: 'Settings',
     titleDashboard: 'Dashboard',
     titleApplications: 'Applications',
-    titleModels: 'Models'
+    titleModels: 'Models',
+    titleSettings: 'Settings'
   };
 
 
-  private initialFormData: any = {
-    menuDashboard: '',
-    menuApplications: '',
-    menuModels: '',
-    menuSettings: '',
-    titleDashboard: '',
-    titleApplications: '',
-    titleModels: '',
-    titleSettings: ''
-  };
-
+  private initialFormData: any = {};
   isFormSubmitted = false;
 
 
@@ -59,12 +50,7 @@ export class CustomFormComponent implements OnInit {
     // });
 
     console.log('Fetched initial form data:', this.responseData);
-    //this.initialFormData = this.responseData; // Store initial API response
-    Object.keys(this.initialFormData).forEach((key) => {
-      if (this.responseData.hasOwnProperty(key)) {
-        this.initialFormData[key] = this.responseData[key];
-      }
-    });
+    this.initialFormData = this.responseData; // Store initial API response
     this.formData = { ...this.initialFormData }; // Clone for editing
   }
 

@@ -1,0 +1,130 @@
+<p>custom-form works!</p>
+<div class="form-container">
+    <div class="form-header">
+      <span>Content</span>
+    </div>
+  
+    <!-- Form Body -->
+    <div class="form-body">
+      <!-- Menu Section -->
+      <div class="menu-section">
+        <h4>Menu</h4>
+        <div class="form-group">
+          <label for="menu-dashboard">Dashboard</label>
+          <input
+            type="text"
+            id="menu-dashboard"
+            [value]="formData.menuDashboard"
+            (input)="updateField('menuDashboard', $event)"
+            [class.invalid]="!formData.menuDashboard && isFormSubmitted"
+          />
+          <small *ngIf="!formData.menuDashboard && isFormSubmitted" class="error-message">
+            Dashboard is required.
+          </small>
+        </div>
+        <div class="form-group">
+          <label for="menu-applications">Applications</label>
+          <input
+            type="text"
+            id="menu-applications"
+            [value]="formData.menuApplications"
+            (input)="updateField('menuApplications', $event)"
+            [class.invalid]="!formData.menuApplications && isFormSubmitted"
+          />
+          <small *ngIf="!formData.menuApplications && isFormSubmitted" class="error-message">
+            Applications is required.
+          </small>
+        </div>
+        <div class="form-group">
+          <label for="menu-models">Models</label>
+          <input
+            type="text"
+            id="menu-models"
+            [value]="formData.menuModels"
+            (input)="updateField('menuModels', $event)"
+            [class.invalid]="!formData.menuModels && isFormSubmitted"
+          />
+          <small *ngIf="!formData.menuModels && isFormSubmitted" class="error-message">
+            Models is required.
+          </small>
+        </div>
+        <div class="form-group">
+          <label for="menu-settings">Settings</label>
+          <input
+            type="text"
+            id="menu-settings"
+            [value]="formData.menuSettings"
+            (input)="updateField('menuSettings', $event)"
+            [class.invalid]="!formData.menuSettings && isFormSubmitted"
+          />
+          <small *ngIf="!formData.menuSettings && isFormSubmitted" class="error-message">
+            Settings is required.
+          </small>
+        </div>
+      </div>
+  
+      <!-- Title Section -->
+      <div class="title-section">
+        <h4>Title</h4>
+        <div class="form-group">
+          <label for="title-dashboard">Dashboard</label>
+          <input
+            type="text"
+            id="title-dashboard"
+            [value]="formData.titleDashboard"
+            (input)="updateField('titleDashboard', $event)"
+            [class.invalid]="!formData.titleDashboard && isFormSubmitted"
+          />
+          <small *ngIf="!formData.titleDashboard && isFormSubmitted" class="error-message">
+            Dashboard is required.
+          </small>
+        </div>
+        <div class="form-group">
+          <label for="title-applications">Applications</label>
+          <input
+            type="text"
+            id="title-applications"
+            [value]="formData.titleApplications"
+            (input)="updateField('titleApplications', $event)"
+            [class.invalid]="!formData.titleApplications && isFormSubmitted"
+          />
+          <small *ngIf="!formData.titleApplications && isFormSubmitted" class="error-message">
+            Applications is required.
+          </small>
+        </div>
+        <div class="form-group">
+          <label for="title-models">Models</label>
+          <input
+            type="text"
+            id="title-models"
+            [value]="formData.titleModels"
+            (input)="updateField('titleModels', $event)"
+            [class.invalid]="!formData.titleModels && isFormSubmitted"
+          />
+          <small *ngIf="!formData.titleModels && isFormSubmitted" class="error-message">
+            Models is required.
+          </small>
+        </div>
+        <div class="form-group">
+          <label for="title-settings">Settings</label>
+          <input
+            type="text"
+            id="title-settings"
+            [value]="formData.titleSettings"
+            (input)="updateField('titleSettings', $event)"
+            [class.invalid]="!formData.titleSettings && isFormSubmitted"
+          />
+          <small *ngIf="!formData.titleSettings && isFormSubmitted" class="error-message">
+            Settings is required.
+          </small>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Footer Buttons -->
+    <div class="form-footer">
+      <button type="button" class="btn-cancel" (click)="onCancel()">Cancel</button>
+      <button type="button" class="btn-save" (click)="onSave()">Save</button>
+    </div>
+  </div>
+  
