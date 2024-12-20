@@ -30,14 +30,13 @@ export class ColorPickerComponent {
   onCustomColorInput() {
     if (/^#[0-9A-Fa-f]{6}$/.test(this.customColor)) {
       this.customColorInput = this.customColor;
-      this.selectedColor = this.customColor;
     }
   }
 
   // Apply custom color
   applyCustomColor() {
-    if (/^#[0-9A-Fa-f]{6}$/.test(this.customColor)) {
-      //this.customColor = this.customColorInput;
+    if (/^#[0-9A-Fa-f]{6}$/.test(this.customColorInput)) {
+      this.customColor = this.customColorInput;
       this.selectedColor = this.customColor;
     } else {
       alert('Please enter a valid hex color code.');
