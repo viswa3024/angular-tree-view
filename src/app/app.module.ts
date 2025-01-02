@@ -22,7 +22,9 @@ import { ModalComponent } from './modal/modal.component';
 import { TableComponent } from './table/table.component';
 import { ColorPickerComponent } from './color-picker/color-picker.component';
 import { CustomFormComponent } from './custom-form/custom-form.component';
-import { FileUploadComponent } from './file-upload/file-upload.component';  // Import FormsModule
+import { FileUploadComponent } from './file-upload/file-upload.component';
+import { DynamicCssComponent } from './dynamic-css/dynamic-css.component';
+import { GlobalCssComponent } from './global-css/global-css.component';  // Import FormsModule
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { FileUploadComponent } from './file-upload/file-upload.component';  // I
     TableComponent,
     ColorPickerComponent,
     CustomFormComponent,
-    FileUploadComponent
+    FileUploadComponent,
+    DynamicCssComponent,
+    GlobalCssComponent
   ],
   imports: [
     BrowserModule,
