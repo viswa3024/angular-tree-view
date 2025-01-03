@@ -1,0 +1,42 @@
+<div class="color-picker-container">
+  <h3 class="color-title">Generic Color Picker</h3>
+
+  <!-- Background Color -->
+  <div>
+    <label>Background Color:</label>
+    <div class="color-options">
+      <div *ngFor="let color of colors" class="color-circle"
+           [ngStyle]="{'background-color': color}"
+           [class.selected]="selectedColors['background'] === color"
+           (click)="selectColor('background', color)">
+      </div>
+      <input type="color" [value]="customColors['background']" (input)="onCustomColorChange('background', $event)">
+    </div>
+  </div>
+
+  <!-- Button Color -->
+  <div>
+    <label>Button Color:</label>
+    <div class="color-options">
+      <div *ngFor="let color of colors" class="color-circle"
+           [ngStyle]="{'background-color': color}"
+           [class.selected]="selectedColors['button'] === color"
+           (click)="selectColor('button', color)">
+      </div>
+      <input type="color" [value]="customColors['button']" (input)="onCustomColorChange('button', $event)">
+    </div>
+  </div>
+
+  <!-- Title Color -->
+  <div>
+    <label>Title Color:</label>
+    <div class="color-options">
+      <div *ngFor="let color of colors" class="color-circle"
+           [ngStyle]="{'background-color': color}"
+           [class.selected]="selectedColors['title'] === color"
+           (click)="selectColor('title', color)">
+      </div>
+      <input type="color" [value]="customColors['title']" (input)="onCustomColorChange('title', $event)">
+    </div>
+  </div>
+</div>

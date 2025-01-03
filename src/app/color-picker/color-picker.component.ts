@@ -6,41 +6,68 @@ import { Component } from '@angular/core';
   styleUrls: ['./color-picker.component.scss']
 })
 export class ColorPickerComponent {
-  // Predefined colors
   colors: string[] = ['#263CFF', '#000000', '#555555', '#A4A624', '#00B894', '#00CEC9', '#E17055', '#D63031'];
-  selectedColor: string = this.colors[0]; // Default selected color
 
-  // Custom color input
-  customColor: string = this.colors[0];
-  customColorInput: string = this.colors[0]; // Tracks manual color input
+  // Custom colors
+  backgroundCustomColor = '#ffffff';
+  buttonCustomColor = '#263CFF';
+  titleCustomColor = '#000000';
 
-  // Select color method
-  selectColor(color: string) {
-    this.selectedColor = color;
-    this.customColor = color;
-  }
+  // Selected colors
+  backgroundSelectedColor = '#ffffff';
+  buttonSelectedColor = '#263CFF';
+  titleSelectedColor = '#000000';
 
-  // Update custom color from color picker
-  onCustomColorChange(event: any) {
-    this.customColor = event.target.value;
-    this.selectedColor = this.customColor;
-  }
-
-  // Update custom color from manual input
-  onCustomColorInput() {
-    if (/^#[0-9A-Fa-f]{6}$/.test(this.customColor)) {
-      this.customColorInput = this.customColor;
-      this.selectedColor = this.customColor;
+  /**
+   * Select a predefined color
+   */
+  selectColor(section: string, color: string) {
+    if (section === 'background') {
+      this.backgroundSelectedColor = color;
+      this.backgroundCustomColor = color;
+    } else if (section === 'button') {
+      this.buttonSelectedColor = color;
+      this.buttonCustomColor = color;
+    } else if (section === 'title') {
+      this.titleSelectedColor = color;
+      this.titleCustomColor = color;
     }
   }
 
-  // Apply custom color
-  applyCustomColor() {
-    if (/^#[0-9A-Fa-f]{6}$/.test(this.customColor)) {
-      //this.customColor = this.customColorInput;
-      this.selectedColor = this.customColor;
-    } else {
-      alert('Please enter a valid hex color code.');
+  /**
+   * Handle color change from color picker
+   */
+  onCustomColorChange(section: string, event: any) {
+    const color = event.target.value;
+    if (section === 'background') {
+      this.backgroundCustomColor = color;
+      this.backgroundSelectedColor = color;
+    } else if (section === 'button') {
+      this.buttonCustomColor = color;
+      this.buttonSelectedColor = color;
+    } else if (section === 'title') {
+      this.titleCustomColor = color;
+      this.titleSelectedColor = color;
     }
+  }
+
+  /**
+   * Apply custom color from input
+   */
+  applyCustomColor(section: string) {
+    if (section === 'background') {
+      this.backgroundSelectedColor = this.backgroundCustomColor;
+    } else if (section === 'button') {
+      this.buttonSelectedColor = this.buttonCustomColor;
+    } else if (section === 'title') {
+      this.titleSelectedColor = this.titleCustomColor;
+    }
+  }
+
+  /**
+   * Validate hex color input
+   */
+  validateHexColor(color: string): boolean {
+    return /^#[0-9A-Fa-f]{6}$/.test(color);
   }
 }

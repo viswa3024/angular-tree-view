@@ -1,0 +1,81 @@
+/* Overall container */
+.color-picker-container {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    padding: 10px;
+  }
+  
+  /* Label styling */
+  .color-title {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  /* Color options container */
+  .color-options {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  /* Color circle styling */
+  .color-circle {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: border 0.2s ease;
+  }
+  
+  .color-circle.selected {
+    border: 2px solid #263CFF; /* Blue border for selection */
+  }
+  
+  /* Custom color input styling */
+  .custom-color-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  input[type="color"] {
+    width: 30px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+  }
+  
+
+  /* Additional styles for the custom color code input */
+.custom-color-code-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.custom-color-code-container input[type="text"] {
+  width: 80px;
+  height: 24px;
+  padding: 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.custom-color-code-container button {
+  padding: 4px 8px;
+  font-size: 14px;
+  background-color: #263CFF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.custom-color-code-container button:hover {
+  background-color: #1B2EB8;
+}

@@ -1,0 +1,36 @@
+<div class="color-picker-container">
+  <!-- Title -->
+  <label class="color-title">Color Picker</label>
+
+  <!-- Color Options -->
+  <div class="color-options">
+    <!-- Predefined Colors -->
+    <div 
+      *ngFor="let color of colors" 
+      class="color-circle"
+      [ngStyle]="{'background-color': color}"
+      [class.selected]="selectedColor === color"
+      (click)="selectColor(color)">
+    </div>
+
+    <!-- Custom Color Picker -->
+    <div class="custom-color-container">
+      <input 
+        type="color" 
+        [value]="customColor" 
+        (input)="onCustomColorChange($event)">
+      <span>{{ customColor }}</span>
+    </div>
+
+    <!-- Custom Color Code Input -->
+    <div class="custom-color-code-container">
+      <input 
+        type="text" 
+        [(ngModel)]="customColor" 
+        (input)="onCustomColorInput()"
+        placeholder="#FFFFFF" 
+        maxlength="7">
+      <button (click)="applyCustomColor()">Apply</button>
+    </div>
+  </div>
+</div>
