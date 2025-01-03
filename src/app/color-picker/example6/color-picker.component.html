@@ -7,28 +7,26 @@
     <div class="color-options">
       <div *ngFor="let color of colors" class="color-circle"
            [ngStyle]="{'background-color': color}"
-           [class.selected]="selectedColors.background === color"
+           [class.selected]="backgroundSelectedColor === color"
            (click)="selectColor('background', color)">
       </div>
     </div>
     <div class="custom-color-container">
       <input 
         type="color" 
-        [value]="customColors.background" 
+        [value]="backgroundCustomColor" 
         (input)="onCustomColorChange('background', $event)">
-      <span>{{ customColors.background }}</span>
+      <span>{{ backgroundCustomColor }}</span>
     </div>
     <div class="custom-color-code-container">
       <input 
         type="text" 
-        [(ngModel)]="customColors.background" 
-        [class.invalid]="!validColors.background"
-        (input)="onCustomColorChange('background', $event)"
+        [(ngModel)]="backgroundCustomColor" 
+        (input)="validateHexColor(backgroundCustomColor)"
         placeholder="#FFFFFF" 
         maxlength="7">
       <button (click)="applyCustomColor('background')">Apply</button>
     </div>
-    <div *ngIf="!validColors.background" class="error-message">Invalid color code</div>
   </div>
 
   <!-- Button Color -->
@@ -37,28 +35,26 @@
     <div class="color-options">
       <div *ngFor="let color of colors" class="color-circle"
            [ngStyle]="{'background-color': color}"
-           [class.selected]="selectedColors.button === color"
+           [class.selected]="buttonSelectedColor === color"
            (click)="selectColor('button', color)">
       </div>
     </div>
     <div class="custom-color-container">
       <input 
         type="color" 
-        [value]="customColors.button" 
+        [value]="buttonCustomColor" 
         (input)="onCustomColorChange('button', $event)">
-      <span>{{ customColors.button }}</span>
+      <span>{{ buttonCustomColor }}</span>
     </div>
     <div class="custom-color-code-container">
       <input 
         type="text" 
-        [(ngModel)]="customColors.button" 
-        [class.invalid]="!validColors.button"
-        (input)="onCustomColorChange('button', $event)"
+        [(ngModel)]="buttonCustomColor" 
+        (input)="validateHexColor(buttonCustomColor)"
         placeholder="#FFFFFF" 
         maxlength="7">
       <button (click)="applyCustomColor('button')">Apply</button>
     </div>
-    <div *ngIf="!validColors.button" class="error-message">Invalid color code</div>
   </div>
 
   <!-- Title Color -->
@@ -67,32 +63,25 @@
     <div class="color-options">
       <div *ngFor="let color of colors" class="color-circle"
            [ngStyle]="{'background-color': color}"
-           [class.selected]="selectedColors.title === color"
+           [class.selected]="titleSelectedColor === color"
            (click)="selectColor('title', color)">
       </div>
     </div>
     <div class="custom-color-container">
       <input 
         type="color" 
-        [value]="customColors.title" 
+        [value]="titleCustomColor" 
         (input)="onCustomColorChange('title', $event)">
-      <span>{{ customColors.title }}</span>
+      <span>{{ titleCustomColor }}</span>
     </div>
     <div class="custom-color-code-container">
       <input 
         type="text" 
-        [(ngModel)]="customColors.title" 
-        [class.invalid]="!validColors.title"
-        (input)="onCustomColorChange('title', $event)"
+        [(ngModel)]="titleCustomColor" 
+        (input)="validateHexColor(titleCustomColor)"
         placeholder="#FFFFFF" 
         maxlength="7">
       <button (click)="applyCustomColor('title')">Apply</button>
     </div>
-    <div *ngIf="!validColors.title" class="error-message">Invalid color code</div>
-  </div>
-
-  <!-- Submit Button -->
-  <div>
-    <button (click)="submitColors()">Submit Colors</button>
   </div>
 </div>
