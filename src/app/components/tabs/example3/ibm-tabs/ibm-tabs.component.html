@@ -1,0 +1,16 @@
+<div class="tabs-header" [class.vertical]="orientation === 'vertical'">
+  <div 
+    *ngFor="let tab of tabs; let i = index" 
+    class="tab-title" 
+    [class.active]="tab.active" 
+    (click)="selectTab(i)">
+    {{ tab.heading }}
+  </div>
+</div>
+<div class="tabs-content">
+  <ng-container *ngFor="let tab of tabs">
+    <div class="tab-pane" [class.active]="tab.active">
+      <ng-container *ngTemplateOutlet="tab.content"></ng-container>
+    </div>
+  </ng-container>
+</div>

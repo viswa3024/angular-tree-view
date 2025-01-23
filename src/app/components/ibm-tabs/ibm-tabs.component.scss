@@ -1,0 +1,207 @@
+// /* General Tab Styles */
+// .tabs-header {
+//   display: flex;
+//   border-bottom: 2px solid #ccc;
+// }
+// .tab-title {
+//   padding: 10px 20px;
+//   cursor: pointer;
+//   border: 1px solid transparent;
+//   border-bottom: none; /* Default for horizontal */
+//   transition: all 0.3s ease;
+// }
+// .tab-title:hover {
+//   border-color: transparent transparent grey transparent; /* Horizontal Hover */
+// }
+
+// /* Active Tab for Horizontal */
+// .tab-title.active {
+//   font-weight: bold;
+//   border: 1px solid transparent;
+//   border-bottom: 2px solid blue; /* Horizontal Active */
+//   background-color: #f9f9f9;
+// }
+// .tabs-content {
+//   padding: 10px;
+//   border: 1px solid #ccc;
+// }
+// .tab-pane {
+//   display: none;
+// }
+// .tab-pane.active {
+//   display: block;
+// }
+
+// /* Vertical Tabs */
+// .tabs-header.vertical {
+//   flex-direction: column;
+//   border-right: 2px solid #ccc;
+//   border-bottom: none;
+// }
+// .tabs-header.vertical .tab-title {
+//   border: 1px solid transparent;
+//   border-bottom: none; /* No border-bottom for vertical tabs */
+//   border-right: none;
+//   transition: all 0.3s ease;
+// }
+// .tabs-header.vertical .tab-title:hover {
+//   border-color: grey transparent transparent transparent; /* Vertical Hover */
+// }
+// .tabs-header.vertical .tab-title.active {
+//   border: 1px solid transparent;
+//   border-left: 2px solid blue; /* Vertical Active */
+//   font-weight: bold;
+//   background-color: #f9f9f9;
+// }
+
+
+// _________________________________
+// /* General Tab Styles */
+// .tabs-header {
+//   display: flex;
+//   border-bottom: 2px solid #ccc;
+//   background-color: white; /* Ensure the background is white */
+// }
+
+// .tab-title {
+//   padding: 10px 20px;
+//   cursor: pointer;
+//   border: 1px solid transparent;
+//   border-bottom: none; /* Default for horizontal tabs */
+//   background-color: white; /* Set background to white */
+//   transition: all 0.3s ease; /* Smooth transition for hover effect */
+// }
+
+// /* Horizontal Tabs: Hover Effect */
+// .tab-title:hover {
+//   border-color: transparent transparent grey transparent; /* Grey border bottom for inactive tabs */
+// }
+
+// /* Horizontal Tabs: Active Tab */
+// .tab-title.active {
+//   font-weight: bold;
+//   border: 1px solid transparent;
+//   border-bottom: 2px solid blue; /* Blue border bottom for active tab */
+//   background-color: white; /* Keep background white */
+// }
+
+// /* Tabs Content Styling */
+// .tabs-content {
+//   padding: 10px;
+//   border: 1px solid #ccc;
+// }
+
+// .tab-pane {
+//   display: none;
+// }
+
+// .tab-pane.active {
+//   display: block;
+// }
+
+// /* Vertical Tabs Styles */
+// .tabs-header.vertical {
+//   flex-direction: column; /* Arrange tabs in a column for vertical layout */
+//   border-right: 2px solid #ccc;
+//   border-bottom: none;
+//   background-color: white; /* Ensure background is white */
+// }
+
+// .tabs-header.vertical .tab-title {
+//   border: 1px solid transparent;
+//   border-bottom: none; /* No bottom border for vertical tabs */
+//   border-right: none;
+//   background-color: white; /* Set background to white */
+//   transition: all 0.3s ease; /* Smooth transition for hover effect */
+// }
+
+// /* Vertical Tabs: Hover Effect */
+// .tabs-header.vertical .tab-title:hover {
+//   border-color: grey transparent transparent transparent; /* Grey border left for inactive tabs */
+// }
+
+// /* Vertical Tabs: Active Tab */
+// .tabs-header.vertical .tab-title.active {
+//   border: 1px solid transparent;
+//   border-left: 2px solid blue; /* Blue border left for active tab */
+//   font-weight: bold;
+//   background-color: white; /* Keep background white */
+// }
+
+
+
+/* General Tab Styles */
+.tabs-header {
+  display: flex;
+  border-bottom: 2px solid #ccc;
+  background-color: white; /* Ensure the background is white */
+}
+
+.tab-title {
+  padding: 10px 20px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-bottom: none; /* Default for horizontal tabs */
+  background-color: white; /* Set background to white */
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Hover for Inactive Tabs (Horizontal) */
+.tab-title:not(.active):hover {
+  border-color: transparent transparent grey transparent; /* Grey border bottom */
+  background-color: #f9f9f9; /* Slightly lighter background on hover */
+}
+
+/* Active Tab (Horizontal) */
+.tab-title.active {
+  font-weight: bold;
+  border: 1px solid transparent;
+  border-bottom: 2px solid blue; /* Blue border for active tab */
+  background-color: white; /* Keep active tab background white */
+}
+
+/* Tabs Content Styling */
+.tabs-content {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.tab-pane {
+  display: none;
+}
+
+.tab-pane.active {
+  display: block;
+}
+
+/* Vertical Tabs */
+.tabs-header.vertical {
+  flex-direction: column; /* Arrange tabs in a column for vertical layout */
+  border-right: 2px solid #ccc;
+  border-bottom: none;
+  background-color: white; /* Ensure background is white */
+}
+
+.tabs-header.vertical .tab-title {
+  border: 1px solid transparent;
+  border-bottom: none; /* No bottom border for vertical tabs */
+  border-right: none;
+  background-color: white; /* Set background to white */
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Hover for Inactive Tabs (Vertical) */
+.tabs-header.vertical .tab-title:not(.active):hover {
+  border-color: grey transparent transparent transparent; /* Grey border left */
+  background-color: #f9f9f9; /* Slightly lighter background on hover */
+}
+
+/* Active Tab (Vertical) */
+.tabs-header.vertical .tab-title.active {
+  border: 1px solid transparent;
+  border-left: 2px solid blue; /* Blue border for active tab */
+  font-weight: bold;
+  background-color: white; /* Keep active tab background white */
+}
+
+

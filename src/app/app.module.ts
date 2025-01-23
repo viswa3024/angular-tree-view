@@ -24,7 +24,9 @@ import { ColorPickerComponent } from './color-picker/color-picker.component';
 import { CustomFormComponent } from './custom-form/custom-form.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
 import { DynamicCssComponent } from './dynamic-css/dynamic-css.component';
-import { GlobalCssComponent } from './global-css/global-css.component';  // Import FormsModule
+import { GlobalCssComponent } from './global-css/global-css.component';
+import { IbmTabsComponent } from './components/ibm-tabs/ibm-tabs.component';
+import { IbmTabComponent } from './components/ibm-tab/ibm-tab.component';  // Import FormsModule
 
 @NgModule({
   declarations: [
@@ -46,7 +48,9 @@ import { GlobalCssComponent } from './global-css/global-css.component';  // Impo
     CustomFormComponent,
     FileUploadComponent,
     DynamicCssComponent,
-    GlobalCssComponent
+    GlobalCssComponent,
+    IbmTabsComponent,
+    IbmTabComponent
   ],
   imports: [
     BrowserModule,

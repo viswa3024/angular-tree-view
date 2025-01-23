@@ -1,0 +1,42 @@
+/* Default (Horizontal) Tabs */
+.tabs-header {
+  display: flex;
+  border-bottom: 2px solid #ccc;
+}
+.tab-title {
+  padding: 10px 20px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-bottom: none;
+}
+.tab-title.active {
+  font-weight: bold;
+  border: 1px solid #ccc;
+  border-bottom: 2px solid white;
+  background-color: #f9f9f9;
+}
+.tabs-content {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+.tab-pane {
+  display: none;
+}
+.tab-pane.active {
+  display: block;
+}
+
+/* Vertical Tabs */
+.tabs-header.vertical {
+  flex-direction: column;
+  border-right: 2px solid #ccc;
+  border-bottom: none;
+}
+.tabs-header.vertical .tab-title {
+  border: 1px solid transparent;
+  border-right: none;
+}
+.tabs-header.vertical .tab-title.active {
+  border: 1px solid #ccc;
+  border-right: 2px solid white;
+}
