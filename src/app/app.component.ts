@@ -32,6 +32,8 @@ tableData: any[] = [
 
 isModalVisible = false;
 
+selectedTab = 'test';
+
 
 ngOnInit() {
 
@@ -135,6 +137,12 @@ convertJsonToTree(obj: any): any {
 
 openModal() {
   this.isModalVisible = true;
+}
+
+
+onTabSelect(tabId: string) {
+  this.selectedTab = tabId;
+  console.log('Selected Tab:', tabId);
 }
 
 

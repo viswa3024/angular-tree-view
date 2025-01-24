@@ -1,0 +1,19 @@
+<div [ngClass]="orientation === 'vertical' ? 'tabs-vertical' : 'tabs-horizontal'">
+    <!-- Tab headers -->
+    <div class="tabs-header">
+      <button
+        *ngFor="let tab of tabs"
+        [attr.tabindex]="tab.tabindex"
+        [class.active]="tab.active"
+        (click)="selectTab(tab)"
+      >
+        {{ tab.heading }}
+      </button>
+    </div>
+  
+    <!-- Tab content -->
+    <div class="tabs-content">
+      <ng-content></ng-content>
+    </div>
+  </div>
+  

@@ -26,7 +26,9 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
 import { DynamicCssComponent } from './dynamic-css/dynamic-css.component';
 import { GlobalCssComponent } from './global-css/global-css.component';
 import { IbmTabsComponent } from './components/ibm-tabs/ibm-tabs.component';
-import { IbmTabComponent } from './components/ibm-tab/ibm-tab.component';  // Import FormsModule
+import { IbmTabComponent } from './components/ibm-tab/ibm-tab.component';
+import { TabsComponent } from './tabs/tabs.component';
+import { TabComponent } from './tab/tab.component';  // Import FormsModule
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import { IbmTabComponent } from './components/ibm-tab/ibm-tab.component';  // Im
     DynamicCssComponent,
     GlobalCssComponent,
     IbmTabsComponent,
-    IbmTabComponent
+    IbmTabComponent,
+    TabsComponent,
+    TabComponent
   ],
   imports: [
     BrowserModule,
