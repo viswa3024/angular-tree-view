@@ -1,0 +1,57 @@
+.tabs-horizontal .tabs-header {
+    display: flex;
+    border-bottom: 2px solid #ccc;
+  }
+  
+  .tabs-vertical {
+    display: flex;
+  }
+  
+  .tabs-vertical .tabs-header {
+    flex-direction: column;
+    border-right: 2px solid #ccc;
+  }
+  
+  .tabs-header button {
+    padding: 10px 15px;
+    margin: 0;
+    border: none;
+    background: white;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+  }
+  
+  .tabs-header button:hover {
+    border-color: grey;
+  }
+  
+  .tabs-header button.active {
+    border-color: blue;
+  }
+  
+  .tabs-vertical .tabs-header button {
+    border-bottom: none;
+    border-left: 2px solid transparent;
+  }
+  
+  .tabs-vertical .tabs-header button:hover {
+    border-left: 2px solid grey;
+  }
+  
+  .tabs-vertical .tabs-header button.active {
+    border-left: 2px solid blue;
+  }
+  
+  .tabs-content {
+    flex: 1;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-top: none;
+    background: white;
+  }
+  
+  .tabs-vertical .tabs-content {
+    border-left: none;
+  }
+  

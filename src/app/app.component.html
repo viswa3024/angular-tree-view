@@ -74,7 +74,7 @@
 active: Dynamically updates the selected tab. -->
 
 
-<app-tabs orientation="horizontal" (selected)="onTabSelect($event)">
+<!-- <app-tabs orientation="horizontal" (selected)="onTabSelect($event)">
   <app-tab
     id="test"
     heading="Test"
@@ -94,7 +94,29 @@ active: Dynamically updates the selected tab. -->
   >
     Content for Tab 2
   </app-tab>
+</app-tabs> -->
+
+
+<app-tabs orientation="horizontal" (selected)="onTabSelect($event)">
+  <app-tab
+    id="test"
+    heading="Tab 1"
+    [tabindex]="0"
+    [active]="selectedTab === 'test'"
+  ></app-tab>
+
+  <app-tab
+    id="test1"
+    heading="Tab 2"
+    [tabindex]="1"
+    [active]="selectedTab === 'test1'"
+  ></app-tab>
 </app-tabs>
+
+<div class="tab-content">
+  <app-tab1-content *ngIf="selectedTab === 'test'"></app-tab1-content>
+  <app-tab2-content *ngIf="selectedTab === 'test1'"></app-tab2-content>
+</div>
 
 
 

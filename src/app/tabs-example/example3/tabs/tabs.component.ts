@@ -9,10 +9,8 @@ import { TabComponent } from '../tab/tab.component';
 export class TabsComponent implements AfterContentInit {
   @ContentChildren(TabComponent) tabs!: QueryList<TabComponent>;
 
-  @Input() orientation: 'horizontal' | 'vertical' = 'horizontal'; // Default orientation
+  @Input() orientation: 'horizontal' | 'vertical' = 'horizontal'; // Default to horizontal
   @Output() selected = new EventEmitter<string>(); // Emit selected tab ID
-
-  activeTabId = '';
 
   ngAfterContentInit() {
     const activeTabs = this.tabs.filter((tab) => tab.active);
@@ -30,7 +28,6 @@ export class TabsComponent implements AfterContentInit {
         t.tabindex = -1; // Set inactive tabs' tabindex to -1
       }
     });
-    this.activeTabId = tab.id; // Update the active tab ID
     this.selected.emit(tab.id); // Emit the selected tab ID
   }
 }

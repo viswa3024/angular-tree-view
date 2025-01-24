@@ -28,7 +28,9 @@ import { GlobalCssComponent } from './global-css/global-css.component';
 import { IbmTabsComponent } from './components/ibm-tabs/ibm-tabs.component';
 import { IbmTabComponent } from './components/ibm-tab/ibm-tab.component';
 import { TabsComponent } from './tabs/tabs.component';
-import { TabComponent } from './tab/tab.component';  // Import FormsModule
+import { TabComponent } from './tab/tab.component';
+import { Tab1ContentComponent } from './tab1-content/tab1-content.component';
+import { Tab2ContentComponent } from './tab2-content/tab2-content.component';  // Import FormsModule
 
 @NgModule({
   declarations: [
@@ -54,7 +56,9 @@ import { TabComponent } from './tab/tab.component';  // Import FormsModule
     IbmTabsComponent,
     IbmTabComponent,
     TabsComponent,
-    TabComponent
+    TabComponent,
+    Tab1ContentComponent,
+    Tab2ContentComponent
   ],
   imports: [
     BrowserModule,
