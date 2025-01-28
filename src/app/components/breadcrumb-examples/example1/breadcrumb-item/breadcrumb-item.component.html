@@ -1,0 +1,5 @@
+<li class="breadcrumb-item" [class.active]="isCurrent || isActive">
+    <a *ngIf="!isCurrent" [href]="href">{{ text }}</a>
+    <span *ngIf="isCurrent">{{ text }}</span>
+  </li>
+  

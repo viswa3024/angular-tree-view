@@ -1,0 +1,10 @@
+<nav class="breadcrumb">
+    <ng-container *ngFor="let item of breadcrumbItems?.toArray(); let last = last">
+      <app-breadcrumb-item [href]="item.href" [text]="item.text" [isActive]="item.isActive" [isCurrent]="item.isCurrent">
+      </app-breadcrumb-item>
+  
+      <!-- Add slash if not the last item -->
+      <span *ngIf="!last" class="separator"> / </span>
+    </ng-container>
+  </nav>
+  

@@ -118,28 +118,45 @@ active: Dynamically updates the selected tab. -->
   <app-tab2-content *ngIf="selectedTab === 'test1'"></app-tab2-content>
 </div> -->
 
-<button (click)="toggleLoading()">Toggle Loading</button>
+<!-- <button (click)="toggleLoading()">Toggle Loading</button> -->
 
 <!-- Loader with default properties -->
-<app-custom-loading [isActive]="loading"></app-custom-loading>
+<!-- <app-custom-loading [isActive]="loading"></app-custom-loading> -->
 
 <!-- Loader with custom height, width, color, and borderWidth -->
-<app-custom-loading
+<!-- <app-custom-loading
   [isActive]="loading"
   [height]="'64px'"
   [width]="'64px'"
   [color]="'#ff5733'"
   [borderWidth]="'8px'"
-></app-custom-loading>
+></app-custom-loading> -->
 
 <!-- Loader with smaller size, thin border, and green color -->
-<app-custom-loading
+<!-- <app-custom-loading
   [isActive]="loading"
-  [height]="'32px'"
-  [width]="'32px'"
+  [height]="'36px'"
+  [width]="'36px'"
   [color]="'#00ff00'"
   [borderWidth]="'2px'"
-></app-custom-loading>
+></app-custom-loading> -->
+
+<!-- Example 1   -->
+<!-- <app-breadcrumb [noTrailingSlash]="true">
+  <app-breadcrumb-item href="#" [text]="'Home'"></app-breadcrumb-item>
+  <app-breadcrumb-item href="#" [text]="'Category'"></app-breadcrumb-item>
+  <app-breadcrumb-item href="#" [text]="'Subcategory'" [isActive]="true"></app-breadcrumb-item>
+  <app-breadcrumb-item [text]="'Item'" [isCurrent]="true"></app-breadcrumb-item>
+</app-breadcrumb> -->
+
+<app-breadcrumb [noTrailingSlash]="true">
+  <app-breadcrumb-item href="/home" [text]="'Home'"></app-breadcrumb-item>
+  <app-breadcrumb-item href="/Category" [text]="'Category'"></app-breadcrumb-item>
+  <app-breadcrumb-item href="/Subcategory" [text]="'Subcategory'" [isActive]="true"></app-breadcrumb-item>
+  <app-breadcrumb-item [href]="''" [text]="'Item'" [isCurrent]="true"></app-breadcrumb-item>
+</app-breadcrumb>
+
+
 
 
 

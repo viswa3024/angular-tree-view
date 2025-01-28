@@ -1,0 +1,26 @@
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .breadcrumb a {
+    text-decoration: none;
+    color: #0078d4;
+  }
+  
+  .breadcrumb span {
+    color: #6a6a6a;
+  }
+  
+  .breadcrumb .separator {
+    margin: 0 10px;
+  }
+  
+  .breadcrumb-item.active {
+    font-weight: bold;
+    color: #0062ff;
+  }
+  
