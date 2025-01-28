@@ -30,7 +30,8 @@ import { IbmTabComponent } from './components/ibm-tab/ibm-tab.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { TabComponent } from './tab/tab.component';
 import { Tab1ContentComponent } from './tab1-content/tab1-content.component';
-import { Tab2ContentComponent } from './tab2-content/tab2-content.component';  // Import FormsModule
+import { Tab2ContentComponent } from './tab2-content/tab2-content.component';
+import { CustomLoadingComponent } from './components/custom-loading/custom-loading.component';  // Import FormsModule
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { Tab2ContentComponent } from './tab2-content/tab2-content.component';  /
     TabsComponent,
     TabComponent,
     Tab1ContentComponent,
-    Tab2ContentComponent
+    Tab2ContentComponent,
+    CustomLoadingComponent
   ],
   imports: [
     BrowserModule,

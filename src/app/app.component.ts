@@ -34,6 +34,8 @@ isModalVisible = false;
 
 selectedTab = 'test';
 
+loading = false;
+
 
 ngOnInit() {
 
@@ -145,5 +147,8 @@ onTabSelect(tabId: string) {
   console.log('Selected Tab:', tabId);
 }
 
+toggleLoading() {
+  this.loading = !this.loading;
+}
 
 }

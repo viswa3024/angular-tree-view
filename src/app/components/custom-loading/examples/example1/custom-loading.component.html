@@ -1,0 +1,13 @@
+<div class="loading-overlay" *ngIf="isActive && overlay">
+    <!-- Overlay -->
+  </div>
+  
+  <div
+    class="spinner"
+    *ngIf="isActive"
+    [ngClass]="{ 'small-spinner': size === 'small', 'normal-spinner': size === 'normal' }"
+  >
+    <div class="double-bounce1"></div>
+    <div class="double-bounce2"></div>
+  </div>
+  
