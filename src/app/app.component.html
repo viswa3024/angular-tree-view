@@ -196,38 +196,37 @@ active: Dynamically updates the selected tab. -->
 
 
 
-<app-breadcrumb>
-  <!-- Normal link -->
+<!-- <app-breadcrumb>
   <app-breadcrumb-item href="/home" [text]="'Home'"></app-breadcrumb-item>
-  
-  <!-- Clickable but no href -->
   <app-breadcrumb-item [text]="'Home'" [isClickable]="true" (itemClick)="onBreadcrumbClick()"></app-breadcrumb-item>
-  
-  <!-- Just plain text (no click, no href) -->
   <app-breadcrumb-item [text]="'Home'"></app-breadcrumb-item>
-
-  <!-- Other examples -->
   <app-breadcrumb-item href="/category" [text]="'Category'"></app-breadcrumb-item>
   <app-breadcrumb-item [text]="'Category'" [isClickable]="true" (itemClick)="onBreadcrumbClick()"></app-breadcrumb-item>
   <app-breadcrumb-item [text]="'Item'" [isCurrent]="true"></app-breadcrumb-item>
-</app-breadcrumb>
+</app-breadcrumb> -->
 
+
+<!-- <app-breadcrumb>
+  <app-breadcrumb-item href="/home" [text]="'Home'"></app-breadcrumb-item>
+  <app-breadcrumb-item [text]="'Category'" [isClickable]="true" (itemClick)="onBreadcrumbClick()"></app-breadcrumb-item>
+  <app-breadcrumb-item [text]="'Subcategory'" [isClickable]="true" (itemClick)="onBreadcrumbClick()"></app-breadcrumb-item>
+  <app-breadcrumb-item [text]="'Item'" [isCurrent]="true"></app-breadcrumb-item>
+</app-breadcrumb> -->
+
+<!-- Example 4  -->
+<!-- <app-breadcrumb>
+  <app-breadcrumb-item [text]="'Home'" (itemClick)="onBreadcrumbItemClick($event)"></app-breadcrumb-item>
+  <app-breadcrumb-item href="/Category" [text]="'Category'" (itemClick)="onBreadcrumbItemClick($event)"></app-breadcrumb-item>
+  <app-breadcrumb-item href="/Subcategory" [text]="'Subcategory'" (itemClick)="onBreadcrumbItemClick($event)"></app-breadcrumb-item>
+  <app-breadcrumb-item [text]="'Item'" [isCurrent]="true" (itemClick)="onBreadcrumbItemClick($event)"></app-breadcrumb-item>
+</app-breadcrumb> -->
 
 <app-breadcrumb>
-  <!-- Breadcrumb items -->
-  <app-breadcrumb-item href="/home" [text]="'Home'"></app-breadcrumb-item>
-
-  <!-- Clickable breadcrumb -->
-  <app-breadcrumb-item [text]="'Category'" [isClickable]="true" (itemClick)="onBreadcrumbClick()"></app-breadcrumb-item>
-
-  <!-- Another clickable breadcrumb -->
-  <app-breadcrumb-item [text]="'Subcategory'" [isClickable]="true" (itemClick)="onBreadcrumbClick()"></app-breadcrumb-item>
-
-  <!-- Non-clickable current item -->
-  <app-breadcrumb-item [text]="'Item'" [isCurrent]="true"></app-breadcrumb-item>
+  <app-breadcrumb-item label="Home" href="#" (itemClick)="onBreadcrumbClick('Home')"></app-breadcrumb-item>
+  <app-breadcrumb-item label="Category" href="#" (itemClick)="onBreadcrumbClick('Category')"></app-breadcrumb-item>
+  <app-breadcrumb-item label="Subcategory" href="#" (itemClick)="onBreadcrumbClick('Subcategory')"></app-breadcrumb-item>
+  <app-breadcrumb-item label="Current Page" href="#" (itemClick)="onBreadcrumbClick('Current Page')"></app-breadcrumb-item>
 </app-breadcrumb>
-
-
 
 
 

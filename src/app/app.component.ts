@@ -165,9 +165,15 @@ subcategoryClick() {
 }
 
 
-onBreadcrumbClick() {
-  console.log(`Breadcrumb Clicked:`);
-  alert(`Breadcrumb Clicked:`);
+
+
+onItemClick() {
+  console.log('Breadcrumb item clicked!');
+}
+
+onBreadcrumbClick(label: string): void {
+  console.log(`${label} breadcrumb clicked!11111`);
+  // Add your custom logic here (e.g., routing, state management, etc.)
 }
 
 }

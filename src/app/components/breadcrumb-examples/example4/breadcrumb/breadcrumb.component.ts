@@ -7,9 +7,11 @@ import { BreadcrumbItemComponent } from '../breadcrumb-item/breadcrumb-item.comp
   styleUrls: ['./breadcrumb.component.scss']
 })
 export class BreadcrumbComponent {
-  //@ContentChildren(BreadcrumbItemComponent) breadcrumbItems: QueryList<BreadcrumbItemComponent> | undefined;
+  @ContentChildren(BreadcrumbItemComponent) breadcrumbItems: QueryList<BreadcrumbItemComponent> | undefined;
+  @Input() noTrailingSlash: boolean = false;  // Control trailing slash
 
-  @ContentChildren(BreadcrumbItemComponent) breadcrumbItems: QueryList<BreadcrumbItemComponent> = new QueryList<any>();
-
-  constructor() { }
+  // Handler for the item click
+  onItemClick(item: BreadcrumbItemComponent) {
+    console.log(`Item clicked: ${item.text}`);
+  }
 }

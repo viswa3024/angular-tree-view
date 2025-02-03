@@ -1,10 +1,3 @@
-<li class="breadcrumb-item" [class.active]="isCurrent || isActive">
-  <!-- Display as link if href is provided -->
-  <a *ngIf="href; else clickableText" [href]="href">{{ text }}</a>
-
-  <!-- Display text as clickable span or plain text -->
-  <ng-template #clickableText>
-    <span *ngIf="isClickable" (click)="onClick()" class="clickable">{{ text }}</span>
-    <span *ngIf="!isClickable">{{ text }}</span>
-  </ng-template>
-</li>
+<span class="breadcrumb-item" (click)="onClick()">
+  <a [href]="href">{{ label }}</a>
+</span>

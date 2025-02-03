@@ -1,0 +1,10 @@
+<li class="breadcrumb-item" [class.active]="isCurrent || isActive">
+  <!-- Display link for non-current items -->
+  <a *ngIf="!isCurrent && !isClickable" [href]="href">{{ text }}</a>
+
+  <!-- Display clickable text -->
+  <span *ngIf="isClickable" (click)="onClick()" class="clickable">{{ text }}</span>
+
+  <!-- Display text for the current item -->
+  <span *ngIf="isCurrent && !isClickable">{{ text }}</span>
+</li>
