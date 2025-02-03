@@ -151,4 +151,23 @@ toggleLoading() {
   this.loading = !this.loading;
 }
 
+
+homeClick() {
+  console.log('Home clicked');
+}
+
+categoryClick() {
+  console.log('Category clicked');
+}
+
+subcategoryClick() {
+  console.log('Subcategory clicked1');
+}
+
+
+onBreadcrumbClick(item: string) {
+  console.log(`Breadcrumb Clicked: ${item}`);
+  alert(`Breadcrumb Clicked: ${item}`);
+}
+
 }

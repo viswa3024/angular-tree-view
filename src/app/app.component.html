@@ -173,12 +173,27 @@ active: Dynamically updates the selected tab. -->
 </app-breadcrumb> -->
 
 
-<app-breadcrumb [noTrailingSlash]="true">
+<!-- <app-breadcrumb [noTrailingSlash]="true">
   <app-breadcrumb-item href="/home" [text]="'Home'"></app-breadcrumb-item>
   <app-breadcrumb-item href="/Category" [text]="'Category'"></app-breadcrumb-item>
   <app-breadcrumb-item href="/Subcategory" [text]="'Subcategory'" [isActive]="true"></app-breadcrumb-item>
   <app-breadcrumb-item [href]="''" [text]="'Item'" [isCurrent]="true"></app-breadcrumb-item>
+</app-breadcrumb> -->
+
+<!-- Example 3  -->
+<app-breadcrumb>
+  <app-breadcrumb-item href="/home" [text]="'Home'"></app-breadcrumb-item>
+  <app-breadcrumb-item [text]="'Home'" (itemClick)="onBreadcrumbClick($event)"></app-breadcrumb-item>
+
+  <app-breadcrumb-item href="/Category" [text]="'Category'"></app-breadcrumb-item>
+  <app-breadcrumb-item [text]="'Category'" (itemClick)="onBreadcrumbClick($event)"></app-breadcrumb-item>
+
+  <app-breadcrumb-item href="/Subcategory" [text]="'Subcategory'" [isActive]="true"></app-breadcrumb-item>
+  <app-breadcrumb-item [text]="'Subcategory'" (itemClick)="onBreadcrumbClick($event)" [isActive]="true"></app-breadcrumb-item>
+
+  <app-breadcrumb-item [text]="'Item'" [isCurrent]="true"></app-breadcrumb-item>
 </app-breadcrumb>
+
 
 
 
