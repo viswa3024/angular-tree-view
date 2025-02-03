@@ -1,8 +1,7 @@
 <li class="breadcrumb-item" [class.active]="isCurrent || isActive">
-    <!-- Display link for non-current items -->
-    <a *ngIf="!isCurrent" [href]="href">{{ text }}</a>
-    
-    <!-- Display text for the current item -->
-    <span *ngIf="isCurrent">{{ text }}</span>
-  </li>
+  <!-- Display link for non-current items -->
+  <a *ngIf="!isCurrent" [href]="href">{{ text }}</a>
   
+  <!-- Display text for the current item -->
+  <span *ngIf="isCurrent">{{ text }}</span>
+</li>
