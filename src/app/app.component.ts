@@ -165,9 +165,9 @@ subcategoryClick() {
 }
 
 
-onBreadcrumbClick(item: string) {
-  console.log(`Breadcrumb Clicked: ${item}`);
-  alert(`Breadcrumb Clicked: ${item}`);
+onBreadcrumbClick() {
+  console.log(`Breadcrumb Clicked:`);
+  alert(`Breadcrumb Clicked:`);
 }
 
 }
