@@ -12,6 +12,7 @@ interface TableData {
   results: any;
   is_expanded: boolean;
   evaluated: string;
+  dataObject: any;  // Allows any type for dataObject (including objects)
 }
 
 @Component({
@@ -99,12 +100,18 @@ customRableData = [
 
 
 headers = ['ID'];  // Custom headers
+// rows: Array<TableData> = [
+//   { id: 1, results: '{"data": "123456"}', is_expanded: true, evaluated: 'Yes' },
+//   { id: 2, results: 'Failed', is_expanded: false, evaluated: 'No' },
+//   { id: 3, results: 'Passed', is_expanded: true, evaluated: 'Yes' },
+//   { id: 4, results: 'Pending', is_expanded: false, evaluated: 'No' }
+// ];
+
 rows: Array<TableData> = [
-  { id: 1, results: '{"data": "123456"}', is_expanded: true, evaluated: 'Yes' },
-  { id: 2, results: 'Failed', is_expanded: false, evaluated: 'No' },
-  { id: 3, results: 'Passed', is_expanded: true, evaluated: 'Yes' },
-  { id: 4, results: 'Pending', is_expanded: false, evaluated: 'No' }
+  { id: 1, results: '{"data": "123456"}', is_expanded: true, evaluated: 'Yes', dataObject: { data: 'test object' } },
+  { id: 2, results: 'Failed', is_expanded: false, evaluated: 'No', dataObject: "test string" }
 ];
+
 
 ngOnInit() {
 

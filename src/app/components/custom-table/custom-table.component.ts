@@ -20,4 +20,14 @@ export class CustomTableComponent implements OnInit {
   objectKeys(row: Record<string, any>): string[] {
     return Object.keys(row);  // Just return the keys of the object
   }
+
+  // Helper method to check if a value is an object
+  isObject(value: any): boolean {
+    return value && typeof value === 'object' && !Array.isArray(value);
+  }
+
+  // Method to stringify an object
+  stringifyObject(value: any): string {
+    return JSON.stringify(value);
+  }
 }

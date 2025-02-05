@@ -1,27 +1,25 @@
-<div class="custom-table-container">
-    <table class="custom-table">
-      <thead>
-        <tr>
-          <!-- If there's only one header, span across all columns -->
-          <th *ngIf="headers.length === 1" [attr.colspan]="headers.length" class="header-cell single-header">
-            {{ headers[0] }}
-          </th>
-          
-          <!-- If there are multiple headers, render each header separately -->
-          <ng-container *ngIf="headers.length > 1">
-            <th *ngFor="let header of headers" class="header-cell">
-              {{ header }}
-            </th>
+<table class="custom-table">
+    <thead>
+      <tr>
+        <!-- Dynamically render headers -->
+        <th *ngFor="let header of headers">{{ header }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of rows">
+        <!-- Dynamically render each cell for each key in row object -->
+        <td *ngFor="let key of objectKeys(row)">
+          <!-- Check if the value is an object -->
+          <ng-container *ngIf="isObject(row[key]); else showData">
+            <!-- If it's an object, display its stringified version -->
+            {{ stringifyObject(row[key]) }}
           </ng-container>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let row of rows">
-          <td *ngFor="let key of objectKeys(row)">
+          <ng-template #showData>
+            <!-- If it's not an object, display the data directly -->
             {{ row[key] || 'No Data' }}
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+          </ng-template>
+        </td>
+      </tr>
+    </tbody>
+  </table>
   
