@@ -1,12 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-interface TableData {
-  id: number;
-  results: any;
-  is_expanded: boolean;
-  evaluated: string;
-}
-
 @Component({
   selector: 'app-custom-table',
   templateUrl: './custom-table.component.html',
@@ -14,17 +7,17 @@ interface TableData {
 })
 export class CustomTableComponent implements OnInit {
 
-  @Input() rows: Array<TableData> = [];
-  @Input() headers: string[] = [];
+  @Input() rows: Array<Record<string, any>> = [];  // Accept any object structure for rows
+  @Input() headers: string[] = [];  // Headers can be any string array
 
   constructor() {}
 
   ngOnInit(): void {
-    // Any additional initialization can go here
+    // Any initialization logic if required
   }
 
-  // Helper method to get keys of a row object, asserting that they are keys of TableData
-  objectKeys(row: TableData): (keyof TableData)[] {
-    return Object.keys(row) as (keyof TableData)[];
+  // Helper method to get keys dynamically from any row object
+  objectKeys(row: Record<string, any>): string[] {
+    return Object.keys(row);  // Just return the keys of the object
   }
 }

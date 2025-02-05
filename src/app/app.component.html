@@ -256,6 +256,15 @@ active: Dynamically updates the selected tab. -->
 
 
 
+<app-custom-table [headers]="['ID', 'Name', 'Age']" 
+                  [rows]="[{ id: 1, name: 'John Doe', age: 28 }, { id: 2, name: 'Jane Smith', age: 34 }]">
+</app-custom-table>
+
+<app-custom-table [headers]="['Product Name', 'Price', 'Stock']" 
+                  [rows]="[{ productName: 'Laptop', price: 1000, stock: 20 }, { productName: 'Phone', price: 500, stock: 50 }]">
+</app-custom-table>
+
+
 
 
 
