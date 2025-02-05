@@ -1,0 +1,20 @@
+<table class="custom-table">
+    <thead>
+      <tr>
+        <th *ngFor="let header of headers" (click)="sortData(header.key)">
+          {{ header.label }}
+          <span *ngIf="header.sortable">
+            ▲▼
+          </span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of data">
+        <td *ngFor="let header of headers">
+          {{ row[header.key] }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  

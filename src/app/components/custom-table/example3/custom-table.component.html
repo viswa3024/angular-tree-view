@@ -1,0 +1,19 @@
+<div class="custom-table-container">
+    <table class="custom-table">
+      <thead>
+        <tr>
+          <!-- Render arbitrary headers as column names -->
+          <th *ngFor="let header of headers">{{ header }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Render rows with cells directly, no relation to header -->
+        <tr *ngFor="let row of rows">
+          <td *ngFor="let column of row; let i = index">
+            {{ column || 'No Data' }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

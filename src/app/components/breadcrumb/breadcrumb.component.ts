@@ -1,4 +1,4 @@
-import { Component, ContentChildren, QueryList, Input } from '@angular/core';
+import { Component, ContentChildren, QueryList, Input, AfterContentInit, Output, EventEmitter  } from '@angular/core';
 import { BreadcrumbItemComponent } from '../breadcrumb-item/breadcrumb-item.component';
 
 @Component({
@@ -6,10 +6,18 @@ import { BreadcrumbItemComponent } from '../breadcrumb-item/breadcrumb-item.comp
   templateUrl: './breadcrumb.component.html',
   styleUrls: ['./breadcrumb.component.scss']
 })
-export class BreadcrumbComponent {
-  //@ContentChildren(BreadcrumbItemComponent) breadcrumbItems: QueryList<BreadcrumbItemComponent> | undefined;
+export class BreadcrumbComponent implements AfterContentInit {
+  @Input() noTrailingSlash: boolean = false;
+  @ContentChildren(BreadcrumbItemComponent) breadcrumbItems!: QueryList<BreadcrumbItemComponent>;
 
-  @ContentChildren(BreadcrumbItemComponent) breadcrumbItems: QueryList<BreadcrumbItemComponent> = new QueryList<any>();
+  @Output() breadcrumbClick = new EventEmitter<string>(); // Emits click event to parent
 
-  constructor() { }
+  ngAfterContentInit() {
+    // Ensure breadcrumb items are loaded
+  }
+
+  onBreadcrumbClick(label: string): void {
+    console.log(`Breadcrumb clicked in breadcrumb.component.ts: ${label}`);
+    this.breadcrumbClick.emit(label); // Pass event up to app.component.ts
+  }
 }

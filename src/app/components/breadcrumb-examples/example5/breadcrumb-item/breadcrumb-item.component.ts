@@ -10,8 +10,7 @@ export class BreadcrumbItemComponent {
   @Input() href: string = '#';
   @Output() itemClick = new EventEmitter<string>();
 
-  onClick(event: Event): void {
-    event.preventDefault(); // Prevents page reload
+  onClick(): void {
     this.itemClick.emit(this.label);
   }
 }

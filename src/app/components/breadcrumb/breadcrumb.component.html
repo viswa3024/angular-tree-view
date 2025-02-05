@@ -1,3 +1,10 @@
 <nav class="breadcrumb">
-  <ng-content></ng-content>
+  <ng-container *ngFor="let item of breadcrumbItems; let last = last">
+    <app-breadcrumb-item
+      [label]="item.label"
+      [href]="item.href"
+      (itemClick)="onBreadcrumbClick(item.label)">
+    </app-breadcrumb-item>
+    <span *ngIf="!last && !noTrailingSlash"> / </span>
+  </ng-container>
 </nav>

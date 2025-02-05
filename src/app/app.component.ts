@@ -1,5 +1,19 @@
 import { Component } from '@angular/core';
 
+
+interface TableHeader {
+  label: string;
+  sortable?: boolean;
+  direction?: 'asc' | 'desc';  // Ensure only 'asc' | 'desc' | undefined is allowed
+}
+
+interface TableData {
+  id: number;
+  results: any;
+  is_expanded: boolean;
+  evaluated: string;
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -36,6 +50,61 @@ selectedTab = 'test';
 
 loading = false;
 
+// Example 1 
+// customTableHeaders = [
+//   { key: 'name', label: 'Name', sortable: true },
+//   { key: 'position', label: 'Position', sortable: true },
+//   { key: 'office', label: 'Office', sortable: true },
+//   { key: 'age', label: 'Age', sortable: true },
+//   { key: 'startDate', label: 'Start Date', sortable: true },
+//   { key: 'salary', label: 'Salary', sortable: true }
+// ];
+
+// customRableData = [
+//   { name: 'Tiger Nixon', position: 'System Architect', office: 'Edinburgh', age: 61, startDate: '2011/04/25', salary: '$320,800' },
+//   { name: 'Garrett Winters', position: 'Accountant', office: 'Tokyo', age: 63, startDate: '2011/07/25', salary: '$170,750' }
+// ];
+
+
+customTableHeaders = [
+  { item: 'ID', key: 'id', sortable: true },
+  { item: 'Results', key: 'results', sortable: true },
+  { item: 'Is Expanded', key: 'is_expanded', sortable: false },
+  { item: 'Evaluated', key: 'evaluated', sortable: true }
+];
+
+customRableData = [
+  { id: 1, results: 'Passed', is_expanded: true, evaluated: 'Yes' },
+  { id: 2, results: 'Failed', is_expanded: false, evaluated: 'No' },
+  { id: 3, results: 'Passed', is_expanded: true, evaluated: 'Yes' }
+];
+
+
+// headers = ['Name', 'Age', 'Occupation'];
+//   rows = [
+//     { name: 'John Doe', age: 28, occupation: 'Engineer' },
+//     { name: 'Jane Smith', age: 34, occupation: 'Designer' },
+//     { name: 'Sam Johnson', age: 22, occupation: 'Developer' },
+//     { name: 'Alice Brown', age: 27, occupation: 'Manager' }
+//   ];
+
+// Example 3
+// headers = ['Test data Header'];
+// rows = [
+//   ['John Doe', 28, 'Engineer'],  // Each row can have any number of cells.
+//   ['Jane Smith', 34, 'Designer'],
+//   ['Sam Johnson', 22, 'Developer'],
+//   ['Alice Brown', 27, 'Manager']
+// ];
+
+
+headers = ['ID'];  // Custom headers
+rows: Array<TableData> = [
+  { id: 1, results: '{"data": "123456"}', is_expanded: true, evaluated: 'Yes' },
+  { id: 2, results: 'Failed', is_expanded: false, evaluated: 'No' },
+  { id: 3, results: 'Passed', is_expanded: true, evaluated: 'Yes' },
+  { id: 4, results: 'Pending', is_expanded: false, evaluated: 'No' }
+];
 
 ngOnInit() {
 

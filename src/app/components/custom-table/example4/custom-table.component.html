@@ -1,0 +1,24 @@
+<div class="custom-table-container">
+    <table class="custom-table">
+      <thead>
+        <tr>
+          <!-- Render arbitrary headers -->
+          <th *ngFor="let header of headers">{{ header }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Render rows with properties from TableData -->
+        <tr *ngFor="let row of rows">
+          <!-- Render the 'id' -->
+          <td>{{ row.id || 'No Data' }}</td>
+          <!-- Render the 'results' (this could be any type, so handle accordingly) -->
+          <td>{{ row.results || 'No Data' }}</td>
+          <!-- Render the 'is_expanded' as a boolean -->
+          <td>{{ row.is_expanded ? 'Yes' : 'No' }}</td>
+          <!-- Render the 'evaluated' string -->
+          <td>{{ row.evaluated || 'No Data' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

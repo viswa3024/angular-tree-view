@@ -1,0 +1,62 @@
+.breadcrumb-item {
+  display: inline;
+  font-size: 14px;
+}
+
+.breadcrumb-item a {
+  color: #0078d4;
+  text-decoration: none;
+}
+
+.breadcrumb-item.active {
+  font-weight: bold;
+  color: #0062ff;
+}
+
+.breadcrumb-item span {
+  color: #6a6a6a;
+}
+
+
+.clickable {
+  color: #0078d4;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.clickable:hover {
+  color: #0056b3;
+}
+
+.non-clickable {
+  color: #6a6a6a;
+}
+
+
+.breadcrumb-item {
+  display: inline;
+  font-size: 14px;
+}
+
+.breadcrumb-item a {
+  color: #0078d4;
+  text-decoration: none;
+}
+
+.breadcrumb-item.active {
+  font-weight: bold;
+  color: #0062ff;
+}
+
+.breadcrumb-item span {
+  color: #6a6a6a;
+}
+
+.clickable {
+  cursor: pointer;
+  color: #0078d4;
+}
+
+.clickable:hover {
+  text-decoration: underline;
+}

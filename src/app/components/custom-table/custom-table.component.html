@@ -1,0 +1,18 @@
+<div class="custom-table-container">
+    <table class="custom-table">
+      <thead>
+        <tr>
+          <th *ngFor="let header of headers">{{ header }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of rows">
+          <td *ngFor="let key of objectKeys(row)">
+            <!-- Render each cell with dynamic key -->
+            {{ row[key] || 'No Data' }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

@@ -1,0 +1,17 @@
+<div class="custom-table-container">
+    <table class="custom-table">
+      <thead>
+        <tr>
+          <!-- Dynamically generate table headers -->
+          <th *ngFor="let header of headers">{{ header }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Dynamically generate table rows -->
+        <tr *ngFor="let row of rows">
+          <td *ngFor="let header of headers">{{ row[header.toLowerCase()] }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
