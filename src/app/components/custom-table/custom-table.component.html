@@ -2,13 +2,22 @@
     <table class="custom-table">
       <thead>
         <tr>
-          <th *ngFor="let header of headers">{{ header }}</th>
+          <!-- If there's only one header, span across all columns -->
+          <th *ngIf="headers.length === 1" [attr.colspan]="headers.length" class="header-cell single-header">
+            {{ headers[0] }}
+          </th>
+          
+          <!-- If there are multiple headers, render each header separately -->
+          <ng-container *ngIf="headers.length > 1">
+            <th *ngFor="let header of headers" class="header-cell">
+              {{ header }}
+            </th>
+          </ng-container>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let row of rows">
           <td *ngFor="let key of objectKeys(row)">
-            <!-- Render each cell with dynamic key -->
             {{ row[key] || 'No Data' }}
           </td>
         </tr>
