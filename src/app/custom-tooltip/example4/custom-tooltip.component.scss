@@ -1,0 +1,19 @@
+.tooltip {
+  position: absolute;
+  background-color: #333;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  visibility: visible;
+  opacity: 0.9;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.tooltip-trigger {
+  cursor: pointer;
+}
+
+.tooltip-content {
+  font-size: 14px;
+}

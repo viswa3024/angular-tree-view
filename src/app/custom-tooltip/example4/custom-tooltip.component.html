@@ -1,0 +1,19 @@
+<!-- The element that triggers the tooltip -->
+<span (mouseover)="onHover($event)"
+      (click)="onClick($event)"
+      [attr.tabindex]="0"
+      class="tooltip-trigger">
+  <ng-content></ng-content> <!-- Allow custom content in the trigger -->
+</span>
+
+<!-- Tooltip Template -->
+<div *ngIf="showTooltip" class="tooltip">
+  <ng-container *ngTemplateOutlet="tooltipTemplate"></ng-container>
+</div>
+
+<!-- Tooltip Template that can be passed dynamically -->
+<ng-template #tooltipTemplate>
+  <div class="tooltip-content">
+    {{ tooltipContent }}
+  </div>
+</ng-template>

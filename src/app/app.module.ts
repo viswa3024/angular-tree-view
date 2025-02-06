@@ -34,7 +34,8 @@ import { Tab2ContentComponent } from './tab2-content/tab2-content.component';
 import { CustomLoadingComponent } from './components/custom-loading/custom-loading.component';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 import { BreadcrumbItemComponent } from './components/breadcrumb-item/breadcrumb-item.component';
-import { CustomTableComponent } from './components/custom-table/custom-table.component';  // Import FormsModule
+import { CustomTableComponent } from './components/custom-table/custom-table.component';
+import { CustomToolComponent } from './components/custom-tool/custom-tool.component';  // Import FormsModule
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { CustomTableComponent } from './components/custom-table/custom-table.com
     CustomLoadingComponent,
     BreadcrumbComponent,
     BreadcrumbItemComponent,
-    CustomTableComponent
+    CustomTableComponent,
+    CustomToolComponent
   ],
   imports: [
     BrowserModule,

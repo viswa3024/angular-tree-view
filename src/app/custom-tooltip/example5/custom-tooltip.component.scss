@@ -1,0 +1,28 @@
+.tooltip-box {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  padding: 6px 10px;
+  font-size: 14px;
+  border-radius: 4px;
+  white-space: nowrap;
+  z-index: 1000;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.2s ease-in-out;
+}
+
+.tooltip-top {
+  transform: translateY(-5px);
+}
+
+.tooltip-bottom {
+  transform: translateY(5px);
+}
+
+.tooltip-left {
+  transform: translateX(-5px);
+}
+
+.tooltip-right {
+  transform: translateX(5px);
+}
