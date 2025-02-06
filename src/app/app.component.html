@@ -335,7 +335,7 @@ active: Dynamically updates the selected tab. -->
 </app-custom-tooltip> -->
 
 
-<app-custom-tooltip 
+<!-- <app-custom-tooltip 
   [tooltipText]="'This is a tooltip'" 
   [placement]="'top'" 
   [marginTop]="'0px'" 
@@ -378,7 +378,158 @@ active: Dynamically updates the selected tab. -->
     Hover over me
   </button>
   
-</app-custom-tooltip>
+</app-custom-tooltip> -->
+
+
+
+<!-- Example 1 -->
+<!-- <button (click)="customModalOpen()">Open Custom Modal</button>
+
+
+<app-custom-modal
+  [open]="isModalOpen"
+  [modalTitle]="modalTitle"
+  (modalClose)="closeModal()"
+>
+  <p>This is a custom modal with dynamic content.</p>
+</app-custom-modal> -->
+
+
+<!-- Example 2 -->
+<!-- <button (click)="customModalOpen()">Open Custom Modal</button>
+
+
+<app-custom-modal
+  [open]="isModalOpen"
+  (modalClose)="closeModal()"
+>
+ 
+  <div modal-title>
+    <h2>My Custom Modal Title</h2>
+  </div>
+
+
+  <div>
+    <p>This is the modal content that can be dynamically inserted.</p>
+  </div>
+
+
+  <div modal-footer>
+    <button (click)="closeModal()">Close</button>
+  </div>
+</app-custom-modal> -->
+
+
+
+<!-- Example 3 -->
+<!-- <button (click)="customModalOpen()">Open Custom Modal</button>
+
+
+<app-custom-modal
+  [open]="isModalOpen"
+  (modalClose)="closeModal()"
+>
+ 
+  <div modal-title>
+    <h2>My Custom Modal Title</h2>
+  </div>
+
+
+  <div modal-close>
+    <button class="close-btn" (click)="closeModal()">X</button>
+  </div>
+
+
+  <div>
+    <p>This is the modal content that can be dynamically inserted.</p>
+  </div>
+
+
+  <div modal-footer>
+    <button (click)="closeModal()">Close</button>
+  </div>
+</app-custom-modal> -->
+
+
+
+<!-- Button to trigger modal -->
+<button (click)="customModalOpen()">Open Custom Modal</button>
+
+<!-- Custom Modal Component -->
+<app-custom-modal
+  [open]="isModalOpen"
+  [width]="'60vw'"  
+  [alignment]="'right'"
+  (modalClose)="closeModal()"
+>
+  <!-- Modal Title -->
+  <div modal-title>
+    <h2>My Left Aligned Modal</h2>
+  </div>
+
+  <!-- Close Button -->
+  <div modal-close>
+    <button class="close-btn" (click)="closeModal()">X</button>
+  </div>
+
+  <!-- Modal Body Content -->
+  <div>
+    <p>This is some dynamic content inside the modal. You can add any content here.</p>
+    <p>More content to show scrolling behavior when the content overflows...</p>
+    <p>Even more content...</p>
+    <p>This is some dynamic content inside the modal. You can add any content here.</p>
+    <p>More content to show scrolling behavior when the content overflows...</p>
+    <p>Even more content...</p>
+    <p>This is some dynamic content inside the modal. You can add any content here.</p>
+    <p>More content to show scrolling behavior when the content overflows...</p>
+    <p>Even more content...</p>
+    <p>This is some dynamic content inside the modal. You can add any content here.</p>
+    <p>More content to show scrolling behavior when the content overflows...</p>
+    <p>Even more content...</p>
+    <p>This is some dynamic content inside the modal. You can add any content here.</p>
+    <p>More content to show scrolling behavior when the content overflows...</p>
+    <p>Even more content...</p>
+    <p>This is some dynamic content inside the modal. You can add any content here.</p>
+    <p>More content to show scrolling behavior when the content overflows...</p>
+    <p>Even more content...</p>
+    <p>This is some dynamic content inside the modal. You can add any content here.</p>
+    <p>More content to show scrolling behavior when the content overflows...</p>
+    <p>Even more content...</p>
+    <p>This is some dynamic content inside the modal. You can add any content here.</p>
+    <p>More content to show scrolling behavior when the content overflows...</p>
+    <p>Even more content...</p>
+    <p>This is some dynamic content inside the modal. You can add any content here.</p>
+    <p>More content to show scrolling behavior when the content overflows...</p>
+    <p>Even more content...</p>
+    <p>This is some dynamic content inside the modal. You can add any content here.</p>
+    <p>More content to show scrolling behavior when the content overflows...</p>
+    <p>Even more content...</p>
+    <p>This is some dynamic content inside the modal. You can add any content here.</p>
+    <p>More content to show scrolling behavior when the content overflows...</p>
+    <p>Even more content...</p>
+    <p>This is some dynamic content inside the modal. You can add any content here.</p>
+    <p>More content to show scrolling behavior when the content overflows...</p>
+    <p>Even more content...</p>
+    <p>This is some dynamic content inside the modal. You can add any content here.</p>
+    <p>More content to show scrolling behavior when the content overflows...</p>
+    <p>Even more content...</p>
+    <p>This is some dynamic content inside the modal. You can add any content here.</p>
+    <p>More content to show scrolling behavior when the content overflows...</p>
+    <p>Even more content...</p>
+    <p>This is some dynamic content inside the modal. You can add any content here.</p>
+    <p>More content to show scrolling behavior when the content overflows...</p>
+    <p>Even more content...</p>
+
+  </div>
+
+  <!-- Modal Footer -->
+  <div modal-footer>
+    <button (click)="closeModal()">Close</button>
+  </div>
+</app-custom-modal>
+
+
+
 
 
 

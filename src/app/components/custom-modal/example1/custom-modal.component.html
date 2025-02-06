@@ -1,0 +1,20 @@
+<div class="modal-overlay" *ngIf="open">
+    <div class="modal-container">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h2>{{ modalTitle }}</h2>
+        <button class="close-btn" (click)="closeModal()">X</button>
+      </div>
+  
+      <!-- Modal Content -->
+      <div class="modal-body">
+        <ng-content></ng-content> <!-- Allows for dynamic content insertion -->
+      </div>
+  
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <button class="close-btn" (click)="closeModal()">Close</button>
+      </div>
+    </div>
+  </div>
+  

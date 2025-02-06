@@ -1,5 +1,4 @@
-import { Component, AfterViewInit  } from '@angular/core';
-import * as bootstrap from 'bootstrap';
+import { Component } from '@angular/core';
 
 
 interface TableHeader {
@@ -21,17 +20,7 @@ interface TableData {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-
-
-export class AppComponent implements AfterViewInit {
-
-  ngAfterViewInit() {
-    const tooltipTriggerList = Array.from(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-    tooltipTriggerList.forEach((tooltipTriggerEl) => {
-      new bootstrap.Tooltip(tooltipTriggerEl);
-    });
-  }
-  
+export class AppComponent {
   title = 'angular-tree-view';
   jsonData: any;
 
@@ -124,6 +113,9 @@ rows: Array<TableData> = [
 ];
 
 
+isModalOpen = false;
+modalTitle = 'My Custom Modal';
+
 ngOnInit() {
 
 
@@ -204,6 +196,16 @@ ngOnInit() {
 
   //console.log("this.convertJsonToTree(rawJson): ", this.convertJsonToTree(rawJson))
   this.jsonData = this.convertJsonToTree(rawJson);
+}
+
+
+// Toggle modal visibility
+customModalOpen(): void {
+  this.isModalOpen = true;
+}
+
+closeModal(): void {
+  this.isModalOpen = false;
 }
 
 convertJsonToTree(obj: any): any {

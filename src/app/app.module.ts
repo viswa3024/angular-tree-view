@@ -35,7 +35,8 @@ import { CustomLoadingComponent } from './components/custom-loading/custom-loadi
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 import { BreadcrumbItemComponent } from './components/breadcrumb-item/breadcrumb-item.component';
 import { CustomTableComponent } from './components/custom-table/custom-table.component';
-import { CustomToolComponent } from './components/custom-tool/custom-tool.component';  // Import FormsModule
+import { CustomToolComponent } from './components/custom-tool/custom-tool.component';
+import { CustomModalComponent } from './components/custom-modal/custom-modal.component';  // Import FormsModule
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { CustomToolComponent } from './components/custom-tool/custom-tool.compon
     BreadcrumbComponent,
     BreadcrumbItemComponent,
     CustomTableComponent,
-    CustomToolComponent
+    CustomToolComponent,
+    CustomModalComponent
   ],
   imports: [
     BrowserModule,

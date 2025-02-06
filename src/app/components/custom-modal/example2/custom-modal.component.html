@@ -1,0 +1,20 @@
+<div class="modal-overlay" *ngIf="open">
+    <div class="modal-container">
+      <!-- Modal Header - Title and Close Button -->
+      <div class="modal-header">
+        <ng-content select="[modal-title]"></ng-content> <!-- Title comes from parent -->
+        <button class="close-btn" (click)="closeModal()">X</button> <!-- Close button -->
+      </div>
+  
+      <!-- Modal Content -->
+      <div class="modal-body">
+        <ng-content></ng-content> <!-- Content projected from parent -->
+      </div>
+  
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <ng-content select="[modal-footer]"></ng-content> <!-- Footer comes from parent -->
+      </div>
+    </div>
+  </div>
+  
