@@ -318,7 +318,7 @@ active: Dynamically updates the selected tab. -->
 </app-custom-tooltip> -->
 
 <!-- Example 8 -->
-<app-custom-tooltip tooltipText="This is a tooltip on Top" placement="top">
+<!-- <app-custom-tooltip tooltipText="This is a tooltip on Top" placement="top">
   <button class="btn btn-primary">Hover over me (Top)</button>
 </app-custom-tooltip>
 
@@ -332,7 +332,55 @@ active: Dynamically updates the selected tab. -->
 
 <app-custom-tooltip tooltipText="This is a tooltip on Right" placement="right">
   <button class="btn btn-danger">Hover over me (Right)</button>
+</app-custom-tooltip> -->
+
+
+<app-custom-tooltip 
+  [tooltipText]="'This is a tooltip'" 
+  [placement]="'top'" 
+  [marginTop]="'0px'" 
+  [marginBottom]="'0px'" 
+  [marginLeft]="'0px'" 
+  [marginRight]="'0px'">
+  <button class="btn btn-primary">Hover over me (Top)</button>
 </app-custom-tooltip>
+
+
+<app-custom-tooltip 
+  [tooltipText]="'This is a tooltip'" 
+  [placement]="'left'" 
+  [marginTop]="'0px'" 
+  [marginBottom]="'0px'" 
+  [marginLeft]="'0px'" 
+  [marginRight]="'0px'">
+  <button class="btn btn-primary">Hover over me (Left)</button>
+</app-custom-tooltip>
+
+<app-custom-tooltip 
+  [tooltipText]="'This is a tooltip'" 
+  [placement]="'right'" 
+  [marginTop]="'0px'" 
+  [marginBottom]="'0px'" 
+  [marginLeft]="'0px'" 
+  [marginRight]="'0px'">
+  <button class="btn btn-primary">Hover over me (Right)</button>
+</app-custom-tooltip>
+
+<app-custom-tooltip 
+  [tooltipText]="'This is a tooltip'" 
+  [placement]="'bottom'" 
+  [marginTop]="'0px'" 
+  [marginBottom]="'0px'" 
+  [marginLeft]="'0px'" 
+  [marginRight]="'0px'">
+
+  <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">
+    Hover over me
+  </button>
+  
+</app-custom-tooltip>
+
+
 
 
 

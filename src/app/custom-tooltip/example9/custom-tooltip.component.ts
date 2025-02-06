@@ -17,9 +17,6 @@ export class CustomTooltipComponent implements AfterViewInit, OnDestroy {
   @Input() marginBottom: string = '0px';
   @Input() marginLeft: string = '0px';
   @Input() marginRight: string = '0px';
-  @Input() tooltipBackgroundColor: string = '#ff5733';  // Default color
-  @Input() tooltipCaretColor: string = '#ff5733';  // Default color
-
 
   constructor(private el: ElementRef, private renderer: Renderer2) {}
 
@@ -40,13 +37,6 @@ export class CustomTooltipComponent implements AfterViewInit, OnDestroy {
       title: this.tooltipText,
       placement: this.placement
     });
-
-    // Dynamically apply background and caret colors
-  const tooltipElement = element.querySelector('.tooltip');
-  if (tooltipElement) {
-    tooltipElement.querySelector('.tooltip-inner').style.backgroundColor = this.tooltipBackgroundColor;
-    tooltipElement.querySelector('.tooltip-arrow').style.borderTopColor = this.tooltipCaretColor;
-  }
   }
 
   private destroyTooltip() {

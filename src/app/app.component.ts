@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit  } from '@angular/core';
+import * as bootstrap from 'bootstrap';
 
 
 interface TableHeader {
@@ -20,7 +21,17 @@ interface TableData {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+
+
+export class AppComponent implements AfterViewInit {
+
+  ngAfterViewInit() {
+    const tooltipTriggerList = Array.from(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    tooltipTriggerList.forEach((tooltipTriggerEl) => {
+      new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+  }
+  
   title = 'angular-tree-view';
   jsonData: any;
 

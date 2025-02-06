@@ -1,0 +1,43 @@
+:host {
+  display: inline-block;
+  position: relative;
+}
+
+// Customize the tooltip's background color
+.tooltip-inner {
+  background-color: #ff5733 !important;  // Change to your desired background color
+}
+
+// Customize the caret color (the triangle part of the tooltip)
+.tooltip-arrow {
+  border-top-color: #ff5733 !important;  // Same color as the background or different if desired
+}
+
+// You can also style the placement (top, bottom, left, right) specific tooltips if needed
+.tooltip.top .tooltip-arrow {
+  border-top-color: #ff5733 !important;  // Example for top tooltip arrow
+}
+
+.tooltip.bottom .tooltip-arrow {
+  border-bottom-color: #ff5733 !important;  // Example for bottom tooltip arrow
+}
+
+.tooltip.left .tooltip-arrow {
+  border-left-color: #ff5733 !important;  // Example for left tooltip arrow
+}
+
+.tooltip.right .tooltip-arrow {
+  border-right-color: #ff5733 !important;  // Example for right tooltip arrow
+}
+
+
+
+/* Change the tooltip's background color */
+.tooltip-inner {
+  background-color: #ff5733 !important;  // Your desired background color
+}
+
+/* Change the tooltip caret color */
+.tooltip-arrow {
+  border-top-color: #ff5733 !important;  // Change caret color to match the background
+}
