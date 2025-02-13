@@ -1,0 +1,88 @@
+.progress-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+    margin: 20px 0;
+  
+    &.equal {
+      gap: 20px;
+    }
+  
+    &.condensed {
+      gap: 10px;
+    }
+  
+    &.default {
+      gap: 15px;
+    }
+  
+    .step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      position: relative;
+  
+      .step-circle {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+      }
+  
+      .step-label {
+        margin-top: 5px;
+        font-size: 14px;
+        color: #666;
+      }
+  
+      &::after {
+        content: "";
+        position: absolute;
+        width: 50px;
+        height: 4px;
+        background-color: #ccc;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: -1;
+      }
+  
+      &:first-child::after {
+        display: none;
+      }
+  
+      &.complete {
+        .step-circle {
+          background-color: #28a745;
+          color: #fff;
+        }
+  
+        &::after {
+          background-color: #28a745;
+        }
+      }
+  
+      &.current {
+        .step-circle {
+          background-color: #007bff;
+          color: #fff;
+        }
+      }
+  
+      &.incomplete {
+        .step-circle {
+          background-color: #ccc;
+          color: #fff;
+        }
+      }
+    }
+  }
+  

@@ -453,26 +453,22 @@ active: Dynamically updates the selected tab. -->
 
 
 <!-- Button to trigger modal -->
-<button (click)="customModalOpen()">Open Custom Modal</button>
+<!-- <button (click)="customModalOpen()">Open Custom Modal</button>
 
-<!-- Custom Modal Component -->
 <app-custom-modal
   [open]="isModalOpen"
   [width]="'60vw'"  
   [alignment]="'right'"
   (modalClose)="closeModal()"
 >
-  <!-- Modal Title -->
   <div modal-title>
     <h2>My Left Aligned Modal</h2>
   </div>
 
-  <!-- Close Button -->
   <div modal-close>
     <button class="close-btn" (click)="closeModal()">X</button>
   </div>
 
-  <!-- Modal Body Content -->
   <div>
     <p>This is some dynamic content inside the modal. You can add any content here.</p>
     <p>More content to show scrolling behavior when the content overflows...</p>
@@ -521,12 +517,17 @@ active: Dynamically updates the selected tab. -->
     <p>Even more content...</p>
 
   </div>
-
-  <!-- Modal Footer -->
   <div modal-footer>
     <button (click)="closeModal()">Close</button>
   </div>
-</app-custom-modal>
+</app-custom-modal> -->
+
+<app-progress-indicator
+  [steps]="['Step 1', 'Step 2', 'Step 3', 'Step 4']"
+  [current]="currentStep"
+  [spacing]="'equal'"
+  (stepSelected)="onStepSelected($event)"
+></app-progress-indicator>
 
 
 

@@ -116,6 +116,8 @@ rows: Array<TableData> = [
 isModalOpen = false;
 modalTitle = 'My Custom Modal';
 
+currentStep = 0;
+
 ngOnInit() {
 
 
@@ -263,6 +265,12 @@ onItemClick() {
 onBreadcrumbClick(label: string): void {
   console.log(`${label} breadcrumb clicked!11111`);
   // Add your custom logic here (e.g., routing, state management, etc.)
+}
+
+
+onStepSelected(index: number) {
+  this.currentStep = index;
+  console.log('Current Step:', index);
 }
 
 }

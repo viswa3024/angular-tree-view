@@ -36,7 +36,8 @@ import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.componen
 import { BreadcrumbItemComponent } from './components/breadcrumb-item/breadcrumb-item.component';
 import { CustomTableComponent } from './components/custom-table/custom-table.component';
 import { CustomToolComponent } from './components/custom-tool/custom-tool.component';
-import { CustomModalComponent } from './components/custom-modal/custom-modal.component';  // Import FormsModule
+import { CustomModalComponent } from './components/custom-modal/custom-modal.component';
+import { ProgressIndicatorComponent } from './components/progress-indicator/progress-indicator.component';  // Import FormsModule
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { CustomModalComponent } from './components/custom-modal/custom-modal.com
     BreadcrumbItemComponent,
     CustomTableComponent,
     CustomToolComponent,
-    CustomModalComponent
+    CustomModalComponent,
+    ProgressIndicatorComponent
   ],
   imports: [
     BrowserModule,

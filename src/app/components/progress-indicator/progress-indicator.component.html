@@ -1,0 +1,14 @@
+<div class="progress-indicator" [ngClass]="spacing">
+    <div
+      class="step"
+      *ngFor="let step of steps; let i = index"
+      [class.complete]="i < current"
+      [class.current]="i === current"
+      [class.incomplete]="i > current"
+      (click)="selectStep(i)"
+    >
+      <div class="step-circle">{{ i + 1 }}</div>
+      <div class="step-label">{{ step }}</div>
+    </div>
+  </div>
+  
