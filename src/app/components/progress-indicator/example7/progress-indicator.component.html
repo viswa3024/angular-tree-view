@@ -1,0 +1,18 @@
+<div class="progress-indicator">
+    <div
+      *ngFor="let step of steps; let i = index"
+      class="step"
+      [ngClass]="step.status"
+      (click)="selectStep(i)"
+    >
+      <div class="step-circle">
+        <ng-container [ngSwitch]="step.status">
+          <span *ngSwitchCase="'completed'">✔</span>
+          <span *ngSwitchCase="'failed'">!</span>
+          <span *ngSwitchDefault>{{ i + 1 }}</span>
+        </ng-container>
+      </div>
+      <div class="step-label">{{ step.label }}</div>
+    </div>
+  </div>
+  

@@ -522,12 +522,67 @@ active: Dynamically updates the selected tab. -->
   </div>
 </app-custom-modal> -->
 
-<app-progress-indicator
+<!-- <app-progress-indicator
   [steps]="['Step 1', 'Step 2', 'Step 3', 'Step 4']"
   [current]="currentStep"
   [spacing]="'equal'"
   (stepSelected)="onStepSelected($event)"
 ></app-progress-indicator>
+
+
+<app-progress-indicator
+  [steps]="['Step 1', 'Step 2', 'Step 3', 'Step 4']"
+  [current]="currentStep"
+  [spacing]="'equal'"
+  [orientation]="'horizontal'" 
+  (stepSelected)="onStepSelected($event)"
+></app-progress-indicator>
+
+
+<app-progress-indicator
+  [steps]="['Step 1', 'Step 2', 'Step 3', 'Step 4']"
+  [current]="currentStep"
+  [spacing]="'equal'"
+  [orientation]="'vertical'"
+  (stepSelected)="onStepSelected($event)"
+></app-progress-indicator> -->
+
+
+<!-- <app-progress-indicator
+  [steps]="[
+    { label: 'First step', status: 'completed' },
+    { label: 'Second step', status: 'current' },
+    { label: 'Third step', status: 'incomplete' },
+    { label: 'Fourth step', status: 'failed' },
+    { label: 'Fifth step', status: 'disabled' }
+  ]"
+  (stepSelected)="onStepSelected($event)"
+></app-progress-indicator> -->
+
+
+<!-- <app-progress-indicator
+  [steps]="steps"
+  [current]="currentStep"
+  [spacing]="'equal'"
+  [orientation]="'vertical'"
+  (stepSelected)="onStepSelected($event)">
+</app-progress-indicator> -->
+
+
+<app-progress-indicator
+  [steps]="steps"
+  [current]="currentStep"
+  [spacing]="'equal'"
+  [orientation]="'horizontal'"
+  (stepSelected)="selectStep($event)"
+></app-progress-indicator>
+
+
+<button class="finish-btn" (click)="finishSteps()" [disabled]="steps[steps.length - 1].status === 'completed'">
+  Finish
+</button>
+
+
 
 
 

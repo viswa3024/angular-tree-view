@@ -116,7 +116,25 @@ rows: Array<TableData> = [
 isModalOpen = false;
 modalTitle = 'My Custom Modal';
 
-currentStep = 0;
+currentStep: number = 2;
+
+// steps: { label: string, status: 'completed' | 'current' | 'incomplete' | 'failed' | 'disabled' }[] = [
+//   { label: 'Step 1', status: 'completed' },
+//   { label: 'Step 2', status: 'current' },
+//   { label: 'Step 3', status: 'incomplete' },
+//   { label: 'Step 4', status: 'failed' },
+//   { label: 'Step 5', status: 'disabled' }
+// ];
+
+
+steps: { label: string, status: 'completed' | 'current' | 'incomplete' | 'failed' | 'disabled' }[] = [
+  { label: 'Step 1', status: 'completed' },  // Step 1 starts as completed
+  { label: 'Step 2', status: 'current' },    // Step 2 starts as current
+  { label: 'Step 3', status: 'incomplete' }, // Step 3 is incomplete
+  { label: 'Step 4', status: 'incomplete' }, // Step 4 is incomplete
+  { label: 'Step 5', status: 'incomplete' }  // Step 5 is incomplete
+];
+
 
 ngOnInit() {
 
@@ -268,9 +286,28 @@ onBreadcrumbClick(label: string): void {
 }
 
 
-onStepSelected(index: number) {
-  this.currentStep = index;
-  console.log('Current Step:', index);
+// onStepSelected(index: number) {
+//   //this.currentStep = index;
+//   console.log('Current Step:', index);
+// }
+
+selectStep(index: number) {
+  if (this.steps[index].status !== 'disabled') {
+    // Update the status of the current step to 'completed'
+    this.steps[this.currentStep].status = 'completed';
+    
+    // Update the clicked step to 'current'
+    this.steps[index].status = 'current';
+    
+    // Update current step index
+    this.currentStep = index;
+  }
+}
+
+
+finishSteps() {
+  // Mark the last step as completed
+  this.steps[this.steps.length - 1].status = 'completed';
 }
 
 }

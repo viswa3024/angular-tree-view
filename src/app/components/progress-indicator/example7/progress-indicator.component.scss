@@ -6,26 +6,6 @@
     position: relative;
     margin: 20px 0;
   
-    &.equal {
-      gap: 20px;
-    }
-  
-    &.condensed {
-      gap: 10px;
-    }
-  
-    &.default {
-      gap: 15px;
-    }
-  
-    &.vertical {
-      flex-direction: column;
-    }
-  
-    &.horizontal {
-      flex-direction: row;
-    }
-  
     .step {
       display: flex;
       flex-direction: column;

@@ -1,0 +1,19 @@
+<div class="progress-indicator" 
+     [ngClass]="{'equal': spacing === 'equal', 'condensed': spacing === 'condensed', 'default': spacing === 'default', 'horizontal': orientation === 'horizontal', 'vertical': orientation === 'vertical'}">
+  <div
+    class="step"
+    *ngFor="let step of steps; let i = index"
+    [class.complete]="i < current || (isFinished && i === steps.length - 1)"
+    [class.current]="i === current && !isFinished"
+    [class.incomplete]="i > current && !isFinished"
+    (click)="selectStep(i)"
+  >
+    <div class="step-circle">{{ i + 1 }}</div>
+    <div class="step-label">{{ step }}</div>
+  </div>
+</div>
+
+<!-- Finish Button -->
+<button class="finish-btn" (click)="finishSteps()" [disabled]="isFinished">
+  Finish
+</button>
