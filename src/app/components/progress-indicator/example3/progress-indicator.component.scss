@@ -37,11 +37,18 @@
         transition: all 0.3s ease;
       }
   
+      .step-label {
+        margin-top: 5px;
+        font-size: 14px;
+        color: #666;
+      }
+  
       &::after {
         content: "";
         position: absolute;
         width: 50px;
         height: 4px;
+        background-color: #ccc;
         top: 50%;
         left: 50%;
         transform: translateX(-50%);
@@ -56,6 +63,10 @@
         .step-circle {
           background-color: #28a745;
           color: #fff;
+        }
+  
+        &::after {
+          background-color: #28a745;
         }
       }
   
