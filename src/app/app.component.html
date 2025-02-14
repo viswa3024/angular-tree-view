@@ -569,7 +569,7 @@ active: Dynamically updates the selected tab. -->
 </app-progress-indicator> -->
 
 
-<app-progress-indicator
+<!-- <app-progress-indicator
   [steps]="steps"
   [current]="currentStep"
   [spacing]="'equal'"
@@ -579,6 +579,28 @@ active: Dynamically updates the selected tab. -->
 
 
 <button class="finish-btn" (click)="finishSteps()" [disabled]="steps[steps.length - 1].status === 'completed'">
+  Finish
+</button> -->
+
+
+
+
+
+<!-- <app-progress-indicator
+  [steps]="stepsData"
+  [current]="currentStep"
+  [spacing]="'equal'"
+  (stepSelected)="onStepSelected($event)"
+></app-progress-indicator> -->
+
+
+<app-progress-indicator
+  [steps]="stepsData"
+  [spacing]="'equal'"
+  (stepSelected)="onStepSelected($event)"
+></app-progress-indicator>
+
+<button class="finish-btn" (click)="finishSteps()" [disabled]="isFinished">
   Finish
 </button>
 

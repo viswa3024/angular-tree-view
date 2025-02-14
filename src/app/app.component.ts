@@ -136,6 +136,13 @@ steps: { label: string, status: 'completed' | 'current' | 'incomplete' | 'failed
 ];
 
 
+stepsData = [
+  { text: 'Step 1', state: ['current'] },
+  { text: 'Step 2', state: ['incomplete'] },
+  { text: 'Step 3', state: ['incomplete'] }
+];
+
+
 ngOnInit() {
 
 
@@ -287,7 +294,7 @@ onBreadcrumbClick(label: string): void {
 
 
 // onStepSelected(index: number) {
-//   //this.currentStep = index;
+//   this.currentStep = index;
 //   console.log('Current Step:', index);
 // }
 
@@ -305,9 +312,36 @@ selectStep(index: number) {
 }
 
 
+// finishSteps() {
+//   // Mark the last step as completed
+//   this.steps[this.steps.length - 1].status = 'completed';
+// }
+
+
+
+onStepSelected(stepText: string) {
+  if (this.isFinished) return;
+
+  this.stepsData.forEach((step) => (step.state = ['incomplete']));
+  const selectedStep = this.stepsData.find((step) => step.text === stepText);
+  if (selectedStep) {
+    selectedStep.state = ['current'];
+    this.markPreviousStepsAsComplete(stepText);
+  }
+}
+
+markPreviousStepsAsComplete(selectedStepText: string) {
+  for (let step of this.stepsData) {
+    if (step.text === selectedStepText) break;
+    step.state = ['complete'];
+  }
+}
+
+isFinished = false;
+
 finishSteps() {
-  // Mark the last step as completed
-  this.steps[this.steps.length - 1].status = 'completed';
+  this.isFinished = true;
+  this.stepsData.forEach((step) => (step.state = ['complete']));
 }
 
 }

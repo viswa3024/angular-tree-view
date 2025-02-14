@@ -1,13 +1,17 @@
 <div class="progress-indicator" [ngClass]="spacing">
   <div
     class="step"
-    *ngFor="let step of steps"
+    *ngFor="let step of steps; let i = index"
     [class.complete]="step.state.includes('complete')"
     [class.current]="step.state.includes('current')"
     [class.incomplete]="step.state.includes('incomplete')"
-    (click)="selectStep(step.text)"
+    (click)="selectStep(i)"
   >
-    <div class="step-circle"></div>
+    <div class="step-circle">{{ i + 1 }}</div>
     <div class="step-label">{{ step.text }}</div>
   </div>
 </div>
+
+<button class="finish-btn" (click)="finishSteps()" [disabled]="isFinished">
+  Finish
+</button>

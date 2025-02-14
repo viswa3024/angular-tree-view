@@ -1,0 +1,27 @@
+<div class="progress-indicator" [ngClass]="[spacing, orientation]">
+    <div
+      *ngFor="let step of steps; let i = index"
+      class="step"
+      [ngClass]="step.status"
+      (click)="selectStep(i)"
+    >
+      <div class="step-circle">
+        <ng-container [ngSwitch]="step.status">
+          <!-- Completed Step with Tick -->
+          <svg *ngSwitchCase="'completed'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 13l4 4L19 7"></path>
+          </svg>
+  
+          <!-- Failed Step with Exclamation -->
+          <svg *ngSwitchCase="'failed'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 4v16m8-8H4"></path>
+          </svg>
+  
+          <!-- Default Step with Number -->
+          <span *ngSwitchDefault>{{ i + 1 }}</span>
+        </ng-container>
+      </div>
+      <div class="step-label">{{ step.label }}</div>
+    </div>
+  </div>
+  

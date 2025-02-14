@@ -43,29 +43,19 @@
       color: #666;
     }
 
-    &:first-child::after {
-      display: none;
+    &.complete .step-circle {
+      background-color: #28a745;
+      color: #fff;
     }
 
-    &.complete {
-      .step-circle {
-        background-color: #28a745;
-        color: #fff;
-      }
+    &.current .step-circle {
+      background-color: #007bff;
+      color: #fff;
     }
 
-    &.current {
-      .step-circle {
-        background-color: #007bff;
-        color: #fff;
-      }
-    }
-
-    &.incomplete {
-      .step-circle {
-        background-color: #ccc;
-        color: #fff;
-      }
+    &.incomplete .step-circle {
+      background-color: #ccc;
+      color: #fff;
     }
   }
 }

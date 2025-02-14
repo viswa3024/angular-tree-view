@@ -1,0 +1,82 @@
+.progress-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+    margin: 20px 0;
+  
+    &.equal {
+      gap: 20px;
+    }
+  
+    &.condensed {
+      gap: 10px;
+    }
+  
+    &.default {
+      gap: 15px;
+    }
+  
+    &.vertical {
+      flex-direction: column;
+    }
+  
+    &.horizontal {
+      flex-direction: row;
+    }
+  
+    .step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      position: relative;
+  
+      .step-circle {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        border: 2px dashed grey;
+        background-color: white;
+        color: black;
+      }
+  
+      &.completed .step-circle {
+        background-color: #28a745;
+        color: white;
+        border: none;
+      }
+  
+      &.current .step-circle {
+        background: linear-gradient(to right, #007bff 50%, transparent 50%);
+        border: 2px dashed #007bff;
+        color: black;
+      }
+  
+      &.incomplete .step-circle {
+        border: 2px dashed grey;
+        color: grey;
+      }
+  
+      &.failed .step-circle {
+        background-color: #dc3545;
+        color: white;
+        border: none;
+      }
+  
+      &.disabled .step-circle {
+        background-color: lightgrey;
+        color: grey;
+        border: none;
+        cursor: not-allowed;
+      }
+    }
+  }
+  

@@ -6,25 +6,11 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./progress-indicator.component.scss'],
 })
 export class ProgressIndicatorComponent {
-  @Input() steps: { label: string, status: 'completed' | 'current' | 'incomplete' | 'failed' | 'disabled' }[] = [];
-  @Input() currentStep: number = 0; // Track current step
-  @Output() stepSelected = new EventEmitter<number>();
+  @Input() steps: { text: string; state: string[] }[] = [];
   @Input() spacing: 'equal' | 'condensed' | 'default' = 'default';
-  @Input() orientation: 'horizontal' | 'vertical' = 'horizontal';
+  @Output() stepSelected = new EventEmitter<string>();
 
-  selectStep(index: number) {
-    // Do nothing if the step is disabled or already completed
-    if (this.steps[index].status !== 'disabled' && this.steps[index].status !== 'completed') {
-      // Set current step to completed and update the new step to current
-      this.steps[this.currentStep].status = 'completed'; // Mark previous step as completed
-      this.steps[index].status = 'current'; // Set clicked step as current
-      this.currentStep = index; // Update current step
-      this.stepSelected.emit(index);
-    }
-  }
-
-  finishSteps() {
-    // Mark final step as completed
-    this.steps[this.steps.length - 1].status = 'completed';
+  selectStep(stepText: string) {
+    this.stepSelected.emit(stepText);
   }
 }
