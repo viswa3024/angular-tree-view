@@ -37,7 +37,9 @@ import { BreadcrumbItemComponent } from './components/breadcrumb-item/breadcrumb
 import { CustomTableComponent } from './components/custom-table/custom-table.component';
 import { CustomToolComponent } from './components/custom-tool/custom-tool.component';
 import { CustomModalComponent } from './components/custom-modal/custom-modal.component';
-import { ProgressIndicatorComponent } from './components/progress-indicator/progress-indicator.component';  // Import FormsModule
+import { ProgressIndicatorComponent } from './components/progress-indicator/progress-indicator.component';
+import { ContentSwitcherComponent } from './components/content-switcher/content-switcher.component';
+import { ContentSwitcherOptionComponent } from './components/content-switcher-option/content-switcher-option.component';  // Import FormsModule
 
 @NgModule({
   declarations: [
@@ -72,7 +74,9 @@ import { ProgressIndicatorComponent } from './components/progress-indicator/prog
     CustomTableComponent,
     CustomToolComponent,
     CustomModalComponent,
-    ProgressIndicatorComponent
+    ProgressIndicatorComponent,
+    ContentSwitcherComponent,
+    ContentSwitcherOptionComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,28 @@
+.content-switcher {
+    display: flex;
+    border-radius: 8px;
+    background-color: #f4f4f4;
+    padding: 4px;
+    width: fit-content;
+  
+    button {
+      border: none;
+      background: transparent;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.3s ease-in-out;
+      color: #525252;
+  
+      &:hover {
+        background: #e0e0e0;
+      }
+  
+      &.active {
+        background: #0f62fe;
+        color: white;
+        border-radius: 6px;
+      }
+    }
+  }
+  

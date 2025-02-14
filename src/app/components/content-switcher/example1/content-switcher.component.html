@@ -1,0 +1,8 @@
+<div class="content-switcher">
+    <button *ngFor="let option of options; let i = index"
+            [class.active]="i === activeIndex"
+            (click)="onSelect(i)">
+      {{ option }}
+    </button>
+  </div>
+  

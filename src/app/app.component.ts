@@ -344,4 +344,10 @@ finishSteps() {
   this.stepsData.forEach((step) => (step.state = ['complete']));
 }
 
+
+onTabChange(index: number) {
+  console.log("Selected Tab Index:", index);
+}
+
+
 }
