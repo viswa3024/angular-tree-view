@@ -16,7 +16,7 @@
     color: #525252;
     transition: color 0.2s ease-in-out;
     z-index: 1;
-    width: var(--button-width, auto);
+    min-width: var(--button-width, auto);
     height: var(--button-height, 40px);
 
     &.active {
