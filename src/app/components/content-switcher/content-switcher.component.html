@@ -6,10 +6,19 @@
   '--button-width': buttonWidth,
   '--button-height': buttonHeight
 }">
-    <button *ngFor="let option of options; let i = index"
+    <!-- <button *ngFor="let option of options; let i = index"
             (click)="selectOption(i)"
             [class.active]="i === activeIndex">
       {{ option.label }}
-    </button>
+    </button> -->
+
+    <ng-container *ngFor="let option of options; let i = index">
+      <button 
+        [class.active]="option.active"
+        (click)="selectOption(i)"
+      >
+        {{ option.label }}
+      </button>
+    </ng-container>
   </div>
   
