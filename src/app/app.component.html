@@ -613,7 +613,12 @@ active: Dynamically updates the selected tab. -->
 </app-content-switcher> -->
 
 
-<app-content-switcher (selected)="onTabChange($event)">
+<app-content-switcher (selected)="onTabChange($event)" 
+  [borderRadius]="5"
+  [contentSwitcherBg]="'#e8e8e8'"
+  [selectedBg]="'#ff5733'"
+  [buttonWidth]="'150px'"
+  [buttonHeight]="'50px'">
   <app-content-switcher-option label="Tab 1" [active]="true"></app-content-switcher-option>
   <app-content-switcher-option label="Tab 2"></app-content-switcher-option>
   <app-content-switcher-option label="Tab 3"></app-content-switcher-option>

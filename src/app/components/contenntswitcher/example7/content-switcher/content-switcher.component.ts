@@ -1,4 +1,4 @@
-import { Component, Input, ContentChildren, QueryList, AfterContentInit, Output, EventEmitter } from '@angular/core';
+import { Component, ContentChildren, QueryList, AfterContentInit, Output, EventEmitter } from '@angular/core';
 import { ContentSwitcherOptionComponent } from '../content-switcher-option/content-switcher-option.component';
 
 
@@ -8,13 +8,6 @@ import { ContentSwitcherOptionComponent } from '../content-switcher-option/conte
   styleUrls: ['./content-switcher.component.scss']
 })
 export class ContentSwitcherComponent implements AfterContentInit {
-  @Input() borderRadius: number = 6;
-  @Input() contentSwitcherBg: string = '#f4f4f4';
-  @Input() selectedBg: string = '#0f62fe';
-  @Input() buttonWidth: string = 'auto';
-  @Input() buttonHeight: string = '40px';
-
-
   @ContentChildren(ContentSwitcherOptionComponent) options!: QueryList<ContentSwitcherOptionComponent>;
   @Output() selected = new EventEmitter<number>(); // Emit index of the selected option
   activeIndex: number = 0;

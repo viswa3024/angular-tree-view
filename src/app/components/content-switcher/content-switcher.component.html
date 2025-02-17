@@ -1,4 +1,11 @@
-<div class="content-switcher">
+<div class="content-switcher" 
+[ngStyle]="{
+  '--content-switcher-bg': contentSwitcherBg,
+  '--selected-bg': selectedBg,
+  '--border-radius': borderRadius + 'px',
+  '--button-width': buttonWidth,
+  '--button-height': buttonHeight
+}">
     <button *ngFor="let option of options; let i = index"
             (click)="selectOption(i)"
             [class.active]="i === activeIndex">
