@@ -1,0 +1,33 @@
+// custom-hamburger.component.scss
+.hamburger {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+
+  .line {
+    height: 4px;
+    width: 100%;
+    background-color: #333; /* Default color */
+    transition: all 0.3s ease; /* Smooth transition */
+  }
+
+  .line-top {
+    &.open {
+      transform: rotate(45deg) translateY(6px); /* Rotate to form X */
+    }
+  }
+
+  .line-middle {
+    &.open {
+      opacity: 0; /* Hide the middle line */
+    }
+  }
+
+  .line-bottom {
+    &.open {
+      transform: rotate(-45deg) translateY(-6px); /* Rotate to form X */
+    }
+  }
+}

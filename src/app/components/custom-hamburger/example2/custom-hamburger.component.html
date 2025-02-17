@@ -1,0 +1,7 @@
+<!-- custom-hamburger.component.html -->
+<div class="hamburger" (click)="toggleMenu()" [style.height]="height" [style.width]="width">
+    <div class="line line-top" [ngClass]="{'open': isOpen}" [style.background-color]="color"></div>
+    <div class="line line-middle" [ngClass]="{'open': isOpen}" [style.background-color]="color"></div>
+    <div class="line line-bottom" [ngClass]="{'open': isOpen}" [style.background-color]="color"></div>
+  </div>
+  

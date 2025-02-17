@@ -1,0 +1,10 @@
+<!-- Render the SVG based on the name input -->
+<div *ngIf="isValidIconName(name)" [innerHTML]="icons[name] | safeHtml" 
+     [ngClass]="className" 
+     [style.width.px]="iconSize" 
+     [style.height.px]="iconSize" 
+     [style.fill]="color">
+</div>
+
+<!-- Default fallback if the icon name is not found -->
+<span *ngIf="!isValidIconName(name)">Icon not found</span>

@@ -39,7 +39,10 @@ import { CustomToolComponent } from './components/custom-tool/custom-tool.compon
 import { CustomModalComponent } from './components/custom-modal/custom-modal.component';
 import { ProgressIndicatorComponent } from './components/progress-indicator/progress-indicator.component';
 import { ContentSwitcherComponent } from './components/content-switcher/content-switcher.component';
-import { ContentSwitcherOptionComponent } from './components/content-switcher-option/content-switcher-option.component';  // Import FormsModule
+import { ContentSwitcherOptionComponent } from './components/content-switcher-option/content-switcher-option.component';
+import { CustomIconComponent } from './components/custom-icon/custom-icon.component';
+import { SafeHtmlPipe } from './components/safe-html.pipe';
+import { CustomHamburgerComponent } from './components/custom-hamburger/custom-hamburger.component';  // Import FormsModule
 
 @NgModule({
   declarations: [
@@ -76,7 +79,10 @@ import { ContentSwitcherOptionComponent } from './components/content-switcher-op
     CustomModalComponent,
     ProgressIndicatorComponent,
     ContentSwitcherComponent,
-    ContentSwitcherOptionComponent
+    ContentSwitcherOptionComponent,
+    CustomIconComponent,
+    SafeHtmlPipe,
+    CustomHamburgerComponent
   ],
   imports: [
     BrowserModule,

@@ -142,6 +142,8 @@ stepsData = [
   { text: 'Step 3', state: ['incomplete'] }
 ];
 
+isOpen: boolean = false;
+
 
 ngOnInit() {
 
@@ -349,5 +351,12 @@ onTabChange(index: number) {
   console.log("Selected Tab Index:", index);
 }
 
+myCustomClickFunction() {
+  console.log('Hamburger clicked!');
+}
 
+
+toggleSidebar(isOpen: boolean) {
+  this.isOpen = isOpen; // Set isOpen based on the emitted value
+}
 }
