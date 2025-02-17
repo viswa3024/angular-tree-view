@@ -6,18 +6,20 @@
   width: fit-content;
 
   button {
-    position: relative;
-    overflow: hidden;
     border: none;
     background: transparent;
     padding: 10px 20px;
     cursor: pointer;
     font-size: 14px;
     color: #525252;
-    transition: color 0.2s ease-in-out; /* Faster text color change */
-    z-index: 1;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      background: #e0e0e0;
+    }
 
     &.active {
+      background: #0f62fe;
       color: white;
     }
 
@@ -36,23 +38,6 @@
     /* Middle buttons (no border-radius) */
     &:not(:first-child):not(:last-child) {
       border-radius: 0;
-    }
-
-    /* Sliding background effect (Bottom to Top) */
-    &::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 100%; /* Start hidden below */
-      width: 100%;
-      height: 100%;
-      background: #0f62fe;
-      transition: top 0.15s ease-in-out; /* Faster animation */
-      z-index: -1;
-    }
-
-    &.active::before {
-      top: 0; /* Move up on selection */
     }
   }
 }
