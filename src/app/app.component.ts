@@ -144,6 +144,10 @@ stepsData = [
 
 isOpen: boolean = false;
 
+isMenuOpen: boolean = false; // To track whether the menu is open or not
+
+isToggled = false;
+
 
 ngOnInit() {
 
@@ -359,4 +363,15 @@ myCustomClickFunction() {
 toggleSidebar(isOpen: boolean) {
   this.isOpen = isOpen; // Set isOpen based on the emitted value
 }
+
+
+toggleSidebarClick(event: any) {
+  console.log("event: ", event)
+}
+
+onToggleChange(value: boolean): void {
+  console.log('Toggle state changed:', value);
+  this.isToggled = value;
+}
+
 }

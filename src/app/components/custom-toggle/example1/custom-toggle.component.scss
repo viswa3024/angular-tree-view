@@ -1,0 +1,51 @@
+.toggle-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    width: 200px;
+  }
+  
+  .toggle-label {
+    font-size: 14px;
+    margin-right: 10px;
+  }
+  
+  .toggle-switch {
+    width: 40px;
+    height: 20px;
+    background-color: #e0e0e0; /* Light gray background */
+    border-radius: 50px;
+    position: relative;
+    transition: background-color 0.3s ease;
+  }
+  
+  .toggle-knob {
+    width: 18px;
+    height: 18px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    transition: transform 0.3s ease; /* Smooth transition for the knob */
+  }
+  
+  .toggle-knob.checked {
+    transform: translateX(20px); /* Move knob to the right when checked */
+  }
+  
+  .toggle-text {
+    font-size: 14px;
+    margin-left: 10px;
+    color: #333;
+  }
+  
+  .toggle-switch.checked {
+    background-color: #0062ff; /* IBM blue when toggled on */
+  }
+  
+  .toggle-text {
+    font-size: 14px;
+    margin-left: 10px;
+  }
+  

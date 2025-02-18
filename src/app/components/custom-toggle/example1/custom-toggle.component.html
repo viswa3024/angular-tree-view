@@ -1,0 +1,8 @@
+<div class="toggle-container" (click)="onToggleChange()">
+    <label class="toggle-label">{{ label }}</label>
+    <div class="toggle-switch">
+      <div class="toggle-knob" [class.checked]="checked"></div>
+    </div>
+    <span class="toggle-text">{{ checked ? onText : offText }}</span>
+  </div>
+  

@@ -651,12 +651,53 @@ active: Dynamically updates the selected tab. -->
   <p>Menu Content</p>
 </div>
 
-<app-custom-hamburger
+<!-- <app-custom-hamburger
   (menuToggled)="toggleSidebar($event)"
   [color]="'#ff6347'"
   [height]="'15px'"
   [width]="'25px'">
-</app-custom-hamburger>
+</app-custom-hamburger> -->
+
+
+<!-- <button class="hamburger-btn">
+  <svg width="40" height="40" viewBox="0 0 100 100">
+      <line class="line top" x1="20" y1="30" x2="80" y2="30" stroke="black" stroke-width="8" stroke-linecap="round"/>
+      <line class="line middle" x1="20" y1="50" x2="80" y2="50" stroke="black" stroke-width="8" stroke-linecap="round"/>
+      <line class="line bottom" x1="20" y1="70" x2="80" y2="70" stroke="black" stroke-width="8" stroke-linecap="round"/>
+  </svg>
+</button> -->
+
+
+<!-- <app-custom-toggle
+  [checked]="isToggled"
+  (checkedChange)="onToggleChange($event)"
+  label="Enable feature"
+  onText="Yes"
+  offText="No">
+</app-custom-toggle>
+
+<p>Toggle is {{ isToggled ? 'Yes' : 'No' }}</p> -->
+
+
+<!-- <app-custom-toggle
+  [(checked)]="isToggled"
+  label="Enable feature"
+  onText="Yes"
+  offText="No">
+</app-custom-toggle>
+
+<p>Toggle is {{ isToggled ? 'Yes' : 'No' }}</p> -->
+
+
+<app-custom-toggle
+[checked]="isToggled"
+  [(ngModel)]="isToggled"
+  label="Enable feature"
+  onText="Yes"
+  offText="No">
+</app-custom-toggle>
+
+<p>Toggle is {{ isToggled ? 'Yes' : 'No' }}</p>
 
 
 

@@ -42,7 +42,8 @@ import { ContentSwitcherComponent } from './components/content-switcher/content-
 import { ContentSwitcherOptionComponent } from './components/content-switcher-option/content-switcher-option.component';
 import { CustomIconComponent } from './components/custom-icon/custom-icon.component';
 import { SafeHtmlPipe } from './components/safe-html.pipe';
-import { CustomHamburgerComponent } from './components/custom-hamburger/custom-hamburger.component';  // Import FormsModule
+import { CustomHamburgerComponent } from './components/custom-hamburger/custom-hamburger.component';
+import { CustomToggleComponent } from './components/custom-toggle/custom-toggle.component';  // Import FormsModule
 
 @NgModule({
   declarations: [
@@ -82,7 +83,8 @@ import { CustomHamburgerComponent } from './components/custom-hamburger/custom-h
     ContentSwitcherOptionComponent,
     CustomIconComponent,
     SafeHtmlPipe,
-    CustomHamburgerComponent
+    CustomHamburgerComponent,
+    CustomToggleComponent
   ],
   imports: [
     BrowserModule,
