@@ -3,7 +3,7 @@
 
   <div class="toggle-switch"
        [ngStyle]="{
-         'background-color': switchBackground,
+         'background-color': checked ? toggleSwitchBgColor : '#e0e0e0',
          'width': toggleSwitchWidth,
          'height': toggleSwitchHeight,
          'border': '2px solid ' + toggleOutlineColor
@@ -14,7 +14,7 @@
            'background-color': toggleKnobBgColor,
            'width': toggleKnobWidth,
            'height': toggleKnobHeight,
-           'transform': checked ? 'translateX(calc(' + toggleSwitchWidth + ' - ' + toggleKnobWidth + ' - 4px))' : 'translateX(2px)'
+           'transform': checked ? 'translateX(calc(' + toggleSwitchWidth + ' - ' + toggleKnobWidth + '))' : 'translateX(2px)'
          }">
     </div>
 

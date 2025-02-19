@@ -689,7 +689,7 @@ active: Dynamically updates the selected tab. -->
 <p>Toggle is {{ isToggled ? 'Yes' : 'No' }}</p> -->
 
 
-<app-custom-toggle
+<!-- <app-custom-toggle
 [checked]="isToggled"
   [(ngModel)]="isToggled"
   label="Enable feature"
@@ -697,7 +697,71 @@ active: Dynamically updates the selected tab. -->
   offText="No">
 </app-custom-toggle>
 
-<p>Toggle is {{ isToggled ? 'Yes' : 'No' }}</p>
+<p>Toggle is {{ isToggled ? 'Yes' : 'No' }}</p> -->
+
+<!-- <app-custom-toggle
+  [(ngModel)]="isToggled"
+  label="Enable Feature"
+  onText="Yes"
+  offText="No"
+  [toggleSwitchBgColor]="'#0062ff'" 
+  [toggleKnobBgColor]="'#ffffff'"
+  [toggleOutlineColor]="'#0048a7'"
+  [toggleSwitchWidth]="'50px'"
+  [toggleSwitchHeight]="'25px'"
+  [toggleKnobWidth]="'20px'"
+  [toggleKnobHeight]="'20px'">
+</app-custom-toggle>
+
+<p>Toggle is {{ isToggled ? 'Yes' : 'No' }}</p> -->
+
+
+<!-- Default Toggle -->
+<!-- <app-custom-toggle [(ngModel)]="isToggled">
+</app-custom-toggle> -->
+
+<!-- Custom Styled Toggle -->
+<!-- <app-custom-toggle
+  [(ngModel)]="isToggled"
+  label="Enable Feature"
+  onText="Yes"
+  offText="No"
+  [toggleSwitchBgColor]="'#ff6f00'"  
+  [toggleKnobBgColor]="'#ffffff'"
+  [toggleOutlineColor]="'#cc5200'"
+  [toggleSwitchWidth]="'55px'"
+  [toggleSwitchHeight]="'28px'"
+  [toggleKnobWidth]="'24px'"
+  [toggleKnobHeight]="'24px'">
+</app-custom-toggle>
+
+<p>Toggle is {{ isToggled ? 'Yes' : 'No' }}</p> -->
+
+
+<p>Default Toggle:</p>
+<app-custom-toggle
+  [checked]="isToggled"
+  (checkedChange)="isToggled = $event">
+</app-custom-toggle>
+
+<p>Custom Styled Toggle:</p>
+<app-custom-toggle
+  [checked]="isToggled"
+  (checkedChange)="isToggled = $event"
+  label="Enable Feature"
+  onText="Yes"
+  offText="No"
+  [toggleSwitchBgColor]="'#ff6f00'"
+  [toggleKnobBgColor]="'#ffffff'"
+  [toggleOutlineColor]="'#cc5200'"
+  [toggleSwitchWidth]="'55px'"
+  [toggleSwitchHeight]="'28px'"
+  [toggleKnobWidth]="'24px'"
+  [toggleKnobHeight]="'24px'">
+</app-custom-toggle>
+
+<p>Toggle State: {{ isToggled ? 'Enabled' : 'Disabled' }}</p>
+
 
 
 
