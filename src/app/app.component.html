@@ -738,7 +738,7 @@ active: Dynamically updates the selected tab. -->
 <p>Toggle is {{ isToggled ? 'Yes' : 'No' }}</p> -->
 
 
-<p>Default Toggle:</p>
+<!-- <p>Default Toggle:</p>
 <app-custom-toggle
   [checked]="isToggled"
   (checkedChange)="isToggled = $event">
@@ -760,7 +760,15 @@ active: Dynamically updates the selected tab. -->
   [toggleKnobHeight]="'24px'">
 </app-custom-toggle>
 
-<p>Toggle State: {{ isToggled ? 'Enabled' : 'Disabled' }}</p>
+<p>Toggle State: {{ isToggled ? 'Enabled' : 'Disabled' }}</p> -->
+
+
+<app-custom-header 
+  title="Dashboard"
+  [actions]="headerActions"
+></app-custom-header>
+
+
 
 
 

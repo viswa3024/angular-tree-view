@@ -149,6 +149,12 @@ isMenuOpen: boolean = false; // To track whether the menu is open or not
 isToggled = false;
 
 
+headerActions = [
+  { label: 'Profile', onClick: () => this.openProfile() },
+  { label: 'Logout', onClick: () => this.logout() }
+];
+
+
 ngOnInit() {
 
 
@@ -372,6 +378,19 @@ toggleSidebarClick(event: any) {
 onToggleChange(value: boolean): void {
   console.log('Toggle state changed:', value);
   this.isToggled = value;
+}
+
+toggleSideNav() {
+  console.log("=============")
+}
+
+
+openProfile() {
+  console.log('Profile clicked');
+}
+
+logout() {
+  console.log('Logout clicked');
 }
 
 }

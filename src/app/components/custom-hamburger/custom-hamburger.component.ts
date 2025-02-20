@@ -1,19 +1,16 @@
-import { Component, Output, EventEmitter, Input } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-custom-hamburger',
-  templateUrl: './custom-hamburger.component.html',
+  template: `
+    <button class="custom-hamburger" (click)="toggleMenu()">☰</button>
+  `,
   styleUrls: ['./custom-hamburger.component.scss']
 })
 export class CustomHamburgerComponent {
-  @Output() menuToggled: EventEmitter<boolean> = new EventEmitter<boolean>(); // Emit event when menu is toggled
-  @Input() color: string = '#333'; // Default color
-  @Input() height: string = '20px'; // Default height
-  @Input() width: string = '30px'; // Default width
-  isOpen: boolean = false; // Track open/close state
+  @Output() menuToggle = new EventEmitter<void>();
 
   toggleMenu() {
-    this.isOpen = !this.isOpen; // Toggle open/close state
-    this.menuToggled.emit(this.isOpen); // Emit the state to the parent
+    this.menuToggle.emit();
   }
 }

@@ -43,7 +43,14 @@ import { ContentSwitcherOptionComponent } from './components/content-switcher-op
 import { CustomIconComponent } from './components/custom-icon/custom-icon.component';
 import { SafeHtmlPipe } from './components/safe-html.pipe';
 import { CustomHamburgerComponent } from './components/custom-hamburger/custom-hamburger.component';
-import { CustomToggleComponent } from './components/custom-toggle/custom-toggle.component';  // Import FormsModule
+import { CustomToggleComponent } from './components/custom-toggle/custom-toggle.component';
+import { ToggleComponent } from './components/toggle/toggle.component';
+import { CustomHeaderComponent } from './components/custom-header/custom-header.component';
+import { CustomHeaderNavigationComponent } from './components/custom-header-navigation/custom-header-navigation.component';
+import { CustomHeaderItemComponent } from './components/custom-header-item/custom-header-item.component';
+import { CustomHeaderMenuComponent } from './components/custom-header-menu/custom-header-menu.component';
+import { CustomHeaderGlobalComponent } from './components/custom-header-global/custom-header-global.component';
+import { CustomHeaderActionComponent } from './components/custom-header-action/custom-header-action.component';  // Import FormsModule
 
 @NgModule({
   declarations: [
@@ -84,7 +91,14 @@ import { CustomToggleComponent } from './components/custom-toggle/custom-toggle.
     CustomIconComponent,
     SafeHtmlPipe,
     CustomHamburgerComponent,
-    CustomToggleComponent
+    CustomToggleComponent,
+    ToggleComponent,
+    CustomHeaderComponent,
+    CustomHeaderNavigationComponent,
+    CustomHeaderItemComponent,
+    CustomHeaderMenuComponent,
+    CustomHeaderGlobalComponent,
+    CustomHeaderActionComponent
   ],
   imports: [
     BrowserModule,

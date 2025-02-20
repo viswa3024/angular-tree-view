@@ -1,0 +1,19 @@
+.custom-header-menu {
+    position: relative;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+  
+  .dropdown {
+    display: none;
+    position: absolute;
+    background: white;
+    color: black;
+    padding: 0.5rem;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  .custom-header-menu:hover .dropdown {
+    display: block;
+  }
+  
