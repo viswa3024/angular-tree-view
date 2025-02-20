@@ -50,7 +50,9 @@ import { CustomHeaderNavigationComponent } from './components/custom-header-navi
 import { CustomHeaderItemComponent } from './components/custom-header-item/custom-header-item.component';
 import { CustomHeaderMenuComponent } from './components/custom-header-menu/custom-header-menu.component';
 import { CustomHeaderGlobalComponent } from './components/custom-header-global/custom-header-global.component';
-import { CustomHeaderActionComponent } from './components/custom-header-action/custom-header-action.component';  // Import FormsModule
+import { CustomHeaderActionComponent } from './components/custom-header-action/custom-header-action.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
+import { CustomPaginationComponent } from './components/custom-pagination/custom-pagination.component';  // Import FormsModule
 
 @NgModule({
   declarations: [
@@ -98,7 +100,9 @@ import { CustomHeaderActionComponent } from './components/custom-header-action/c
     CustomHeaderItemComponent,
     CustomHeaderMenuComponent,
     CustomHeaderGlobalComponent,
-    CustomHeaderActionComponent
+    CustomHeaderActionComponent,
+    PaginationComponent,
+    CustomPaginationComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,29 @@
+<nav class="pagination-container">
+    <!-- Previous button -->
+    <button (click)="prevPage()" [disabled]="disabled || currentPage === 1">«</button>
+  
+    <!-- Page numbers with ellipsis -->
+    <ng-container *ngFor="let page of pagination">
+      <button *ngIf="page !== '...'"
+              [class.active]="page === currentPage"
+              (click)="changePage(page)"
+              [disabled]="disabled">
+        {{ page }}
+      </button>
+  
+      <!-- Ellipsis with dropdown -->
+      <span *ngIf="page === '...'">
+        ...
+        <select (change)="selectPage($event)">
+          <option *ngFor="let i of getPageArray(totalPages)" [value]="i" [selected]="i === currentPage">
+            {{ i }}
+          </option>
+        </select>
+        ...
+      </span>
+    </ng-container>
+  
+    <!-- Next button -->
+    <button (click)="nextPage()" [disabled]="disabled || currentPage === totalPages">»</button>
+  </nav>
+  

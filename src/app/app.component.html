@@ -769,6 +769,23 @@ active: Dynamically updates the selected tab. -->
 ></app-custom-header>
 
 
+<!-- <app-pagination [totalPages]="235" 
+                [currentPage]="1" 
+                (pageChanged)="onPageChange($event)">
+</app-pagination> -->
+
+
+<app-custom-pagination
+  [totalPages]="totalPages"
+  [currentPage]="currentPage"
+  [numOfItemsToShow]="numOfItemsToShow"
+  [disabled]="isPaginationDisabled"
+  (pageChange)="onPageChange($event)">
+</app-custom-pagination>
+
+<button (click)="togglePagination()">Toggle Disable</button>
+
+
 
 
 

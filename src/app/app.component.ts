@@ -155,6 +155,12 @@ headerActions = [
 ];
 
 
+
+totalPages = 235;
+currentPage = 1;
+numOfItemsToShow = 5;
+isPaginationDisabled = false;
+
 ngOnInit() {
 
 
@@ -391,6 +397,21 @@ openProfile() {
 
 logout() {
   console.log('Logout clicked');
+}
+
+
+onPageChangeBkp(newPage: number) {
+  console.log('Current Page:', newPage);
+}
+
+
+onPageChange(newPage: number) {
+  console.log('New Page Selected:', newPage);
+  this.currentPage = newPage;
+}
+
+togglePagination() {
+  this.isPaginationDisabled = !this.isPaginationDisabled;
 }
 
 }

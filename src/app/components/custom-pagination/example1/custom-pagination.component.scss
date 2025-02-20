@@ -1,0 +1,22 @@
+.pagination-container {
+    display: flex;
+    gap: 5px;
+  }
+  
+  button {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    background-color: white;
+    cursor: pointer;
+  }
+  
+  button.active {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  

@@ -1,0 +1,29 @@
+<div class="pagination-container">
+    <!-- Previous Button -->
+    <button (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1">
+      Previous
+    </button>
+  
+    <!-- Page Numbers -->
+    <ng-container *ngFor="let page of pages">
+      <!-- Normal Page Numbers -->
+      <button *ngIf="page !== '...'" (click)="changePage(page)" 
+              [class.active]="page === currentPage">
+        {{ page }}
+      </button>
+  
+      <!-- Dots with Dropdown -->
+      <ng-container *ngIf="page === '...'">
+        <button (click)="toggleDropdown()" class="dots-btn">...</button>
+        <select *ngIf="showDropdown" (change)="selectPageFromDropdown($event)">
+          <option *ngFor="let p of getAllPages()" [value]="p">{{ p }}</option>
+        </select>
+      </ng-container>
+    </ng-container>
+  
+    <!-- Next Button -->
+    <button (click)="changePage(currentPage + 1)" [disabled]="currentPage === totalPages">
+      Next
+    </button>
+  </div>
+  

@@ -1,0 +1,35 @@
+.pagination-container {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  
+  button {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    background-color: white;
+    cursor: pointer;
+  }
+  
+  button.active {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .dots-btn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  select {
+    position: absolute;
+    margin-top: -20px;
+  }
+  
