@@ -1,11 +1,11 @@
-import { Component, ElementRef, EventEmitter, HostListener, Input, Output, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostListener, Input, Output, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-custom-pagination',
   templateUrl: './custom-pagination.component.html',
   styleUrls: ['./custom-pagination.component.scss']
 })
-export class CustomPaginationComponent implements AfterViewInit {
+export class CustomPaginationComponent {
   @Input() totalPages: number = 1;
   @Input() currentPage: number = 1;
   @Input() disabled: boolean = false;
@@ -14,16 +14,12 @@ export class CustomPaginationComponent implements AfterViewInit {
   pagination: (string | number)[] = [];
   firstDotsRange: number[] = [];
   secondDotsRange: number[] = [];
-
+  
   showFirstDots: boolean = false;
   showSecondDots: boolean = false;
 
   @ViewChild('firstDotsDropdown', { static: false }) firstDotsDropdown!: ElementRef;
   @ViewChild('secondDotsDropdown', { static: false }) secondDotsDropdown!: ElementRef;
-
-  ngAfterViewInit(): void {
-    this.generatePagination();
-  }
 
   ngOnChanges(): void {
     this.generatePagination();
@@ -83,64 +79,10 @@ export class CustomPaginationComponent implements AfterViewInit {
     if (type === 'first') {
       this.showFirstDots = !this.showFirstDots;
       this.showSecondDots = false;
-      this.positionDropdown(this.firstDotsDropdown);
-    } else {
-      this.showSecondDots = !this.showSecondDots;
-      this.showFirstDots = false;
-      this.positionDropdown(this.secondDotsDropdown);
-    }
-  }
-
-  toggleDropdownbkp(type: 'first' | 'second', event: MouseEvent): void {
-    event.stopPropagation();
-  
-    const dropdown = type === 'first' ? this.firstDotsDropdown : this.secondDotsDropdown;
-    if (!dropdown) return;
-  
-    const rect = (event.target as HTMLElement).getBoundingClientRect();
-    const dropdownEl = dropdown.nativeElement;
-  
-    // Get viewport height
-    const viewportHeight = window.innerHeight;
-  
-    // Dropdown height (approximate or get dynamically)
-    const dropdownHeight = dropdownEl.offsetHeight || 150;
-  
-    // Check available space
-    const spaceBelow = viewportHeight - rect.bottom;
-    const spaceAbove = rect.top;
-  
-    // Open dropdown below or above based on space
-    if (spaceBelow < dropdownHeight && spaceAbove > dropdownHeight) {
-      dropdownEl.style.top = `-${dropdownHeight}px`; // Open above
-    } else {
-      dropdownEl.style.top = `${rect.height}px`; // Open below
-    }
-  
-    if (type === 'first') {
-      this.showFirstDots = !this.showFirstDots;
-      this.showSecondDots = false;
     } else {
       this.showSecondDots = !this.showSecondDots;
       this.showFirstDots = false;
     }
-  }
-  
-
-  positionDropdown(dropdownRef: ElementRef): void {
-    if (!dropdownRef || !dropdownRef.nativeElement) return;
-
-    requestAnimationFrame(() => {
-      const dropdown = dropdownRef.nativeElement;
-      const rect = dropdown.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-
-      if (rect.bottom > windowHeight) {
-        dropdown.classList.add('upward'); // Open above
-      } else {
-        dropdown.classList.remove('upward'); // Open below
-      }
-    });
   }
 
   changePage(page: number): void {

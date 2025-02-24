@@ -45,38 +45,37 @@ button:disabled {
   flex-direction: column;
   min-width: 50px;
   z-index: 10;
+
+  /* ✅ Prevent overflow */
   max-height: 200px;
   overflow-y: auto;
-  white-space: nowrap;
-  
-  /* ✅ Default: Open Below */
+
+  /* ✅ Position dropdown dynamically */
+  bottom: auto;
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
+
+  /* ✅ Prevent dropdown from going off-screen */
+  white-space: nowrap;
 }
 
-/* 🔥 If open upwards */
-.dropdown.upward {
-  bottom: 100%;
-  top: auto;
-}
-
-/* ✅ Custom Scrollbar */
+/* 🔥 Custom Scrollbar Styling */
 .dropdown::-webkit-scrollbar {
-  width: 6px;
+  width: 6px;  /* Width of scrollbar */
 }
 
 .dropdown::-webkit-scrollbar-thumb {
-  background: #888;
+  background: #888;  /* Scrollbar thumb color */
   border-radius: 4px;
 }
 
 .dropdown::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #555;  /* Hover effect */
 }
 
 .dropdown::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #f1f1f1;  /* Track color */
   border-radius: 4px;
 }
 
@@ -89,6 +88,3 @@ button:disabled {
 .dropdown div:hover {
   background: lightgray;
 }
-
-
-
