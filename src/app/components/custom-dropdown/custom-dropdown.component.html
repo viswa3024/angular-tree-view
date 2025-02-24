@@ -1,0 +1,14 @@
+<div class="dropdown-container">
+    <button class="dropdown-button" #dropdownTrigger (click)="toggleDropdown()">
+      {{ selectedOption || placeholder }}
+    </button>
+  
+    <ng-template #dropdownTemplate>
+      <div class="dropdown-panel">
+        <div *ngFor="let option of options" (click)="selectOption(option)" class="dropdown-item">
+          {{ option }}
+        </div>
+      </div>
+    </ng-template>
+  </div>
+  

@@ -1,0 +1,36 @@
+.dropdown-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    background: white;
+    cursor: pointer;
+    width: 200px;
+    text-align: left;
+  }
+  
+  .dropdown-panel {
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-height: 200px; // ✅ Prevents dropdown from going off-screen
+    overflow-y: auto; // ✅ Allows scrolling if needed
+    width: 200px;
+    position: relative;
+    z-index: 1000; // ✅ Ensures it appears above everything
+  }
+  
+  
+  .dropdown-item {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .dropdown-item:hover {
+    background: #f0f0f0;
+  }
+  

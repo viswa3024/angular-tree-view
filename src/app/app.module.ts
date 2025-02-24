@@ -52,7 +52,9 @@ import { CustomHeaderMenuComponent } from './components/custom-header-menu/custo
 import { CustomHeaderGlobalComponent } from './components/custom-header-global/custom-header-global.component';
 import { CustomHeaderActionComponent } from './components/custom-header-action/custom-header-action.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
-import { CustomPaginationComponent } from './components/custom-pagination/custom-pagination.component';  // Import FormsModule
+import { CustomPaginationComponent } from './components/custom-pagination/custom-pagination.component';
+import { CustomDropdownComponent } from './components/custom-dropdown/custom-dropdown.component';  // Import FormsModule
+import { OverlayModule } from '@angular/cdk/overlay';
 
 @NgModule({
   declarations: [
@@ -102,14 +104,16 @@ import { CustomPaginationComponent } from './components/custom-pagination/custom
     CustomHeaderGlobalComponent,
     CustomHeaderActionComponent,
     PaginationComponent,
-    CustomPaginationComponent
+    CustomPaginationComponent,
+    CustomDropdownComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgxGraphModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    OverlayModule
   ],
   providers: [],
   bootstrap: [AppComponent],
