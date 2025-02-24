@@ -31,43 +31,49 @@ export class CustomPaginationComponent implements AfterViewInit {
   }
 
   generatePagination(): void {
-    const numOfItemsToShow = 10
     this.pagination = [];
-  this.showFirstDots = false;
-  this.showSecondDots = false;
-
-  if (this.totalPages <= numOfItemsToShow) {
-    for (let i = 1; i <= this.totalPages; i++) {
+    this.showFirstDots = false;
+    this.showSecondDots = false;
+  
+    const visiblePages = 8; // Always keep 8 items visible including dots
+    if (this.totalPages <= visiblePages) {
+      for (let i = 1; i <= this.totalPages; i++) {
+        this.pagination.push(i);
+      }
+      return;
+    }
+  
+    this.pagination.push(1);
+  
+    // Show '...' if currentPage > 4
+    if (this.currentPage > 4) {
+      this.pagination.push('firstDots');
+    }
+  
+    let start = Math.max(2, this.currentPage - 2);
+    let end = Math.min(this.totalPages - 1, this.currentPage + 2);
+  
+    // Ensure only 8 items appear including first, last, and dots
+    if (this.currentPage <= 4) {
+      start = 2;
+      end = 6;
+    } else if (this.currentPage >= this.totalPages - 3) {
+      start = this.totalPages - 5;
+      end = this.totalPages - 1;
+    }
+  
+    for (let i = start; i <= end; i++) {
       this.pagination.push(i);
     }
-    return;
-  }
-
-  this.pagination.push(1); // Always include first page
-
-  const half = Math.floor(numOfItemsToShow / 2);
-  let start = Math.max(2, this.currentPage - half);
-  let end = Math.min(this.totalPages - 1, start + numOfItemsToShow - 3);
-
-  if (end === this.totalPages - 1) {
-    start = Math.max(2, end - (numOfItemsToShow - 3));
-  }
-
-  for (let i = start; i <= end; i++) {
-    this.pagination.push(i);
-  }
-
-  if (start > 2) {
-    this.pagination.splice(1, 0, 'firstDots');
-  }
-
-  if (end < this.totalPages - 1) {
-    this.pagination.push('secondDots');
-  }
-
-  this.pagination.push(this.totalPages); // Always include last page
-
-  this.calculateDropdownRanges();
+  
+    // Show second dots if needed
+    if (this.currentPage < this.totalPages - 3) {
+      this.pagination.push('secondDots');
+    }
+  
+    this.pagination.push(this.totalPages);
+  
+    this.calculateDropdownRanges();
   }
 
   calculateDropdownRanges(): void {

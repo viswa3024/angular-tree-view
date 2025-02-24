@@ -158,7 +158,7 @@ headerActions = [
 
 totalPages = 235;
 currentPage = 1;
-numOfItemsToShow = 8;
+numOfItemsToShow = 10;
 isPaginationDisabled = false;
 
 ngOnInit() {
