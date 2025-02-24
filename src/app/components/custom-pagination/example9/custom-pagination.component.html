@@ -1,0 +1,31 @@
+<div class="pagination-container">
+  <button (click)="previousPage()" [disabled]="disabled || currentPage === 1">«</button>
+
+  <button *ngFor="let page of pagination"
+          (click)="page !== 'firstDots' && page !== 'secondDots' ? changePage(+page) : null"
+          [class.active]="page === currentPage">
+    {{ page === 'firstDots' || page === 'secondDots' ? '...' : page }}
+  </button>
+
+  <!-- First Dots Dropdown -->
+  <div class="dots-container" *ngIf="pagination.includes('firstDots')">
+    <button class="dots" (click)="toggleFirstDots($event)">...</button>
+    <div #firstDotsDropdown class="dropdown" *ngIf="showFirstDots">
+      <div *ngFor="let page of firstDotsRange" (click)="changePage(page)">
+        {{ page }}
+      </div>
+    </div>
+  </div>
+
+  <!-- Second Dots Dropdown -->
+  <div class="dots-container" *ngIf="pagination.includes('secondDots')">
+    <button class="dots" (click)="toggleSecondDots($event)">...</button>
+    <div #secondDotsDropdown class="dropdown" *ngIf="showSecondDots">
+      <div *ngFor="let page of secondDotsRange" (click)="changePage(page)">
+        {{ page }}
+      </div>
+    </div>
+  </div>
+
+  <button (click)="nextPage()" [disabled]="disabled || currentPage === totalPages">»</button>
+</div>

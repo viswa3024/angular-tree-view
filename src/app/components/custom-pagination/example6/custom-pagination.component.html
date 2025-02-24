@@ -1,0 +1,83 @@
+<div class="pagination-container">
+    <button (click)="previousPage()" [disabled]="disabled || currentPage === 1">«</button>
+  
+    <button *ngFor="let page of pagination"
+            (click)="page !== 'firstDots' && page !== 'secondDots' ? changePage(+page) : null"
+            [class.active]="page === currentPage">
+      {{ page === 'firstDots' || page === 'secondDots' ? '...' : page }}
+    </button>
+  
+    <!-- First '...' dropdown -->
+    <select *ngIf="pagination.includes('firstDots')" (change)="changePage($event)">
+      <option *ngFor="let page of firstDotsRange" [value]="page">
+        {{ page }}
+      </option>
+    </select>
+  
+    <!-- Second '...' dropdown -->
+    <select *ngIf="pagination.includes('secondDots')" (change)="changePage($event)">
+      <option *ngFor="let page of secondDotsRange" [value]="page">
+        {{ page }}
+      </option>
+    </select>
+  
+    <button (click)="nextPage()" [disabled]="disabled || currentPage === totalPages">»</button>
+  </div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- =================
+
+
+  <div class="pagination">
+   
+    <button (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1">«</button>
+  
+    
+    <ng-container *ngFor="let page of pagination">
+     
+      <button *ngIf="typeof page === 'number'"
+              (click)="changePage(page)"
+              [class.active]="page === currentPage">
+        {{ page }}
+      </button>
+  
+      
+      <ng-container *ngIf="page === 'firstDots'">
+        <button (click)="toggleFirstDropdown()">...</button>
+        <select *ngIf="showFirstDropdown" (change)="changePage(Number($event.target.value))">
+          <option *ngFor="let p of firstDotsRange" [value]="p">{{ p }}</option>
+        </select>
+      </ng-container>
+  
+    
+      <ng-container *ngIf="page === 'secondDots'">
+        <button (click)="toggleSecondDropdown()">...</button>
+        <select *ngIf="showSecondDropdown" (change)="changePage(Number($event.target.value))">
+          <option *ngFor="let p of secondDotsRange" [value]="p">{{ p }}</option>
+        </select>
+      </ng-container>
+    </ng-container>
+  
+   
+    <button (click)="changePage(currentPage + 1)" [disabled]="currentPage === totalPages">»</button>
+  </div>
+   -->

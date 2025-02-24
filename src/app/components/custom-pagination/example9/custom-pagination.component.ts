@@ -26,36 +26,35 @@ export class CustomPaginationComponent {
   }
 
   generatePagination(): void {
-    this.pagination = [];
-    this.showFirstDots = false;
-    this.showSecondDots = false;
-
     const visiblePages = 5;
+    const pagination: (string | number)[] = [];
+
     if (this.totalPages <= visiblePages) {
       for (let i = 1; i <= this.totalPages; i++) {
-        this.pagination.push(i);
+        pagination.push(i);
       }
-      return;
+    } else {
+      pagination.push(1);
+
+      if (this.currentPage > 4) {
+        pagination.push('firstDots');
+      }
+
+      let start = Math.max(2, this.currentPage - 2);
+      let end = Math.min(this.totalPages - 1, this.currentPage + 2);
+
+      for (let i = start; i <= end; i++) {
+        pagination.push(i);
+      }
+
+      if (this.currentPage < this.totalPages - 3) {
+        pagination.push('secondDots');
+      }
+
+      pagination.push(this.totalPages);
     }
 
-    this.pagination.push(1);
-
-    if (this.currentPage > 4) {
-      this.pagination.push('firstDots');
-    }
-
-    let start = Math.max(2, this.currentPage - 2);
-    let end = Math.min(this.totalPages - 1, this.currentPage + 2);
-
-    for (let i = start; i <= end; i++) {
-      this.pagination.push(i);
-    }
-
-    if (this.currentPage < this.totalPages - 3) {
-      this.pagination.push('secondDots');
-    }
-
-    this.pagination.push(this.totalPages);
+    this.pagination = pagination;
     this.calculateDropdownRanges();
   }
 
@@ -74,25 +73,13 @@ export class CustomPaginationComponent {
     }
   }
 
-  toggleDropdown(type: 'first' | 'second', event: Event): void {
-    event.stopPropagation();
-    if (type === 'first') {
-      this.showFirstDots = !this.showFirstDots;
-      this.showSecondDots = false;
-    } else {
-      this.showSecondDots = !this.showSecondDots;
-      this.showFirstDots = false;
-    }
-  }
-
   changePage(page: number): void {
-    if (!isNaN(page) && page !== this.currentPage) {
+    if (page !== this.currentPage) {
       this.currentPage = page;
       this.pageChange.emit(this.currentPage);
       this.generatePagination();
+      this.closeDropdowns();
     }
-    this.showFirstDots = false;
-    this.showSecondDots = false;
   }
 
   previousPage(): void {
@@ -107,21 +94,42 @@ export class CustomPaginationComponent {
     }
   }
 
-  @HostListener('document:click', ['$event'])
-  handleClickOutside(event: Event): void {
-    if (
-      this.firstDotsDropdown &&
-      this.firstDotsDropdown.nativeElement.contains(event.target)
-    ) {
-      return;
-    }
-    if (
-      this.secondDotsDropdown &&
-      this.secondDotsDropdown.nativeElement.contains(event.target)
-    ) {
-      return;
-    }
+  toggleFirstDots(event: MouseEvent): void {
+    event.stopPropagation();
+    this.showFirstDots = !this.showFirstDots;
+    this.showSecondDots = false;
+    setTimeout(() => this.setDropdownPosition(this.firstDotsDropdown), 0);
+  }
+
+  toggleSecondDots(event: MouseEvent): void {
+    event.stopPropagation();
+    this.showSecondDots = !this.showSecondDots;
+    this.showFirstDots = false;
+    setTimeout(() => this.setDropdownPosition(this.secondDotsDropdown), 0);
+  }
+
+  closeDropdowns(): void {
     this.showFirstDots = false;
     this.showSecondDots = false;
+  }
+
+  @HostListener('document:click', ['$event'])
+  onClickOutside(event: Event): void {
+    if (
+      this.firstDotsDropdown?.nativeElement &&
+      !this.firstDotsDropdown.nativeElement.contains(event.target) &&
+      this.secondDotsDropdown?.nativeElement &&
+      !this.secondDotsDropdown.nativeElement.contains(event.target)
+    ) {
+      this.closeDropdowns();
+    }
+  }
+
+  setDropdownPosition(dropdownRef: ElementRef): void {
+    if (!dropdownRef) return;
+    const dropdown = dropdownRef.nativeElement;
+    const rect = dropdown.getBoundingClientRect();
+    const isOverflowing = rect.bottom > window.innerHeight;
+    dropdown.style.top = isOverflowing ? '-100%' : '100%';
   }
 }

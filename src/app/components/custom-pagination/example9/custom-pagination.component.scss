@@ -2,6 +2,7 @@
   display: flex;
   gap: 5px;
   align-items: center;
+  position: relative;
 }
 
 button {
@@ -27,22 +28,26 @@ button:disabled {
 }
 
 .dots {
-  border: none;
   background: none;
+  border: none;
+  font-size: 16px;
   cursor: pointer;
-  font-size: 18px;
 }
 
 .dropdown {
   position: absolute;
+  left: 0;
   background: white;
   border: 1px solid #ccc;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   padding: 5px;
   display: flex;
   flex-direction: column;
-  min-width: 50px;
+  max-height: 150px;
+  overflow-y: auto;
   z-index: 10;
+  min-width: 50px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: top 0.2s;
 }
 
 .dropdown div {
