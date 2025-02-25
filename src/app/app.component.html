@@ -774,6 +774,11 @@ active: Dynamically updates the selected tab. -->
                 (pageChanged)="onPageChange($event)">
 </app-pagination> -->
 
+<h2>Paginated Data</h2>
+  <ul>
+    <li *ngFor="let item of paginatedData">{{ item.id }} - {{ item.name }}</li>
+  </ul>
+  
 
 <app-custom-pagination
   [totalPages]="totalPages"

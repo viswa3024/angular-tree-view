@@ -156,10 +156,13 @@ headerActions = [
 
 
 
-totalPages = 235;
+totalPagesBkp = 235;
 currentPage = 1;
 numOfItemsToShow = 10;
 isPaginationDisabled = false;
+
+pageSize = 10;
+testData = Array.from({ length: 2370 }, (_, i) => ({ id: i + 1, name: `Item ${i + 1}` }));
 
 ngOnInit() {
 
@@ -241,6 +244,17 @@ ngOnInit() {
 
   //console.log("this.convertJsonToTree(rawJson): ", this.convertJsonToTree(rawJson))
   this.jsonData = this.convertJsonToTree(rawJson);
+}
+
+get totalPages(): number {
+  return Math.ceil(this.testData.length / this.pageSize);
+}
+
+
+get paginatedData() {
+  const start = (this.currentPage - 1) * this.pageSize;
+  const end = start + this.pageSize;
+  return this.testData.slice(start, end);
 }
 
 
